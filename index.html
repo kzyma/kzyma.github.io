@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -126,8 +126,7 @@ radial-gradient(ellipse 40% 60% at 50% 50%, rgba(184,92,58,0.07) 0%, transparent
 .act { font-size:12.5px; color:rgba(28,21,16,0.74); display:flex; gap:8px; align-items:flex-start; line-height:1.55; }
 .act-icon { flex-shrink:0; width:18px; text-align:center; margin-top:1px; }
 .tip { margin-top:12px; padding:9px 13px; background:rgba(201,145,58,0.07); border-left:2px solid var(–gold); font-size:11.5px; color:rgba(28,21,16,0.58); font-style:italic; }
-.day-img-wrap { width:180px; height:130px; overflow:hidden; border-radius:2px; flex-shrink:0; position:relative; background:var(–warm); }
-.day-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+
 .dfallback { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:32px; }
 
 /* ── RESTAURANTS ── */
@@ -206,91 +205,65 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
 .footer-text { font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(247,242,234,0.22); line-height:2.3; }
 .footer-text span { color:var(–gold-light); }
 
-/* ── SCENE PANELS ── */
-.scene-panel {
-width: 100%;
-height: 100%;
-min-height: 220px;
-position: relative;
-display: flex;
-align-items: flex-end;
-overflow: hidden;
+/* ── YOUTUBE EMBEDS ── */
+.yt-section {
+margin: 32px 0 8px;
 }
-.scene-overlay {
-position: absolute;
-inset: 0;
-background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);
-z-index: 1;
-}
-.scene-content {
-position: relative;
-z-index: 2;
-padding: 14px 16px;
-width: 100%;
-}
-.scene-icon {
-font-size: 32px;
-display: block;
-margin-bottom: 4px;
-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.4));
-}
-.scene-loc {
+.yt-label {
 font-size: 9px;
 font-weight: 500;
-letter-spacing: 0.2em;
+letter-spacing: 0.3em;
 text-transform: uppercase;
-color: rgba(255,255,255,0.88);
+color: var(–muted);
+margin-bottom: 12px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.yt-label::before { content: ‘▶’; color: var(–terra); font-size: 8px; }
+.yt-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 12px;
+}
+.yt-grid.single { grid-template-columns: 1fr; max-width: 560px; }
+.yt-wrap {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+border: 1px solid var(–warm);
+}
+.yt-wrap iframe {
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+border: 0;
+}
+.yt-caption {
+font-size: 10px;
+color: var(–muted);
+margin-top: 5px;
+letter-spacing: 0.05em;
 }
 
-/* Hero/mosaic panels are taller */
-.scene-polignano-hero, .scene-trulli-hero, .scene-lecce-hero, .scene-bari-hero {
-min-height: 300px;
-}
-
-/* Per-location gradient backgrounds */
-.scene-polignano, .scene-polignano-hero {
-background: linear-gradient(160deg, #0d2d4a 0%, #1a5a80 30%, #2e8fba 55%, #5ab8d8 75%, #90d4ec 100%);
-}
-.scene-grotta {
-background: linear-gradient(170deg, #0a1a2a 0%, #1a3348 30%, #8b6914 55%, #c9a040 75%, #e8d4a0 100%);
-}
-.scene-monopoli {
-background: linear-gradient(155deg, #1a3a6e 0%, #2e5ea0 30%, #5a9ad4 55%, #e0caa8 80%, #c4a87a 100%);
-}
-.scene-beach {
-background: linear-gradient(180deg, #5bb8d8 0%, #2e9abc 30%, #1a7a9e 50%, #26a0a0 65%, #c8a870 85%, #e8d4a8 100%);
-}
-.scene-trulli, .scene-trulli-hero {
-background: linear-gradient(165deg, #6db8d8 0%, #9ad4a8 25%, #5a8a5a 45%, #f0eae0 65%, #e0d4c0 80%, #b0a078 100%);
-}
-.scene-ostuni {
-background: linear-gradient(155deg, #7ac4e0 0%, #a8d4e8 25%, #d8ecf4 45%, #f4f0e8 65%, #ddd4c0 80%, #6b8050 100%);
-}
-.scene-masseria {
-background: linear-gradient(160deg, #c8a840 0%, #a07830 25%, #7a5820 50%, #f0e8d0 70%, #ddd0b0 85%, #6a8040 100%);
-}
-.scene-lecce, .scene-lecce-hero {
-background: linear-gradient(155deg, #d4940c 0%, #b87820 25%, #8a5810 45%, #6a3c08 62%, #b88030 78%, #e8c870 100%);
-}
-.scene-salento {
-background: linear-gradient(175deg, #0a4a70 0%, #1a80b0 20%, #30a8d8 38%, #60c8e8 55%, #98dff0 70%, #c8f0fc 85%, #a8e4f4 100%);
-}
-.scene-otranto {
-background: linear-gradient(155deg, #0d2840 0%, #1a4870 25%, #3878b0 48%, #68a8d4 65%, #b0d4e8 80%, #e0d0b8 92%, #8a6840 100%);
-}
-.scene-piazza {
-background: linear-gradient(160deg, #281408 0%, #543018 20%, #c08828 42%, #e8c860 62%, #f4e8c0 78%, #a03818 92%, #7a2010 100%);
-}
-.scene-bari, .scene-bari-hero {
-background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c89030 65%, #e8c060 78%, #1a5880 90%, #0a2840 100%);
-}
+/* ── YOUTUBE EMBEDS ── */
+.yt-section { padding: 50px 40px 0; }
+.yt-section-inner { max-width: 1100px; margin: 0 auto; }
+.yt-label { font-size: 9px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(–muted); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.yt-label::before { content: ‘▶’; color: var(–terra); font-size: 8px; }
+.yt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.yt-grid.single { grid-template-columns: 1fr; max-width: 560px; }
+.yt-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 1px solid var(–warm); }
+.yt-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.yt-caption { font-size: 10.5px; color: var(–muted); margin-top: 6px; letter-spacing: 0.05em; font-style: italic; }
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
 .overview-inner,.route-visual{grid-template-columns:repeat(2,1fr)}
 .base-intro-block{grid-template-columns:1fr}
 .day-body{grid-template-columns:1fr}
-.day-img-wrap{display:none}
+
 .rest-grid,.prac-grid{grid-template-columns:1fr}
 .h-grid,.h-grid.two{grid-template-columns:repeat(2,1fr)}
 .food-grid{grid-template-columns:repeat(2,1fr)}
@@ -404,6 +377,14 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
   <!-- BASE 1: POLIGNANO -->
 
   <div id="polignano">
+
+  <div class="yt-section"><div class="yt-section-inner">
+    <div class="yt-label">Watch Before You Go</div>
+    <div class="yt-grid">
+      <div><div class="yt-wrap"><iframe src="https://www.youtube.com/embed/C2SHkKMqiR4" title="Polignano a Mare travel guide" allowfullscreen loading="lazy"></iframe></div><div class="yt-caption">Polignano a Mare — Town &amp; Coast Guide</div></div>
+      <div><div class="yt-wrap"><iframe src="https://www.youtube.com/embed/iCMbj6SiRyY" title="Puglia sea grottos boat" allowfullscreen loading="lazy"></iframe></div><div class="yt-caption">Puglia Sea Grottos by Boat</div></div>
+    </div>
+  </div></div>
   <div class="base-intro-block">
     <div class="base-intro-text">
       <div class="base-tag tag-sea">Base 1 · 4 Nights · Days 1–4</div>
@@ -412,8 +393,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
       <div class="base-intro-desc">A dazzling cliff-top town perched over turquoise Adriatic coves. White-washed baroque alleys, terraces over the sea, pebble beaches tucked into limestone grottos, and some of the best seafood in Italy. Your first base — dramatic, beautiful, and made for decompressing.</div>
       <div class="vibes"><span class="vibe">Cliff Beaches</span><span class="vibe">Sea Grottos</span><span class="vibe">Fresh Seafood</span><span class="vibe">Baroque Alleys</span></div>
     </div>
-    <div class="base-intro-img">
-      <div class="scene-panel scene-polignano-hero"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🌊</div><div class="scene-loc">Polignano a Mare</div></div></div>🌊</div>'">
+    <div class="base-intro-img">🌊</div>'">
       <div class="img-cap">Polignano a Mare · Adriatic Cliff Coast</div>
     </div>
   </div>
@@ -433,9 +413,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
             <div class="act"><span class="act-icon">🍽️</span>Dinner wherever feels right — walk around, look in, pick a door. No reservations needed tonight.</div>
           </div>
           <div class="tip">💡 Arrival day is decompression. The town itself is the activity — no agenda needed.</div>
-        </div>
-        <div class="day-img-wrap">
-          <div class="scene-panel scene-polignano"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🌊</div><div class="scene-loc">Polignano a Mare</div></div></div>🌊</div>'">
+        </div></div>🌊</div>'">
         </div>
       </div>
     </div>
@@ -454,9 +432,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
         <div class="act"><span class="act-icon">🕯️</span>Dinner at <strong>Grotta Palazzese</strong> — cave dining in the cliff face, one of the most theatrical settings in Italy. Aim for the 7:30pm seating for sunset into candlelit dark.</div>
       </div>
       <div class="tip">💡 Book Grotta Palazzese weeks in advance. Aim for 7:30pm — you catch the last light over the sea, then the cave glows as darkness falls.</div>
-    </div>
-    <div class="day-img-wrap">
-      <div class="scene-panel scene-grotta"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🕯️</div><div class="scene-loc">Grotta Palazzese</div></div></div>🕯️</div>'">
+    </div></div>🕯️</div>'">
     </div>
   </div>
 </div>
@@ -473,9 +449,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
         <div class="act"><span class="act-icon">🌿</span>Afternoon drive through Fasano's olive grove countryside — the landscape shifts toward trulli territory</div>
         <div class="act"><span class="act-icon">🎵</span>Evening back in Polignano — late September often has live music in the cliff bars and piazzas</div>
       </div>
-    </div>
-    <div class="day-img-wrap">
-      <div class="scene-panel scene-monopoli"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">⚓</div><div class="scene-loc">Monopoli</div></div></div>⚓</div>'">
+    </div></div>⚓</div>'">
     </div>
   </div>
 </div>
@@ -492,9 +466,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
         <div class="act"><span class="act-icon">🏊</span>Afternoon swim at one of the smaller cliff-stair coves</div>
         <div class="act"><span class="act-icon">🥂</span>Farewell aperitivo at sunset — a digestivo of Pugliese amaro before the move inland tomorrow</div>
       </div>
-    </div>
-    <div class="day-img-wrap">
-      <div class="scene-panel scene-beach"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏖️</div><div class="scene-loc">Lama Monachile</div></div></div>🏖️</div>'">
+    </div></div>🏖️</div>'">
     </div>
   </div>
 </div>
@@ -506,6 +478,14 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
   <!-- BASE 2: ITRIA VALLEY -->
 
   <div id="itria">
+
+  <div class="yt-section"><div class="yt-section-inner">
+    <div class="yt-label">Watch Before You Go</div>
+    <div class="yt-grid">
+      <div><div class="yt-wrap"><iframe src="https://www.youtube.com/embed/GgdyFGdnkFc" title="Valle d Itria travel guide" allowfullscreen loading="lazy"></iframe></div><div class="yt-caption">Valle d'Itria — Trulli &amp; Hilltop Towns</div></div>
+      <div><div class="yt-wrap"><iframe src="https://www.youtube.com/embed/nHFYQGiALvI" title="Alberobello and Ostuni guide" allowfullscreen loading="lazy"></iframe></div><div class="yt-caption">Alberobello &amp; Ostuni</div></div>
+    </div>
+  </div></div>
   <div class="base-intro-block">
     <div class="base-intro-text">
       <div class="base-tag tag-sage">Base 2 · 3 Nights · Days 5–7</div>
@@ -515,7 +495,6 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
       <div class="vibes"><span class="vibe">Trulli &amp; Masserias</span><span class="vibe">Wine Tasting</span><span class="vibe">Hilltop Towns</span><span class="vibe">Countryside</span></div>
     </div>
     <div class="base-intro-img">
-      <div class="scene-panel scene-trulli-hero"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏠</div><div class="scene-loc">Valle d'Itria</div></div></div>
       <div class="img-cap">Alberobello · Valle d'Itria UNESCO Trulli</div>
     </div>
   </div>
@@ -534,9 +513,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
             <div class="act"><span class="act-icon">🍽️</span>Dinner in Alberobello or near the masseria — try braised lamb or fave e cicoria</div>
           </div>
           <div class="tip">💡 Linger in Alberobello past 5pm — the light goes golden and the crowds evaporate. Completely different feel from midday.</div>
-        </div>
-        <div class="day-img-wrap">
-          <div class="scene-panel scene-trulli"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏠</div><div class="scene-loc">Alberobello</div></div></div>
+        </div></div>
         </div>
       </div>
     </div>
@@ -554,9 +531,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
         <div class="act"><span class="act-icon">🏘️</span>Wander <strong>Locorotondo</strong> — a circular hilltop town with flower-festooned alleys, one of the most photogenic in the valley</div>
         <div class="act"><span class="act-icon">🏊</span>Evening back at the masseria pool with a local white wine</div>
       </div>
-    </div>
-    <div class="day-img-wrap">
-      <div class="scene-panel scene-ostuni"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🤍</div><div class="scene-loc">Ostuni</div></div></div>🤍</div>'">
+    </div></div>🤍</div>'">
     </div>
   </div>
 </div>
@@ -574,9 +549,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
         <div class="act"><span class="act-icon">🍖</span>Private masseria dinner using the property's own produce — arrange with your host at check-in</div>
       </div>
       <div class="tip">💡 Ask your masseria host about a private dinner at check-in — often the best meal of the whole trip.</div>
-    </div>
-    <div class="day-img-wrap">
-      <div class="scene-panel scene-masseria"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🌾</div><div class="scene-loc">Martina Franca</div></div></div>🌾</div>'">
+    </div></div>🌾</div>'">
     </div>
   </div>
 </div>
@@ -588,6 +561,14 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
   <!-- BASE 3: LECCE -->
 
   <div id="lecce">
+
+  <div class="yt-section"><div class="yt-section-inner">
+    <div class="yt-label">Watch Before You Go</div>
+    <div class="yt-grid">
+      <div><div class="yt-wrap"><iframe src="https://www.youtube.com/embed/LF5Qz_8FVVY" title="Lecce travel guide baroque" allowfullscreen loading="lazy"></iframe></div><div class="yt-caption">Lecce — The Baroque Capital</div></div>
+      <div><div class="yt-wrap"><iframe src="https://www.youtube.com/embed/SbFuLGe_9lA" title="Salento beaches Puglia" allowfullscreen loading="lazy"></iframe></div><div class="yt-caption">Salento Beaches</div></div>
+    </div>
+  </div></div>
   <div class="base-intro-block">
     <div class="base-intro-text">
       <div class="base-tag tag-terra">Base 3 · 4 Nights · Days 8–11</div>
@@ -597,7 +578,6 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
       <div class="vibes"><span class="vibe">Baroque Architecture</span><span class="vibe">Beach Days</span><span class="vibe">Art &amp; Galleries</span><span class="vibe">Nightlife</span></div>
     </div>
     <div class="base-intro-img">
-      <div class="scene-panel scene-lecce-hero"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">⛪</div><div class="scene-loc">Lecce</div></div></div>
       <div class="img-cap">Lecce · Piazza del Duomo</div>
     </div>
   </div>
@@ -616,9 +596,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
             <div class="act"><span class="act-icon">🍷</span>Aperitivo in Piazza Sant'Oronzo — animated, beautiful, peak Lecce social culture at dusk</div>
             <div class="act"><span class="act-icon">🍽️</span>Dinner: ciceri e tria, horse meat ragù, extraordinary local burrata</div>
           </div>
-        </div>
-        <div class="day-img-wrap">
-          <div class="scene-panel scene-lecce"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">⛪</div><div class="scene-loc">Lecce</div></div></div>
+        </div></div>
         </div>
       </div>
     </div>
@@ -637,9 +615,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
         <div class="act"><span class="act-icon">🌆</span>Evening back in Lecce's neighborhood streets — local, non-touristy energy</div>
       </div>
       <div class="tip">💡 Baia dei Turchi near Otranto — one of Italy's most beautiful beaches. Short walk through pine forest. Get there before 10am even in late September.</div>
-    </div>
-    <div class="day-img-wrap">
-      <div class="scene-panel scene-salento"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🐠</div><div class="scene-loc">Salento Coast</div></div></div>🌊</div>'">
+    </div></div>🌊</div>'">
     </div>
   </div>
 </div>
@@ -656,9 +632,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
         <div class="act"><span class="act-icon">🎭</span>Afternoon in <strong>Gallipoli</strong> (1 hr west, Ionian side) — baroque island city on a bridge; fish market, harbor, completely different energy</div>
         <div class="act"><span class="act-icon">🍽️</span>Dinner in Gallipoli at the port before driving back</div>
       </div>
-    </div>
-    <div class="day-img-wrap">
-      <div class="scene-panel scene-otranto"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏰</div><div class="scene-loc">Otranto</div></div></div>🏰</div>'">
+    </div></div>🏰</div>'">
     </div>
   </div>
 </div>
@@ -677,9 +651,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
         <div class="act"><span class="act-icon">🍸</span>Late cocktails at a rooftop or courtyard bar in one of the baroque palazzi</div>
       </div>
       <div class="tip">💡 Lecce's aperitivo hour doesn't peak until 9pm. The late rhythm is part of it — embrace it fully on the last Lecce night.</div>
-    </div>
-    <div class="day-img-wrap">
-      <div class="scene-panel scene-piazza"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🍸</div><div class="scene-loc">Piazza Sant'Oronzo</div></div></div>
+    </div></div>
     </div>
   </div>
 </div>
@@ -691,6 +663,13 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
   <!-- BARI -->
 
   <div id="bari">
+
+  <div class="yt-section"><div class="yt-section-inner">
+    <div class="yt-label">Watch Before You Go</div>
+    <div class="yt-grid single">
+      <div><div class="yt-wrap"><iframe src="https://www.youtube.com/embed/k1xfDrfTMrQ" title="Bari Puglia food travel guide" allowfullscreen loading="lazy"></iframe></div><div class="yt-caption">Bari — Old Town &amp; Food Guide</div></div>
+    </div>
+  </div></div>
   <div class="base-intro-block">
     <div class="base-intro-text">
       <div class="base-tag tag-gold">Final Night · Day 12 → Fly Out Day 13</div>
@@ -700,7 +679,6 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
       <div class="vibes"><span class="vibe">Bari Vecchia</span><span class="vibe">Street Food</span><span class="vibe">Raw Seafood</span><span class="vibe">City Energy</span></div>
     </div>
     <div class="base-intro-img">
-      <div class="scene-panel scene-bari-hero"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">⚓</div><div class="scene-loc">Bari</div></div></div>
       <div class="img-cap">Bari Vecchia · The Old City</div>
     </div>
   </div>
@@ -719,9 +697,7 @@ background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c8903
             <div class="act"><span class="act-icon">🌊</span>Stroll Lungomare Nazario Sauro — Bari's sweeping seafront promenade for a final aperitivo watching the Adriatic</div>
             <div class="act"><span class="act-icon">🎶</span>Evening in Murattiano — Bari's modern grid with excellent restaurants, wine bars, and a lively nightlife scene to close the trip</div>
           </div>
-        </div>
-        <div class="day-img-wrap">
-          <div class="scene-panel scene-bari"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏙️</div><div class="scene-loc">Bari Vecchia</div></div></div>
+        </div></div>
         </div>
       </div>
     </div>
