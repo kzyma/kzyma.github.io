@@ -1,15 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puglia — Our Trip</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<title>Puglia — 13 Days</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink: #1c1510;
   --cream: #f7f2ea;
   --warm: #ede6d8;
+  --sand: #d8ccb4;
   --gold: #c9913a;
   --gold-light: #e8c97e;
   --terra: #b85c3a;
@@ -19,1731 +21,1062 @@
   --muted: rgba(28,21,16,0.45);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--cream);
-  color: var(--ink);
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 1.7;
-}
+- { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(–cream); color: var(–ink); font-family: ‘Jost’, sans-serif; font-weight: 300; font-size: 14px; line-height: 1.7; }
 
 /* ── HERO ── */
 .hero {
-  min-height: 100vh;
-  background: var(--ink);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 60px 30px;
-  position: relative;
-  overflow: hidden;
+min-height: 100vh;
+background: var(–ink);
+display: flex; flex-direction: column; align-items: center; justify-content: center;
+text-align: center; padding: 60px 30px; position: relative; overflow: hidden;
 }
-
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(201,145,58,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(46,126,160,0.10) 0%, transparent 50%),
-    radial-gradient(ellipse 40% 60% at 50% 50%, rgba(184,92,58,0.07) 0%, transparent 60%);
+position: absolute; inset: 0;
+background: radial-gradient(ellipse 80% 50% at 15% 80%, rgba(201,145,58,0.14) 0%, transparent 55%),
+radial-gradient(ellipse 60% 40% at 85% 15%, rgba(46,126,160,0.11) 0%, transparent 50%),
+radial-gradient(ellipse 40% 60% at 50% 50%, rgba(184,92,58,0.07) 0%, transparent 60%);
 }
-
-.hero-ornament {
-  width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--gold));
-  margin: 0 auto 30px;
-  position: relative;
-}
-
-.hero-eyebrow {
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.45em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 28px;
-  position: relative;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(72px, 14vw, 160px);
-  font-weight: 400;
-  line-height: 0.88;
-  color: var(--cream);
-  position: relative;
-  letter-spacing: -0.02em;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--gold-light);
-  display: block;
-  font-size: 0.65em;
-  margin-top: 10px;
-}
-
-.hero-line {
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-  margin: 36px auto;
-  position: relative;
-}
-
-.hero-desc {
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 0.12em;
-  color: rgba(247,242,234,0.55);
-  text-transform: uppercase;
-  position: relative;
-  line-height: 2;
-}
-
-.hero-cta {
-  margin-top: 50px;
-  position: relative;
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.cta-btn {
-  font-family: 'Jost', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  padding: 13px 28px;
-  border: 1px solid rgba(201,145,58,0.5);
-  color: var(--gold-light);
-  text-decoration: none;
-  transition: all 0.25s;
-  background: transparent;
-}
-
-.cta-btn:hover, .cta-btn.primary {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--ink);
-}
-
-.scroll-hint {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: rgba(247,242,234,0.25);
-  font-size: 9px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-.scroll-hint::after {
-  content: '';
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, rgba(201,145,58,0.4), transparent);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
-
-/* ── SECTION BASE ── */
-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 40px;
-}
-
-.section-label {
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.section-label::before {
-  content: '';
-  width: 30px;
-  height: 1px;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 5vw, 54px);
-  font-weight: 400;
-  line-height: 1.08;
-  margin-bottom: 20px;
-}
-
-.section-title em { font-style: italic; color: var(--terra); }
-
-.section-intro {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: rgba(28,21,16,0.65);
-  max-width: 620px;
-  margin-bottom: 50px;
-}
+.hero-ornament { width:1px; height:60px; background:linear-gradient(to bottom,transparent,var(–gold)); margin:0 auto 28px; position:relative; }
+.hero-eyebrow { font-size:10px; font-weight:500; letter-spacing:0.45em; text-transform:uppercase; color:var(–gold-light); margin-bottom:26px; position:relative; }
+.hero h1 { font-family:‘Playfair Display’,serif; font-size:clamp(68px,13vw,152px); font-weight:400; line-height:0.88; color:var(–cream); position:relative; letter-spacing:-0.02em; }
+.hero h1 em { font-style:italic; color:var(–gold-light); display:block; font-size:0.64em; margin-top:10px; }
+.hero-rule { width:70px; height:1px; background:linear-gradient(to right,transparent,var(–gold),transparent); margin:34px auto; position:relative; }
+.hero-desc { font-size:12px; font-weight:300; letter-spacing:0.15em; color:rgba(247,242,234,0.48); text-transform:uppercase; position:relative; line-height:2.2; }
+.hero-cta { margin-top:48px; position:relative; display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+.cta-btn { font-family:‘Jost’,sans-serif; font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; padding:13px 26px; border:1px solid rgba(201,145,58,0.45); color:var(–gold-light); text-decoration:none; transition:all 0.22s; background:transparent; cursor:pointer; }
+.cta-btn:hover, .cta-btn.primary { background:var(–gold); border-color:var(–gold); color:var(–ink); }
+.scroll-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(247,242,234,0.22); font-size:9px; letter-spacing:0.32em; text-transform:uppercase; }
+.scroll-hint::after { content:’’; width:1px; height:38px; background:linear-gradient(to bottom,rgba(201,145,58,0.45),transparent); animation:scrollpulse 2s ease-in-out infinite; }
+@keyframes scrollpulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
 
 /* ── OVERVIEW STRIP ── */
-.overview-strip {
-  background: var(--ink);
-  padding: 0;
-  overflow: hidden;
-}
+.overview-strip { background:var(–ink); }
+.overview-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); }
+.ov-item { padding:48px 32px; border-right:1px solid rgba(247,242,234,0.07); text-align:center; }
+.ov-item:last-child { border-right:none; }
+.ov-num { font-family:‘Playfair Display’,serif; font-size:50px; font-weight:400; color:var(–gold-light); line-height:1; margin-bottom:6px; }
+.ov-label { font-size:9px; font-weight:400; letter-spacing:0.32em; text-transform:uppercase; color:rgba(247,242,234,0.32); }
 
-.overview-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
+/* ── STICKY NAV ── */
+.sticky-nav { position:sticky; top:0; z-index:200; background:rgba(252,250,245,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(–warm); padding:14px 40px; display:flex; gap:6px; flex-wrap:wrap; justify-content:center; }
+.nav-pill { font-size:9.5px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; padding:7px 16px; border:1px solid var(–warm); border-radius:100px; cursor:pointer; text-decoration:none; color:rgba(28,21,16,0.6); transition:all 0.2s; }
+.nav-pill:hover { background:var(–ink); color:var(–cream); border-color:var(–ink); }
 
-.overview-item {
-  padding: 50px 36px;
-  border-right: 1px solid rgba(247,242,234,0.08);
-  text-align: center;
-  position: relative;
-}
+/* ── SECTION CHROME ── */
+.section-label { font-size:9px; font-weight:600; letter-spacing:0.42em; text-transform:uppercase; color:var(–gold); margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.section-label::before { content:’’; width:28px; height:1px; background:var(–gold); flex-shrink:0; }
+.section-title { font-family:‘Playfair Display’,serif; font-size:clamp(30px,4.5vw,52px); font-weight:400; line-height:1.08; margin-bottom:18px; }
+.section-title em { font-style:italic; color:var(–terra); }
+.section-intro { font-size:14.5px; font-weight:300; line-height:1.8; color:rgba(28,21,16,0.62); max-width:640px; margin-bottom:48px; }
 
-.overview-item:last-child { border-right: none; }
-
-.ov-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 52px;
-  font-weight: 400;
-  color: var(--gold-light);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.ov-label {
-  font-size: 9px;
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(247,242,234,0.35);
-}
-
-/* ── ROUTE MAP ── */
-#map-section {
-  background: var(--white);
-  max-width: 100%;
-  padding: 80px 40px;
-}
-
-#map-section .inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.map-container {
-  border: 1px solid var(--warm);
-  border-radius: 2px;
-  overflow: hidden;
-  height: 520px;
-  position: relative;
-  margin-top: 30px;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.map-legend {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
-
-.legend-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* ── BASES GRID ── */
-.bases-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: var(--warm);
-  border: 1px solid var(--warm);
-  margin-bottom: 60px;
-}
-
-.base-card {
-  background: var(--white);
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-}
-
-.base-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-}
-
-.base-card.sea::before { background: var(--sea); }
-.base-card.sage::before { background: var(--sage); }
-.base-card.terra::before { background: var(--terra); }
-.base-card.gold::before { background: var(--gold); }
-
-.base-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 80px;
-  font-weight: 400;
-  color: var(--warm);
-  line-height: 1;
-  position: absolute;
-  top: 20px; right: 30px;
-  pointer-events: none;
-  user-select: none;
-}
-
-.base-tag {
-  font-size: 8.5px;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  display: inline-block;
-  margin-bottom: 14px;
-  border-radius: 100px;
-}
-
-.tag-sea { background: rgba(46,126,160,0.1); color: var(--sea); }
-.tag-sage { background: rgba(90,122,80,0.1); color: var(--sage); }
-.tag-terra { background: rgba(184,92,58,0.1); color: var(--terra); }
-.tag-gold { background: rgba(201,145,58,0.1); color: var(--gold); }
-
-.base-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.15;
-  margin-bottom: 6px;
-}
-
-.base-name em { font-style: italic; }
-
-.base-dates {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-
-.base-desc {
-  font-size: 13px;
-  line-height: 1.75;
-  color: rgba(28,21,16,0.62);
-}
-
-.base-vibes {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.vibe {
-  font-size: 9.5px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  padding: 4px 10px;
-  border: 1px solid var(--warm);
-  border-radius: 100px;
-  color: var(--muted);
-}
-
-/* ── IMAGE MOSAIC ── */
-.mosaic {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  grid-template-rows: 260px 260px;
-  gap: 3px;
-  margin: 50px 0;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.mosaic-cell {
-  position: relative;
-  overflow: hidden;
-  background: var(--warm);
-}
-
-.mosaic-cell:first-child {
-  grid-row: span 2;
-}
-
-.mosaic-cell img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-  display: block;
-}
-
-.mosaic-cell:hover img { transform: scale(1.04); }
-
-.mosaic-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(28,21,16,0.7), transparent);
-  padding: 24px 16px 12px;
-  color: rgba(247,242,234,0.9);
-  font-size: 9.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.mosaic-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  background: linear-gradient(135deg, var(--warm), var(--cream));
-}
+/* ── ROUTE SECTION ── */
+.route-section { max-width:1100px; margin:0 auto; padding:80px 40px; }
+.route-visual { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(–warm); border:1px solid var(–warm); margin-top:8px; }
+.route-stop { background:var(–white); padding:30px 24px; text-align:center; position:relative; }
+.route-stop::before { content:’’; position:absolute; top:0;left:0;right:0;height:3px; }
+.route-stop.s1::before { background:var(–sea); }
+.route-stop.s2::before { background:var(–sage); }
+.route-stop.s3::before { background:var(–terra); }
+.route-stop.s4::before { background:var(–gold); }
+.route-nights { font-size:28px; font-family:‘Playfair Display’,serif; font-weight:400; color:var(–gold-light); line-height:1; margin-bottom:4px; }
+.route-name { font-family:‘Playfair Display’,serif; font-size:17px; font-weight:400; line-height:1.2; margin-bottom:4px; }
+.route-name em { font-style:italic; }
+.route-dates { font-size:9.5px; letter-spacing:0.15em; text-transform:uppercase; color:var(–muted); margin-bottom:12px; }
+.route-desc { font-size:11.5px; color:rgba(28,21,16,0.6); line-height:1.6; }
 
 /* ── ITINERARY ── */
-.itinerary-section {
-  background: var(--white);
-  padding: 80px 0;
-  overflow: hidden;
-}
+.itin-section { background:var(–white); }
+.itin-inner { max-width:1100px; margin:0 auto; padding:80px 40px; }
 
-.itinerary-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
+.base-intro-block { display:grid; grid-template-columns:1fr 1fr; gap:3px; background:var(–warm); margin-bottom:40px; overflow:hidden; }
+.base-intro-text { background:var(–white); padding:40px; }
+.base-intro-img { position:relative; overflow:hidden; min-height:260px; }
+.base-intro-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
+.base-intro-img:hover img { transform:scale(1.03); }
+.base-intro-img .img-cap { position:absolute; bottom:0;left:0;right:0; padding:20px 16px 12px; background:linear-gradient(to top,rgba(28,21,16,0.65),transparent); color:rgba(247,242,234,0.88); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; }
+.img-fallback { width:100%; min-height:260px; display:flex; align-items:center; justify-content:center; font-size:48px; background:linear-gradient(135deg,var(–warm),var(–cream)); }
+.base-tag { font-size:8.5px; font-weight:600; letter-spacing:0.32em; text-transform:uppercase; padding:4px 12px; display:inline-block; margin-bottom:14px; border-radius:100px; }
+.tag-sea { background:rgba(46,126,160,0.1); color:var(–sea); }
+.tag-sage { background:rgba(90,122,80,0.1); color:var(–sage); }
+.tag-terra { background:rgba(184,92,58,0.1); color:var(–terra); }
+.tag-gold { background:rgba(201,145,58,0.1); color:var(–gold); }
+.base-intro-title { font-family:‘Playfair Display’,serif; font-size:32px; font-weight:400; line-height:1.1; margin-bottom:6px; }
+.base-intro-title em { font-style:italic; }
+.base-intro-meta { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(–muted); margin-bottom:14px; }
+.base-intro-desc { font-size:13px; line-height:1.75; color:rgba(28,21,16,0.62); }
+.vibes { display:flex; gap:6px; flex-wrap:wrap; margin-top:16px; }
+.vibe { font-size:9.5px; padding:3px 10px; border:1px solid var(–warm); border-radius:100px; color:var(–muted); }
 
-.base-block {
-  margin-bottom: 70px;
-}
-
-.base-block-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 30px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--warm);
-}
-
-.base-block-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 0.9;
-  flex-shrink: 0;
-  width: 70px;
-}
-
-.num-sea { color: rgba(46,126,160,0.2); }
-.num-sage { color: rgba(90,122,80,0.2); }
-.num-terra { color: rgba(184,92,58,0.2); }
-.num-gold { color: rgba(201,145,58,0.2); }
-
-.base-block-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 1.15;
-  margin-bottom: 4px;
-}
-
-.base-block-meta {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.days-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.day-row {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 20px;
-  padding: 22px 26px;
-  background: var(--cream);
-  border-left: 2px solid transparent;
-  transition: border-color 0.2s, background 0.2s;
-  cursor: default;
-}
-
-.day-row:hover { background: var(--warm); }
-.day-row.sea-border:hover { border-color: var(--sea); }
-.day-row.sage-border:hover { border-color: var(--sage); }
-.day-row.terra-border:hover { border-color: var(--terra); }
-.day-row.gold-border:hover { border-color: var(--gold); }
-
-.day-label {
-  font-family: 'Playfair Display', serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--muted);
-  padding-top: 2px;
-  line-height: 1.3;
-}
-
-.day-label strong {
-  display: block;
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1;
-  margin-bottom: 3px;
-}
-
-.day-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 400;
-  margin-bottom: 4px;
-}
-
-.day-subtitle {
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
-.day-acts {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.day-act {
-  font-size: 12.5px;
-  color: rgba(28,21,16,0.72);
-  display: flex;
-  gap: 8px;
-}
-
-.act-em { margin-right: 1px; }
-
-.day-tip {
-  margin-top: 12px;
-  padding: 9px 14px;
-  background: rgba(201,145,58,0.07);
-  border-left: 2px solid var(--gold);
-  font-size: 11.5px;
-  color: rgba(28,21,16,0.6);
-  font-style: italic;
-}
+.days-list { display:flex; flex-direction:column; gap:3px; margin-bottom:60px; }
+.day-card { display:grid; grid-template-columns:80px 1fr; background:var(–cream); border-left:3px solid transparent; transition:border-color 0.18s; overflow:hidden; }
+.day-card.bc-sea:hover { border-left-color:var(–sea); }
+.day-card.bc-sage:hover { border-left-color:var(–sage); }
+.day-card.bc-terra:hover { border-left-color:var(–terra); }
+.day-card.bc-gold:hover { border-left-color:var(–gold); }
+.day-num-col { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:24px 0; border-right:1px solid var(–warm); }
+.day-num { font-family:‘Playfair Display’,serif; font-size:30px; font-weight:400; color:var(–sand); line-height:1; }
+.day-num-label { font-size:8px; letter-spacing:0.18em; text-transform:uppercase; color:var(–muted); margin-top:3px; }
+.day-body { padding:22px 26px; display:grid; grid-template-columns:1fr 180px; gap:20px; align-items:start; }
+.day-body.no-img { grid-template-columns:1fr; }
+.day-title { font-family:‘Playfair Display’,serif; font-size:19px; font-weight:400; margin-bottom:3px; line-height:1.2; }
+.day-sub { font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(–muted); margin-bottom:12px; }
+.acts { display:flex; flex-direction:column; gap:6px; }
+.act { font-size:12.5px; color:rgba(28,21,16,0.74); display:flex; gap:8px; align-items:flex-start; line-height:1.55; }
+.act-icon { flex-shrink:0; width:18px; text-align:center; margin-top:1px; }
+.tip { margin-top:12px; padding:9px 13px; background:rgba(201,145,58,0.07); border-left:2px solid var(–gold); font-size:11.5px; color:rgba(28,21,16,0.58); font-style:italic; }
+.day-img-wrap { width:180px; height:130px; overflow:hidden; border-radius:2px; flex-shrink:0; position:relative; background:var(–warm); }
+.day-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+.dfallback { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:32px; }
 
 /* ── RESTAURANTS ── */
-.restaurants-section {
-  padding: 80px 40px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.restaurants-section > .section-intro { margin-bottom: 40px; }
-
-.rest-base-group {
-  margin-bottom: 52px;
-}
-
-.rest-base-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
-}
-
-.rest-base-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.dot-sea { background: var(--sea); }
-.dot-sage { background: var(--sage); }
-.dot-terra { background: var(--terra); }
-.dot-gold { background: var(--gold); }
-
-.rest-base-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 400;
-}
-
-.rest-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.rest-card {
-  background: var(--white);
-  border: 1px solid var(--warm);
-  padding: 20px;
-  transition: border-color 0.2s, transform 0.15s;
-}
-
-.rest-card:hover {
-  border-color: rgba(28,21,16,0.2);
-  transform: translateY(-2px);
-}
-
-.rest-pick {
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 100px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.pick-must { background: rgba(201,145,58,0.12); color: var(--gold); }
-.pick-local { background: rgba(90,122,80,0.12); color: var(--sage); }
-.pick-special { background: rgba(46,126,160,0.12); color: var(--sea); }
-.pick-casual { background: rgba(184,92,58,0.12); color: var(--terra); }
-
-.rest-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
-
-.rest-rating {
-  font-size: 11px;
-  color: var(--gold);
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
-
-.rest-rating span {
-  color: var(--muted);
-  font-size: 10.5px;
-  letter-spacing: 0;
-  margin-left: 4px;
-}
-
-.rest-desc {
-  font-size: 11.5px;
-  line-height: 1.65;
-  color: var(--muted);
-}
-
-.rest-must {
-  margin-top: 10px;
-  font-size: 10.5px;
-  font-weight: 400;
-  color: var(--ink);
-}
-
-.rest-must strong { font-weight: 500; color: var(--gold); }
+.rest-section { max-width:1100px; margin:0 auto; padding:80px 40px; }
+.rest-group { margin-bottom:52px; }
+.rest-group-hdr { display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(–warm); }
+.rest-dot { width:9px;height:9px;border-radius:50%;flex-shrink:0; }
+.dot-sea{background:var(–sea)}.dot-sage{background:var(–sage)}.dot-terra{background:var(–terra)}.dot-gold{background:var(–gold)}
+.rest-group-name { font-family:‘Playfair Display’,serif; font-size:24px; font-weight:400; }
+.rest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.rest-card { background:var(–white); border:1px solid var(–warm); padding:20px; transition:border-color 0.18s,transform 0.14s; }
+.rest-card:hover { border-color:rgba(28,21,16,0.2); transform:translateY(-2px); }
+.rest-badge { font-size:8px; font-weight:600; letter-spacing:0.24em; text-transform:uppercase; padding:3px 10px; border-radius:100px; display:inline-block; margin-bottom:10px; }
+.rb-must{background:rgba(201,145,58,0.12);color:var(–gold)}
+.rb-local{background:rgba(90,122,80,0.12);color:var(–sage)}
+.rb-sea{background:rgba(46,126,160,0.12);color:var(–sea)}
+.rb-eve{background:rgba(184,92,58,0.12);color:var(–terra)}
+.rb-sf{background:rgba(28,21,16,0.08);color:rgba(28,21,16,0.65)}
+.rest-name { font-family:‘Playfair Display’,serif; font-size:17px; font-weight:400; line-height:1.2; margin-bottom:5px; }
+.rest-rating { font-size:11px; color:var(–gold); margin-bottom:8px; letter-spacing:0.5px; }
+.rest-rating span { color:var(–muted); font-size:10px; letter-spacing:0; margin-left:4px; }
+.rest-desc { font-size:11.5px; line-height:1.65; color:var(–muted); }
+.rest-order { margin-top:9px; font-size:10.5px; color:var(–ink); }
+.rest-order strong { color:var(–gold); font-weight:500; }
 
 /* ── HOTELS ── */
-.hotels-wrap {
-  background: var(--ink);
-  padding: 80px 40px;
-}
+.hotels-wrap { background:var(–ink); padding:80px 40px; }
+.hotels-inner { max-width:1100px; margin:0 auto; }
+.hotels-inner .section-label { color:var(–gold-light); }
+.hotels-inner .section-label::before { background:var(–gold-light); }
+.hotels-inner .section-title { color:var(–cream); }
+.hotels-inner .section-title em { color:var(–gold-light); }
+.hotels-inner .section-intro { color:rgba(247,242,234,0.42); }
+.h-group { margin-bottom:50px; }
+.h-group-hdr { font-size:9.5px; font-weight:500; letter-spacing:0.32em; text-transform:uppercase; color:rgba(247,242,234,0.3); margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid rgba(247,242,234,0.07); display:flex; align-items:center; gap:10px; }
+.h-group-hdr .hdot { width:7px;height:7px;border-radius:50%;flex-shrink:0; }
+.h-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.h-grid.two { grid-template-columns:repeat(2,1fr); }
+.h-card { background:rgba(247,242,234,0.04); border:1px solid rgba(247,242,234,0.09); padding:22px; transition:background 0.18s,border-color 0.18s; }
+.h-card:hover { background:rgba(247,242,234,0.08); border-color:rgba(247,242,234,0.17); }
+.h-badge { font-size:8px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; padding:3px 10px; border-radius:100px; display:inline-block; margin-bottom:12px; }
+.hb-top{background:rgba(201,145,58,0.2);color:var(–gold-light)}
+.hb-alt{background:rgba(46,126,160,0.18);color:#7fc4da}
+.hb-gem{background:rgba(90,122,80,0.15);color:#a4cc94}
+.h-name { font-family:‘Playfair Display’,serif; font-size:16px; font-weight:400; color:var(–cream); margin-bottom:5px; line-height:1.2; }
+.h-stars { font-size:10px; color:var(–gold); letter-spacing:1.5px; margin-bottom:9px; }
+.h-desc { font-size:11px; line-height:1.65; color:rgba(247,242,234,0.42); }
 
-.hotels-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
+/* ── FOOD ESSENTIALS ── */
+.food-wrap { background:var(–terra); padding:70px 40px; }
+.food-inner { max-width:1100px; margin:0 auto; }
+.food-inner .section-label { color:rgba(247,242,234,0.55); }
+.food-inner .section-label::before { background:rgba(247,242,234,0.35); }
+.food-inner .section-title { color:var(–cream); margin-bottom:36px; }
+.food-inner .section-title em { color:var(–gold-light); }
+.food-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(247,242,234,0.14); }
+.food-item { background:rgba(184,92,58,0.45); padding:22px; }
+.food-emoji { font-size:22px; margin-bottom:9px; }
+.food-name { font-family:‘Playfair Display’,serif; font-size:15px; font-weight:400; color:var(–cream); margin-bottom:5px; }
+.food-desc { font-size:11.5px; color:rgba(247,242,234,0.58); line-height:1.6; }
 
-.hotels-inner .section-label { color: var(--gold-light); }
-.hotels-inner .section-label::before { background: var(--gold-light); }
-.hotels-inner .section-title { color: var(--cream); }
-.hotels-inner .section-title em { color: var(--gold-light); }
-.hotels-inner .section-intro { color: rgba(247,242,234,0.45); }
-
-.hotels-base-group { margin-bottom: 48px; }
-
-.hotels-base-header {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: rgba(247,242,234,0.35);
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(247,242,234,0.08);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.hotels-base-header .hdot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.hotels-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.hotel-card {
-  background: rgba(247,242,234,0.04);
-  border: 1px solid rgba(247,242,234,0.09);
-  padding: 24px;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.hotel-card:hover {
-  background: rgba(247,242,234,0.08);
-  border-color: rgba(247,242,234,0.18);
-}
-
-.hotel-badge {
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 100px;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-
-.badge-top { background: rgba(201,145,58,0.2); color: var(--gold-light); }
-.badge-alt { background: rgba(46,126,160,0.2); color: #7dc0dc; }
-.badge-gem { background: rgba(90,122,80,0.15); color: #a0c990; }
-
-.hotel-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 6px;
-  line-height: 1.2;
-}
-
-.hotel-stars {
-  font-size: 10px;
-  color: var(--gold);
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
-
-.hotel-desc {
-  font-size: 11.5px;
-  line-height: 1.65;
-  color: rgba(247,242,234,0.45);
-}
-
-/* ── FOOD GUIDE STRIP ── */
-.food-strip {
-  background: var(--terra);
-  padding: 60px 40px;
-}
-
-.food-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.food-inner .section-label { color: rgba(247,242,234,0.6); }
-.food-inner .section-label::before { background: rgba(247,242,234,0.4); }
-
-.food-inner .section-title { color: var(--cream); margin-bottom: 40px; }
-.food-inner .section-title em { color: var(--gold-light); }
-
-.food-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(247,242,234,0.15);
-}
-
-.food-item {
-  background: rgba(184,92,58,0.5);
-  padding: 24px;
-  backdrop-filter: blur(4px);
-}
-
-.food-emoji { font-size: 24px; margin-bottom: 10px; }
-.food-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 6px;
-}
-.food-desc {
-  font-size: 11.5px;
-  color: rgba(247,242,234,0.6);
-  line-height: 1.6;
-}
-
-/* ── PRACTICAL INFO ── */
-.practical {
-  background: var(--cream);
-  padding: 80px 40px;
-}
-
-.practical-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.practical-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 40px;
-}
-
-.prac-card {
-  background: var(--white);
-  border: 1px solid var(--warm);
-  padding: 28px;
-}
-
-.prac-icon { font-size: 26px; margin-bottom: 12px; }
-.prac-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-.prac-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.prac-list li {
-  font-size: 12px;
-  color: var(--muted);
-  padding-left: 14px;
-  position: relative;
-}
-.prac-list li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-}
+/* ── PRACTICAL ── */
+.prac-wrap { max-width:1100px; margin:0 auto; padding:80px 40px; }
+.prac-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:38px; }
+.prac-card { background:var(–white); border:1px solid var(–warm); padding:26px; }
+.prac-icon { font-size:24px; margin-bottom:11px; }
+.prac-title { font-family:‘Playfair Display’,serif; font-size:17px; font-weight:400; margin-bottom:10px; }
+.prac-list { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.prac-list li { font-size:12px; color:var(–muted); padding-left:14px; position:relative; }
+.prac-list li::before { content:’–’; position:absolute; left:0; color:var(–gold); }
 
 /* ── FOOTER ── */
-footer {
-  background: var(--ink);
-  text-align: center;
-  padding: 60px 40px;
-}
-
-.footer-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  font-weight: 400;
-  font-style: italic;
-  color: rgba(247,242,234,0.12);
-  margin-bottom: 20px;
-}
-
-.footer-line {
-  width: 60px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-  margin: 0 auto 20px;
-}
-
-.footer-text {
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(247,242,234,0.25);
-  line-height: 2.2;
-}
-
-.footer-text span { color: var(--gold-light); }
+footer { background:var(–ink); text-align:center; padding:60px 40px; }
+.footer-title { font-family:‘Playfair Display’,serif; font-size:44px; font-weight:400; font-style:italic; color:rgba(247,242,234,0.1); margin-bottom:20px; }
+.footer-rule { width:56px; height:1px; background:linear-gradient(to right,transparent,var(–gold),transparent); margin:0 auto 20px; }
+.footer-text { font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(247,242,234,0.22); line-height:2.3; }
+.footer-text span { color:var(–gold-light); }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  section, .restaurants-section, .practical { padding: 60px 20px; }
-  .overview-inner { grid-template-columns: repeat(2, 1fr); }
-  .overview-item { border-bottom: 1px solid rgba(247,242,234,0.08); }
-  .bases-grid { grid-template-columns: 1fr; }
-  .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .mosaic-cell:first-child { grid-row: span 1; }
-  .rest-grid, .hotels-grid { grid-template-columns: 1fr; }
-  .food-grid { grid-template-columns: repeat(2,1fr); }
-  .practical-grid { grid-template-columns: 1fr; }
-  #map-section { padding: 60px 20px; }
-  .map-container { height: 380px; }
-  .itinerary-inner { padding: 0 20px; }
-  .day-row { grid-template-columns: 70px 1fr; gap: 12px; padding: 16px; }
-  .hotels-wrap { padding: 60px 20px; }
-  .food-strip { padding: 60px 20px; }
+@media(max-width:900px){
+.overview-inner,.route-visual{grid-template-columns:repeat(2,1fr)}
+.base-intro-block{grid-template-columns:1fr}
+.day-body{grid-template-columns:1fr}
+.day-img-wrap{display:none}
+.rest-grid,.prac-grid{grid-template-columns:1fr}
+.h-grid,.h-grid.two{grid-template-columns:repeat(2,1fr)}
+.food-grid{grid-template-columns:repeat(2,1fr)}
+.route-section,.rest-section,.prac-wrap,.itin-inner{padding-left:20px;padding-right:20px}
+.hotels-wrap,.food-wrap{padding-left:20px;padding-right:20px}
+.sticky-nav{padding:12px 16px;gap:5px}
+}
+@media(max-width:540px){
+.hero{padding:50px 20px 40px}
+.day-card{grid-template-columns:60px 1fr}
+.day-body{padding:16px}
+.ov-item{padding:32px 16px}
+.h-grid{grid-template-columns:1fr}
 }
 </style>
+
 </head>
 <body>
 
-<!-- ══════════════ HERO ══════════════ -->
+<!-- HERO -->
+
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-ornament"></div>
-  <div class="hero-eyebrow">Early October</div>
+  <div class="hero-eyebrow">Late September — Early October</div>
   <h1>Puglia<em>il Sud</em></h1>
-  <div class="hero-line"></div>
+  <div class="hero-rule"></div>
   <div class="hero-desc">
     Bari &nbsp;→&nbsp; Polignano a Mare &nbsp;→&nbsp; Valle d'Itria<br>
-    Lecce &nbsp;→&nbsp; Salento &nbsp;→&nbsp; Bari
+    Lecce &amp; Salento &nbsp;→&nbsp; Bari
   </div>
   <div class="hero-cta">
-    <a href="#bases" class="cta-btn primary">See the Itinerary</a>
+    <a href="#itinerary" class="cta-btn primary">See the Plan</a>
     <a href="#restaurants" class="cta-btn">Food Guide</a>
     <a href="#hotels" class="cta-btn">Where We Stay</a>
   </div>
   <div class="scroll-hint">Scroll</div>
 </div>
 
-<!-- ══════════════ OVERVIEW STRIP ══════════════ -->
+<!-- OVERVIEW STRIP -->
+
 <div class="overview-strip">
   <div class="overview-inner">
-    <div class="overview-item">
-      <div class="ov-num">13</div>
-      <div class="ov-label">Days in Italy</div>
+    <div class="ov-item"><div class="ov-num">13</div><div class="ov-label">Days in Italy</div></div>
+    <div class="ov-item"><div class="ov-num">4</div><div class="ov-label">Distinct Bases</div></div>
+    <div class="ov-item"><div class="ov-num">15+</div><div class="ov-label">Curated Restaurants</div></div>
+    <div class="ov-item"><div class="ov-num">∞</div><div class="ov-label">Aperitivi</div></div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+
+<nav class="sticky-nav">
+  <a class="nav-pill" href="#route">Route</a>
+  <a class="nav-pill" href="#polignano">Polignano</a>
+  <a class="nav-pill" href="#itria">Itria Valley</a>
+  <a class="nav-pill" href="#lecce">Lecce</a>
+  <a class="nav-pill" href="#bari">Bari</a>
+  <a class="nav-pill" href="#restaurants">Restaurants</a>
+  <a class="nav-pill" href="#hotels">Hotels</a>
+</nav>
+
+<!-- ROUTE -->
+
+<div id="route">
+<div class="route-section">
+  <div class="section-label">The Journey</div>
+  <h2 class="section-title">Four <em>Chapters</em></h2>
+  <p class="section-intro">Flying in and out of Bari, we arc south through cliff-coast Polignano, into the trulli countryside of Itria Valley, deep south to baroque Lecce and the crystal Salento peninsula, before one final night back in Bari.</p>
+  <div class="route-visual">
+    <div class="route-stop s1">
+      <div class="route-nights">4</div>
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Nights · Days 1–4</div>
+      <div class="route-name">Polignano<br><em>a Mare</em></div>
+      <div class="route-dates">Adriatic Cliff Coast</div>
+      <div class="route-desc">Baroque alleys over turquoise coves. Sea grottos. The best crudo in Puglia.</div>
     </div>
-    <div class="overview-item">
-      <div class="ov-num">4</div>
-      <div class="ov-label">Distinct Bases</div>
+    <div class="route-stop s2">
+      <div class="route-nights">3</div>
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Nights · Days 5–7</div>
+      <div class="route-name">Valle<br><em>d'Itria</em></div>
+      <div class="route-dates">Farmhouse · With Car</div>
+      <div class="route-desc">Trulli masserias, olive groves, hilltop wine towns. The rural soul of Puglia.</div>
     </div>
-    <div class="overview-item">
-      <div class="ov-num">12+</div>
-      <div class="ov-label">Curated Restaurants</div>
+    <div class="route-stop s3">
+      <div class="route-nights">4</div>
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Nights · Days 8–11</div>
+      <div class="route-name">Lecce &amp;<br><em>Salento</em></div>
+      <div class="route-dates">Baroque City &amp; Coasts</div>
+      <div class="route-desc">Golden limestone, nightlife, galleries, and Italy's most beautiful beaches.</div>
     </div>
-    <div class="overview-item">
-      <div class="ov-num">∞</div>
-      <div class="ov-label">Aperitivi</div>
+    <div class="route-stop s4">
+      <div class="route-nights">1</div>
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Night · Day 12</div>
+      <div class="route-name">Bari<br><em>Finale</em></div>
+      <div class="route-dates">Port City · Fly Out Day 13</div>
+      <div class="route-desc">Orecchiette nonnas, sea urchin at the harbor, and one last Italian dinner.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ITINERARY -->
+
+<div id="itinerary" class="itin-section">
+<div class="itin-inner">
+  <div class="section-label">Day by Day</div>
+  <h2 class="section-title">The Full <em>Plan</em></h2>
+  <p class="section-intro" style="margin-bottom:50px;">Open relaxation, great food, local neighborhoods, music, beaches, countryside, and city life — a mix of all of it, every few days.</p>
+
+  <!-- BASE 1: POLIGNANO -->
+
+  <div id="polignano">
+  <div class="base-intro-block">
+    <div class="base-intro-text">
+      <div class="base-tag tag-sea">Base 1 · 4 Nights · Days 1–4</div>
+      <div class="base-intro-title">Polignano<br><em>a Mare</em></div>
+      <div class="base-intro-meta">Fly in Bari → Drive 35 min south · Adriatic Coast</div>
+      <div class="base-intro-desc">A dazzling cliff-top town perched over turquoise Adriatic coves. White-washed baroque alleys, terraces over the sea, pebble beaches tucked into limestone grottos, and some of the best seafood in Italy. Your first base — dramatic, beautiful, and made for decompressing.</div>
+      <div class="vibes"><span class="vibe">Cliff Beaches</span><span class="vibe">Sea Grottos</span><span class="vibe">Fresh Seafood</span><span class="vibe">Baroque Alleys</span></div>
+    </div>
+    <div class="base-intro-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Polignano_a_mare_%28Bari%29.jpg/1280px-Polignano_a_mare_%28Bari%29.jpg" alt="Polignano a Mare" onerror="this.parentElement.innerHTML='<div class=img-fallback>🌊</div>'">
+      <div class="img-cap">Polignano a Mare · Adriatic Cliff Coast</div>
+    </div>
+  </div>
+
+  <div class="days-list">
+    <div class="day-card bc-sea">
+      <div class="day-num-col"><div class="day-num">1</div><div class="day-num-label">Arrival</div></div>
+      <div class="day-body">
+        <div>
+          <div class="day-title">Landing &amp; First Wander</div>
+          <div class="day-sub">Settle In · No Agenda · Explore at Will</div>
+          <div class="acts">
+            <div class="act"><span class="act-icon">✈️</span>Fly into Bari, pick up rental car, drive 35 min south to Polignano</div>
+            <div class="act"><span class="act-icon">🏨</span>Check in, drop bags, change — the afternoon is yours</div>
+            <div class="act"><span class="act-icon">🚶</span>Slow stroll through the centro storico — get lost in the white alleys, find the cliff overlook at Lama Monachile, watch your first Adriatic sunset</div>
+            <div class="act"><span class="act-icon">🍷</span>Aperitivo at whichever cliff bar looks good — let the evening find you</div>
+            <div class="act"><span class="act-icon">🍽️</span>Dinner wherever feels right — walk around, look in, pick a door. No reservations needed tonight.</div>
+          </div>
+          <div class="tip">💡 Arrival day is decompression. The town itself is the activity — no agenda needed.</div>
+        </div>
+        <div class="day-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Polignano_a_mare_%28Bari%29.jpg/640px-Polignano_a_mare_%28Bari%29.jpg" alt="Polignano a Mare" onerror="this.parentElement.innerHTML='<div class=dfallback>🌊</div>'">
+        </div>
+      </div>
+    </div>
+
+```
+<div class="day-card bc-sea">
+  <div class="day-num-col"><div class="day-num">2</div><div class="day-num-label">Beach</div></div>
+  <div class="day-body">
+    <div>
+      <div class="day-title">Sea Grottos &amp; Grotta Palazzese</div>
+      <div class="day-sub">Boat Tour · Cave Dining · Cliff Coast</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">☀️</span>Morning at Lama Monachile — the iconic pebble beach under the bridge. Arrive by 9am before crowds</div>
+        <div class="act"><span class="act-icon">🚤</span>Afternoon boat tour of the sea grottos (Grotta della Poesia, Grotta di Colombo) — ~1.5 hrs, book at the harbor</div>
+        <div class="act"><span class="act-icon">🍦</span>Gelateria Calore for almond gelato — Polignano is legendary for it</div>
+        <div class="act"><span class="act-icon">🕯️</span>Dinner at <strong>Grotta Palazzese</strong> — cave dining in the cliff face, one of the most theatrical settings in Italy. Aim for the 7:30pm seating for sunset into candlelit dark.</div>
+      </div>
+      <div class="tip">💡 Book Grotta Palazzese weeks in advance. Aim for 7:30pm — you catch the last light over the sea, then the cave glows as darkness falls.</div>
+    </div>
+    <div class="day-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Grotta_Palazzese_%28Polignano_a_Mare%29_-_2019.jpg/640px-Grotta_Palazzese_%28Polignano_a_Mare%29_-_2019.jpg" alt="Grotta Palazzese cave" onerror="this.parentElement.innerHTML='<div class=dfallback>🕯️</div>'">
     </div>
   </div>
 </div>
 
-
-<!-- ══════════════ MAP ══════════════ -->
-<div id="map-section">
-  <div class="inner">
-    <div class="section-label">Our Route</div>
-    <h2 class="section-title">The <em>Journey</em></h2>
-    <p class="section-intro">Flying in and out of Bari. We arc south through cliff-coast Polignano, into the trulli countryside of Itria Valley, then deep south to baroque Lecce and the crystal Salento coast, before finishing one final night back in Bari.</p>
-  </div>
-</div>
-
-
-<!-- ══════════════ BASES OVERVIEW ══════════════ -->
-<section id="bases">
-  <div class="section-label">Four Chapters</div>
-  <h2 class="section-title">Where We <em>Stay</em></h2>
-  <p class="section-intro">Each base is completely different from the last — cliff-coast drama, rural trulli farmhouse, full baroque city, and gritty port capital. No two nights feel the same.</p>
-
-  <div class="bases-grid">
-    <div class="base-card sea">
-      <div class="base-num">1</div>
-      <div class="base-tag tag-sea">4 Nights · Days 1–4</div>
-      <div class="base-name">Polignano<br><em>a Mare</em></div>
-      <div class="base-dates">Fly in Bari → Drive 35 min south</div>
-      <div class="base-desc">A dazzling cliff-top town perched over turquoise Adriatic coves. Baroque alleys, terraces over the sea, pebble beaches in limestone grottos, and the best seafood in the region. Your dramatic coastal decompression.</div>
-      <div class="base-vibes">
-        <span class="vibe">Cliff Beaches</span>
-        <span class="vibe">Sea Grottos</span>
-        <span class="vibe">Fresh Seafood</span>
-        <span class="vibe">Coastal Village</span>
+<div class="day-card bc-sea">
+  <div class="day-num-col"><div class="day-num">3</div><div class="day-num-label">Day Trip</div></div>
+  <div class="day-body">
+    <div>
+      <div class="day-title">Monopoli &amp; Coastal Countryside</div>
+      <div class="day-sub">Walled Port Town · Olive Groves · 15–30 min Drive</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">🏰</span>Morning in <strong>Monopoli</strong> — walled port town 10km north. Castello Carlo V on the water, fishing harbor, busy morning market streets</div>
+        <div class="act"><span class="act-icon">🍝</span>Lunch in Monopoli's old town along the harbor — relaxed trattorias, excellent crudo and pasta</div>
+        <div class="act"><span class="act-icon">🌿</span>Afternoon drive through Fasano's olive grove countryside — the landscape shifts toward trulli territory</div>
+        <div class="act"><span class="act-icon">🎵</span>Evening back in Polignano — late September often has live music in the cliff bars and piazzas</div>
       </div>
     </div>
-
-    <div class="base-card sage">
-      <div class="base-num">2</div>
-      <div class="base-tag tag-sage">3 Nights · Days 5–7</div>
-      <div class="base-name">Valle<br><em>d'Itria</em></div>
-      <div class="base-dates">Drive ~45 min inland from Polignano</div>
-      <div class="base-desc">Rolling limestone plateaus, conical trulli, working masserias, and three perfect hilltop towns. The rural heart of Puglia. Staying in a farmhouse with car gives us full freedom to bop between Alberobello, Ostuni, Locorotondo, and Martina Franca.</div>
-      <div class="base-vibes">
-        <span class="vibe">Trulli &amp; Masserias</span>
-        <span class="vibe">Wine Tasting</span>
-        <span class="vibe">Hilltop Towns</span>
-        <span class="vibe">Countryside</span>
-      </div>
-    </div>
-
-    <div class="base-card terra">
-      <div class="base-num">3</div>
-      <div class="base-tag tag-terra">4 Nights · Days 8–11</div>
-      <div class="base-name">Lecce &amp;<br><em>Salento</em></div>
-      <div class="base-dates">Drive ~1.5 hrs south from Itria Valley</div>
-      <div class="base-desc">The Florence of the South — a full baroque city with golden limestone churches, university energy, thriving art and nightlife scene. Plus the most extraordinary beaches in Italy: crystalline blues and white cliffs along the Ionian and Adriatic coasts.</div>
-      <div class="base-vibes">
-        <span class="vibe">Baroque Architecture</span>
-        <span class="vibe">Beach Days</span>
-        <span class="vibe">Art &amp; Galleries</span>
-        <span class="vibe">Nightlife</span>
-      </div>
-    </div>
-
-    <div class="base-card gold">
-      <div class="base-num">4</div>
-      <div class="base-tag tag-gold">1 Night · Day 12</div>
-      <div class="base-name">Bari<br><em>Finale</em></div>
-      <div class="base-dates">Drive ~1.5 hrs north from Lecce</div>
-      <div class="base-desc">A real southern Italian port city — raw, energetic, nothing like the rest of the trip. Bari Vecchia is one of the most atmospheric old towns in Italy: labyrinthine lanes, nonnas rolling orecchiette in real time, sea urchin at the harbor, and a lively bar scene in the Murattiano grid.</div>
-      <div class="base-vibes">
-        <span class="vibe">Bari Vecchia</span>
-        <span class="vibe">Street Food</span>
-        <span class="vibe">Raw Seafood Bar</span>
-        <span class="vibe">City Nightlife</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════ PHOTO MOSAIC ══════════════ -->
-<div style="max-width:1100px;margin:0 auto;padding:0 40px 80px;">
-  <div class="mosaic">
-    <!-- Lecce baroque architecture - tall left cell -->
-    <div class="mosaic-cell">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Lecce_BW_2013-10-01_12-10-12.jpg/1200px-Lecce_BW_2013-10-01_12-10-12.jpg"
-           alt="Lecce baroque cathedral" onerror="this.parentElement.innerHTML='<div class=mosaic-placeholder>⛪</div>'">
-      <div class="mosaic-caption">Lecce · The Baroque Capital</div>
-    </div>
-    <!-- Ostuni white city -->
-    <div class="mosaic-cell">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Ostuni_BW_2013-10-01_11-05-53.jpg/1200px-Ostuni_BW_2013-10-01_11-05-53.jpg"
-           alt="Ostuni white city" onerror="this.parentElement.innerHTML='<div class=mosaic-placeholder>🤍</div>'">
-      <div class="mosaic-caption">Ostuni · The White City</div>
-    </div>
-    <!-- Orecchiette pasta -->
-    <div class="mosaic-cell">
-      <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=800&auto=format&fit=crop"
-           alt="Fresh pasta Puglia" onerror="this.parentElement.innerHTML='<div class=mosaic-placeholder>🍝</div>'">
-      <div class="mosaic-caption">Orecchiette · The Soul of Puglia</div>
-    </div>
-    <!-- Polignano sea cliffs placeholder -->
-    <div class="mosaic-cell">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Polignano_a_mare_%28Bari%29.jpg/1280px-Polignano_a_mare_%28Bari%29.jpg"
-           alt="Polignano a Mare cliffs" onerror="this.parentElement.innerHTML='<div class=mosaic-placeholder>🌊</div>'">
-      <div class="mosaic-caption">Polignano · Adriatic Cliffs</div>
-    </div>
-    <!-- Trulli -->
-    <div class="mosaic-cell">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Alberobello_trullo.jpg/1024px-Alberobello_trullo.jpg"
-           alt="Trulli Alberobello" onerror="this.parentElement.innerHTML='<div class=mosaic-placeholder>🏠</div>'">
-      <div class="mosaic-caption">Alberobello · Valle d'Itria</div>
+    <div class="day-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Monopoli_-_Lungomare_Provvidenza.jpg/640px-Monopoli_-_Lungomare_Provvidenza.jpg" alt="Monopoli coastline" onerror="this.parentElement.innerHTML='<div class=dfallback>⚓</div>'">
     </div>
   </div>
 </div>
 
-
-<!-- ══════════════ ITINERARY ══════════════ -->
-<div class="itinerary-section">
-  <div class="itinerary-inner">
-    <div class="section-label">Day by Day</div>
-    <h2 class="section-title" style="margin-bottom:14px;">The Full <em>Plan</em></h2>
-    <p class="section-intro">A mix of structured highlights and open relaxation time — never fully packed, always purposeful.</p>
-
-    <!-- BASE 1: POLIGNANO -->
-    <div class="base-block">
-      <div class="base-block-header">
-        <div class="base-block-num num-sea">I</div>
-        <div>
-          <div class="base-block-title">Polignano a Mare</div>
-          <div class="base-block-meta">4 Nights · Days 1–4 · Adriatic Cliff Coast</div>
-        </div>
+<div class="day-card bc-sea">
+  <div class="day-num-col"><div class="day-num">4</div><div class="day-num-label">Slow Day</div></div>
+  <div class="day-body">
+    <div>
+      <div class="day-title">Market Morning &amp; Final Swim</div>
+      <div class="day-sub">Relax · Farewell Aperitivo</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">☕</span>Slow morning — espresso at a bar counter, cornetto, read on a terrace</div>
+        <div class="act"><span class="act-icon">🧀</span>Local food market: fresh burrata, taralli, local olive oil to carry through the trip</div>
+        <div class="act"><span class="act-icon">🏊</span>Afternoon swim at one of the smaller cliff-stair coves</div>
+        <div class="act"><span class="act-icon">🥂</span>Farewell aperitivo at sunset — a digestivo of Pugliese amaro before the move inland tomorrow</div>
       </div>
-      <div class="days-list">
+    </div>
+    <div class="day-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Lama_Monachile_Polignano_a_Mare.jpg/640px-Lama_Monachile_Polignano_a_Mare.jpg" alt="Lama Monachile beach" onerror="this.parentElement.innerHTML='<div class=dfallback>🏖️</div>'">
+    </div>
+  </div>
+</div>
+```
 
-        <div class="day-row sea-border">
-          <div class="day-label"><strong>Day 1</strong>Arrival</div>
-          <div>
-            <div class="day-title">Landing &amp; First Evening</div>
-            <div class="day-subtitle">Settle In · No Agenda</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">✈️</span>Fly into Bari, pick up rental car, 35-min drive south to Polignano</div>
-              <div class="day-act"><span class="act-em">🚶</span>Slow evening stroll through the white centro storico — cliff overlook at Lama Monachile for your first Adriatic sunset</div>
-              <div class="day-act"><span class="act-em">🍽️</span>Dinner at Grotta Palazzese (cave dining, book ahead) or Antiche Mura for local crudo and orecchiette</div>
-            </div>
-            <div class="day-tip">💡 Arrival day is decompression day. The town is the activity.</div>
+  </div>
+  </div>
+
+  <!-- BASE 2: ITRIA VALLEY -->
+
+  <div id="itria">
+  <div class="base-intro-block">
+    <div class="base-intro-text">
+      <div class="base-tag tag-sage">Base 2 · 3 Nights · Days 5–7</div>
+      <div class="base-intro-title">Valle<br><em>d'Itria</em></div>
+      <div class="base-intro-meta">Drive ~45 min inland from Polignano</div>
+      <div class="base-intro-desc">Rolling limestone plateaus, conical trulli, working masserias, and three perfect hilltop towns. The rural heart of Puglia — visually unlike anywhere else. With a farmhouse base and a car, you bop freely between Alberobello, Locorotondo, Ostuni, and Martina Franca.</div>
+      <div class="vibes"><span class="vibe">Trulli &amp; Masserias</span><span class="vibe">Wine Tasting</span><span class="vibe">Hilltop Towns</span><span class="vibe">Countryside</span></div>
+    </div>
+    <div class="base-intro-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Alberobello_trullo.jpg/1024px-Alberobello_trullo.jpg" alt="Alberobello trulli" onerror="this.parentElement.innerHTML='<div class=img-fallback>🏠</div>'">
+      <div class="img-cap">Alberobello · Valle d'Itria UNESCO Trulli</div>
+    </div>
+  </div>
+
+  <div class="days-list">
+    <div class="day-card bc-sage">
+      <div class="day-num-col"><div class="day-num">5</div><div class="day-num-label">Arrive</div></div>
+      <div class="day-body">
+        <div>
+          <div class="day-title">Into the Countryside &amp; Alberobello</div>
+          <div class="day-sub">Masseria Arrival · Valle d'Itria</div>
+          <div class="acts">
+            <div class="act"><span class="act-icon">🚗</span>Check out of Polignano, drive ~45 min inland through olive groves and dry-stone walls to the masseria</div>
+            <div class="act"><span class="act-icon">🏡</span>Check in and explore the farmhouse — pool, orchards, farm animals. Let the countryside do its thing.</div>
+            <div class="act"><span class="act-icon">🍄</span>Late afternoon in <strong>Alberobello</strong> (20–30 min) — the UNESCO trulli village. Best after 5pm when day-trippers leave and the cone streets go quiet and magical</div>
+            <div class="act"><span class="act-icon">🍽️</span>Dinner in Alberobello or near the masseria — try braised lamb or fave e cicoria</div>
           </div>
+          <div class="tip">💡 Linger in Alberobello past 5pm — the light goes golden and the crowds evaporate. Completely different feel from midday.</div>
         </div>
-
-        <div class="day-row sea-border">
-          <div class="day-label"><strong>Day 2</strong>Beach Day</div>
-          <div>
-            <div class="day-title">Beaches &amp; Sea Grottos</div>
-            <div class="day-subtitle">Coast Life · Adriatic</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">☀️</span>Morning at Lama Monachile beach under the bridge — arrive by 9am to beat day-trippers</div>
-              <div class="day-act"><span class="act-em">🚤</span>Afternoon boat tour of the sea grottos (Grotta della Poesia, Grotta di Colombo) — ~1.5 hrs from the harbor</div>
-              <div class="day-act"><span class="act-em">🍦</span>Gelateria Calore — Polignano is famous for it; try the regional almond varieties</div>
-              <div class="day-act"><span class="act-em">🍷</span>Aperitivo at a cliff-top bar as the light turns golden over the Adriatic</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="day-row sea-border">
-          <div class="day-label"><strong>Day 3</strong>Day Trip</div>
-          <div>
-            <div class="day-title">Monopoli &amp; Fasano</div>
-            <div class="day-subtitle">Coastal Town-Hopping · 15–30 min Drive</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🏰</span>Morning in Monopoli — walled port town 10km north; Castello Carlo V on the water, the fishing harbor, lively market streets</div>
-              <div class="day-act"><span class="act-em">🍝</span>Lunch in Monopoli's old town — known for excellent local trattorias along the harbor</div>
-              <div class="day-act"><span class="act-em">🌿</span>Afternoon drive through Fasano's olive grove countryside — the landscape begins shifting toward Valle d'Itria</div>
-              <div class="day-act"><span class="act-em">🎵</span>Evening back in Polignano — live music in the piazzas is common in late September</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="day-row sea-border">
-          <div class="day-label"><strong>Day 4</strong>Slow Day</div>
-          <div>
-            <div class="day-title">Market Morning &amp; Final Cove</div>
-            <div class="day-subtitle">Relax &amp; Pack · Farewell Aperitivo</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">☕</span>Slow morning — espresso and cornetto, read on a terrace</div>
-              <div class="day-act"><span class="act-em">🧀</span>Local food market; pick up fresh burrata, taralli, olive oils to take along</div>
-              <div class="day-act"><span class="act-em">🏊</span>Afternoon swim at one of the smaller cliff-stair coves</div>
-              <div class="day-act"><span class="act-em">🥂</span>Farewell aperitivo at sunset — amaro or limoncello before the inland move tomorrow</div>
-            </div>
-          </div>
+        <div class="day-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Alberobello_trullo.jpg/480px-Alberobello_trullo.jpg" alt="Alberobello trulli" onerror="this.parentElement.innerHTML='<div class=dfallback>🏠</div>'">
         </div>
       </div>
     </div>
 
-    <!-- BASE 2: ITRIA VALLEY -->
-    <div class="base-block">
-      <div class="base-block-header">
-        <div class="base-block-num num-sage">II</div>
-        <div>
-          <div class="base-block-title">Valle d'Itria</div>
-          <div class="base-block-meta">3 Nights · Days 5–7 · Masseria Farmhouse</div>
-        </div>
-      </div>
-      <div class="days-list">
-
-        <div class="day-row sage-border">
-          <div class="day-label"><strong>Day 5</strong>Arrive</div>
-          <div>
-            <div class="day-title">Into the Countryside + Alberobello</div>
-            <div class="day-subtitle">Masseria Arrival · Valle d'Itria</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🚗</span>Drive ~45 min inland from Polignano through olive groves and dry-stone walls to the masseria</div>
-              <div class="day-act"><span class="act-em">🏡</span>Explore the farmhouse property — pool, orchards, nature walks, total decompression</div>
-              <div class="day-act"><span class="act-em">🍄</span>Late afternoon in Alberobello (20–30 min) — the UNESCO trulli village. Best after 5pm when day-trippers leave; the cone-roofed streets go quiet and magical</div>
-            </div>
-            <div class="day-tip">💡 Alberobello is more impressive than photos. Linger past 5pm — the light and mood shift completely.</div>
-          </div>
-        </div>
-
-        <div class="day-row sage-border">
-          <div class="day-label"><strong>Day 6</strong>Explore</div>
-          <div>
-            <div class="day-title">Ostuni &amp; Locorotondo Wine Country</div>
-            <div class="day-subtitle">White City · DOC Vineyards</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🤍</span>Morning in Ostuni — the brilliant white hilltop city. Cathedral, labyrinthine medieval center, outer wall panoramas</div>
-              <div class="day-act"><span class="act-em">🍷</span>Mid-day: Locorotondo DOC wine country — crisp Verdeca whites; stop at a cantina for a tasting</div>
-              <div class="day-act"><span class="act-em">🏘️</span>Wander Locorotondo itself — circular hilltop town with flower-festooned alleys, one of the most photogenic in Puglia</div>
-              <div class="day-act"><span class="act-em">🏊</span>Evening back at the masseria pool with a glass of local white</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="day-row sage-border">
-          <div class="day-label"><strong>Day 7</strong>Finale</div>
-          <div>
-            <div class="day-title">Martina Franca &amp; Masseria Dinner</div>
-            <div class="day-subtitle">Music Town · Private Dinner</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🎼</span>Morning in Martina Franca — the most urban town in the valley; baroque Piazza Roma, excellent coffee bars, opera festival energy</div>
-              <div class="day-act"><span class="act-em">🛍️</span>Browse ceramics and textile artisans — Puglia hand-painted pottery is beautiful; good shopping here</div>
-              <div class="day-act"><span class="act-em">🌾</span>Afternoon: get lost on the country roads between masserias — no agenda</div>
-              <div class="day-act"><span class="act-em">🍖</span>Private masseria dinner using property produce — arrange in advance. Often the best meal of the whole trip.</div>
-            </div>
-            <div class="day-tip">💡 Ask the masseria host to arrange a private dinner with local wines. This is the unmissable Puglia experience.</div>
-          </div>
-        </div>
+```
+<div class="day-card bc-sage">
+  <div class="day-num-col"><div class="day-num">6</div><div class="day-num-label">Explore</div></div>
+  <div class="day-body">
+    <div>
+      <div class="day-title">Ostuni &amp; Locorotondo Wine Country</div>
+      <div class="day-sub">The White City · DOC Vineyards · Hilltop Villages</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">🤍</span>Morning in <strong>Ostuni</strong> — the brilliant white hilltop city, arguably the most dramatic skyline in Puglia. Cathedral, labyrinthine medieval center, outer wall panoramas</div>
+        <div class="act"><span class="act-icon">🍷</span>Mid-day through <strong>Locorotondo DOC wine country</strong> — crisp Verdeca whites from the valley. Stop at a small cantina for a tasting</div>
+        <div class="act"><span class="act-icon">🏘️</span>Wander <strong>Locorotondo</strong> — a circular hilltop town with flower-festooned alleys, one of the most photogenic in the valley</div>
+        <div class="act"><span class="act-icon">🏊</span>Evening back at the masseria pool with a local white wine</div>
       </div>
     </div>
-
-    <!-- BASE 3: LECCE -->
-    <div class="base-block">
-      <div class="base-block-header">
-        <div class="base-block-num num-terra">III</div>
-        <div>
-          <div class="base-block-title">Lecce &amp; Salento</div>
-          <div class="base-block-meta">4 Nights · Days 8–11 · The Baroque City</div>
-        </div>
-      </div>
-      <div class="days-list">
-
-        <div class="day-row terra-border">
-          <div class="day-label"><strong>Day 8</strong>Arrive</div>
-          <div>
-            <div class="day-title">Into the Baroque Capital</div>
-            <div class="day-subtitle">Lecce Centro Storico</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🚗</span>Drive ~1.5 hrs south to Lecce; drop bags, leave car at hotel</div>
-              <div class="day-act"><span class="act-em">⛪</span>Baroque circuit: Piazza del Duomo, Santa Croce Basilica (Lecce's masterpiece), Roman Amphitheatre in Piazza Sant'Oronzo</div>
-              <div class="day-act"><span class="act-em">🎨</span>Pop into a contemporary gallery — Lecce has a real local art scene embedded in the historic palazzi</div>
-              <div class="day-act"><span class="act-em">🍷</span>Aperitivo in Piazza Sant'Oronzo — peak Lecce social culture at dusk</div>
-              <div class="day-act"><span class="act-em">🍽️</span>Dinner: ciceri e tria, horse meat ragù, extraordinary burrata</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="day-row terra-border">
-          <div class="day-label"><strong>Day 9</strong>Beach</div>
-          <div>
-            <div class="day-title">Salento Beach Day</div>
-            <div class="day-subtitle">Ionian or Adriatic Coast · 30–50 min Drive</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🏖️</span>Ionian side: Porto Cesareo or Torre dell'Orso — crystalline turquoise. Or the Adriatic: Baia dei Turchi (protected nature reserve — the most beautiful)</div>
-              <div class="day-act"><span class="act-em">🐠</span>Full beach day — late September sea is at peak warmth (26–28°C), crowds thinned from August</div>
-              <div class="day-act"><span class="act-em">🦞</span>Lunch at a beach club or masseria restaurant — raw sea urchin, grilled octopus, fried anchovies</div>
-              <div class="day-act"><span class="act-em">🌆</span>Evening in Lecce's neighborhood streets — local, non-touristy energy</div>
-            </div>
-            <div class="day-tip">💡 Baia dei Turchi near Otranto — one of the most beautiful beaches in Italy. Arrive before 10am, easy walk through pine forest.</div>
-          </div>
-        </div>
-
-        <div class="day-row terra-border">
-          <div class="day-label"><strong>Day 10</strong>Day Trip</div>
-          <div>
-            <div class="day-title">Otranto &amp; Gallipoli</div>
-            <div class="day-subtitle">Walled Coastal Towns</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🏰</span>Morning in Otranto (45 min east) — Norman castle, UNESCO cathedral with extraordinary 12th-century mosaic floor, Venetian walls over blue water</div>
-              <div class="day-act"><span class="act-em">🌊</span>Quick cliff swim near Otranto if weather cooperates</div>
-              <div class="day-act"><span class="act-em">🎭</span>Afternoon in Gallipoli (1 hr west, Ionian side) — baroque island city on a bridge, fish market, beautiful harbor</div>
-              <div class="day-act"><span class="act-em">🍽️</span>Dinner in Gallipoli at the port before driving back</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="day-row terra-border">
-          <div class="day-label"><strong>Day 11</strong>City Day</div>
-          <div>
-            <div class="day-title">Art, Shops &amp; Lecce Nightlife</div>
-            <div class="day-subtitle">No Driving · Full City Day</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🖼️</span>Museo Faggiano — a family excavated their basement and found 2000 years of history. Genuinely one of the most unique museums in Italy.</div>
-              <div class="day-act"><span class="act-em">🧁</span>Pasticciotto and caffè break — Lecce invented this custard-filled pastry. Try it at the original Pasticceria Ascalone.</div>
-              <div class="day-act"><span class="act-em">🛍️</span>Boutiques and ceramics workshops along Via Trinchese and Via Paladini</div>
-              <div class="day-act"><span class="act-em">🎵</span>Aperitivo and nightlife around Piazzetta Vittorio Emanuele II — this is the real Lecce going-out experience</div>
-              <div class="day-act"><span class="act-em">🍸</span>Late cocktails at a rooftop or courtyard bar in one of the baroque palazzi</div>
-            </div>
-            <div class="day-tip">💡 Lecce nightlife starts late. Aperitivo hour doesn't peak until 9pm — embrace the rhythm.</div>
-          </div>
-        </div>
-      </div>
+    <div class="day-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Ostuni_BW_2013-10-01_11-05-53.jpg/640px-Ostuni_BW_2013-10-01_11-05-53.jpg" alt="Ostuni white city" onerror="this.parentElement.innerHTML='<div class=dfallback>🤍</div>'">
     </div>
-
-    <!-- BARI -->
-    <div class="base-block">
-      <div class="base-block-header">
-        <div class="base-block-num num-gold">IV</div>
-        <div>
-          <div class="base-block-title">Bari — Finale</div>
-          <div class="base-block-meta">1 Night · Days 12–13 · Fly Out Day 13</div>
-        </div>
-      </div>
-      <div class="days-list">
-
-        <div class="day-row gold-border">
-          <div class="day-label"><strong>Day 12</strong>Bari</div>
-          <div>
-            <div class="day-title">Bari Vecchia &amp; the Lungomare</div>
-            <div class="day-subtitle">Final Full Day · Port City Energy</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">🍝</span>Bari Vecchia: Strada Arco Basso — watch and buy from the orecchiette-rolling nonnas. This is unmissable.</div>
-              <div class="day-act"><span class="act-em">⛪</span>Basilica di San Nicola — one of the most important Norman churches in Italy. The crypt is extraordinary.</div>
-              <div class="day-act"><span class="act-em">🦑</span>Lunch: raw sea urchin, panzerotti (Bari's iconic street food), fresh harbor seafood</div>
-              <div class="day-act"><span class="act-em">🌊</span>Afternoon stroll along Lungomare Nazario Sauro — Bari's sweeping seafront promenade</div>
-              <div class="day-act"><span class="act-em">🎶</span>Evening in Murattiano — Bari's modern grid with excellent restaurants, wine bars, and a lively going-out scene</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="day-row gold-border">
-          <div class="day-label"><strong>Day 13</strong>Depart</div>
-          <div>
-            <div class="day-title">Final Espresso &amp; Fly Home</div>
-            <div class="day-subtitle">Bari Airport · 15 min from Center</div>
-            <div class="day-acts">
-              <div class="day-act"><span class="act-em">☕</span>Final Italian espresso standing at a bar counter — southern Italian espresso culture at its finest</div>
-              <div class="day-act"><span class="act-em">🛍️</span>Last-minute alimentari stop: olive oil, taralli, pasta, wine to bring home</div>
-              <div class="day-act"><span class="act-em">✈️</span>Bari Karol Wojtyła Airport — return car, check in, depart</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 
+<div class="day-card bc-sage">
+  <div class="day-num-col"><div class="day-num">7</div><div class="day-num-label">Finale</div></div>
+  <div class="day-body">
+    <div>
+      <div class="day-title">Martina Franca &amp; Masseria Dinner</div>
+      <div class="day-sub">Music Town · Private Farm Dinner</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">🎼</span>Morning in <strong>Martina Franca</strong> — baroque Piazza Roma, excellent coffee bars, ceramics and textile artisan shops</div>
+        <div class="act"><span class="act-icon">🛍️</span>Browse Puglia's hand-painted ceramics — beautiful pieces and good things to bring home</div>
+        <div class="act"><span class="act-icon">🌾</span>Afternoon: get completely lost on country roads between masserias — no agenda, stop when something looks beautiful</div>
+        <div class="act"><span class="act-icon">🍖</span>Private masseria dinner using the property's own produce — arrange with your host at check-in</div>
+      </div>
+      <div class="tip">💡 Ask your masseria host about a private dinner at check-in — often the best meal of the whole trip.</div>
+    </div>
+    <div class="day-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Masseria_Torre_Coccaro.jpg/640px-Masseria_Torre_Coccaro.jpg" alt="Masseria Puglia" onerror="this.parentElement.innerHTML='<div class=dfallback>🌾</div>'">
+    </div>
+  </div>
+</div>
+```
 
-<!-- ══════════════ FOOD STRIP ══════════════ -->
-<div class="food-strip">
+  </div>
+  </div>
+
+  <!-- BASE 3: LECCE -->
+
+  <div id="lecce">
+  <div class="base-intro-block">
+    <div class="base-intro-text">
+      <div class="base-tag tag-terra">Base 3 · 4 Nights · Days 8–11</div>
+      <div class="base-intro-title">Lecce &amp;<br><em>Salento</em></div>
+      <div class="base-intro-meta">Drive ~1.5 hrs south · The Baroque Capital</div>
+      <div class="base-intro-desc">The Florence of the South — a full baroque city with golden limestone churches, university energy, art, galleries, and a genuine nightlife scene. The surrounding Salento peninsula has some of the most extraordinary beaches in Italy: crystalline blues, white cliffs, sea floors visible from meters above.</div>
+      <div class="vibes"><span class="vibe">Baroque Architecture</span><span class="vibe">Beach Days</span><span class="vibe">Art &amp; Galleries</span><span class="vibe">Nightlife</span></div>
+    </div>
+    <div class="base-intro-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Lecce_BW_2013-10-01_12-10-12.jpg/1200px-Lecce_BW_2013-10-01_12-10-12.jpg" alt="Lecce baroque cathedral" onerror="this.parentElement.innerHTML='<div class=img-fallback>⛪</div>'">
+      <div class="img-cap">Lecce · Piazza del Duomo</div>
+    </div>
+  </div>
+
+  <div class="days-list">
+    <div class="day-card bc-terra">
+      <div class="day-num-col"><div class="day-num">8</div><div class="day-num-label">Arrive</div></div>
+      <div class="day-body">
+        <div>
+          <div class="day-title">Into the Baroque Capital</div>
+          <div class="day-sub">Lecce Centro Storico · First Aperitivo</div>
+          <div class="acts">
+            <div class="act"><span class="act-icon">🚗</span>Drive ~1.5 hrs south to Lecce; check in, drop bags, leave car at hotel</div>
+            <div class="act"><span class="act-icon">⛪</span>Baroque circuit: Piazza del Duomo, Santa Croce Basilica, Roman Amphitheatre in Piazza Sant'Oronzo</div>
+            <div class="act"><span class="act-icon">🎨</span>Duck into a contemporary gallery — Lecce's art scene lives inside its historic palazzi</div>
+            <div class="act"><span class="act-icon">🍷</span>Aperitivo in Piazza Sant'Oronzo — animated, beautiful, peak Lecce social culture at dusk</div>
+            <div class="act"><span class="act-icon">🍽️</span>Dinner: ciceri e tria, horse meat ragù, extraordinary local burrata</div>
+          </div>
+        </div>
+        <div class="day-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Lecce_BW_2013-10-01_12-10-12.jpg/480px-Lecce_BW_2013-10-01_12-10-12.jpg" alt="Lecce baroque" onerror="this.parentElement.innerHTML='<div class=dfallback>⛪</div>'">
+        </div>
+      </div>
+    </div>
+
+```
+<div class="day-card bc-terra">
+  <div class="day-num-col"><div class="day-num">9</div><div class="day-num-label">Beach</div></div>
+  <div class="day-body">
+    <div>
+      <div class="day-title">Salento Beach Day</div>
+      <div class="day-sub">Ionian or Adriatic Coast · 30–50 min Drive</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">🏖️</span><strong>Ionian:</strong> Porto Cesareo or Torre dell'Orso — crystalline turquoise and fine sand. <strong>Adriatic:</strong> Baia dei Turchi near Otranto — protected nature reserve, most dramatic</div>
+        <div class="act"><span class="act-icon">🐠</span>Full beach day — late September sea is still 26–28°C and crowds thinned dramatically from August</div>
+        <div class="act"><span class="act-icon">🦞</span>Lunch at a beach club or masseria restaurant — raw sea urchin, grilled octopus, fried anchovies</div>
+        <div class="act"><span class="act-icon">🌆</span>Evening back in Lecce's neighborhood streets — local, non-touristy energy</div>
+      </div>
+      <div class="tip">💡 Baia dei Turchi near Otranto — one of Italy's most beautiful beaches. Short walk through pine forest. Get there before 10am even in late September.</div>
+    </div>
+    <div class="day-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Salento_sea.jpg/640px-Salento_sea.jpg" alt="Salento coast" onerror="this.parentElement.innerHTML='<div class=dfallback>🌊</div>'">
+    </div>
+  </div>
+</div>
+
+<div class="day-card bc-terra">
+  <div class="day-num-col"><div class="day-num">10</div><div class="day-num-label">Day Trip</div></div>
+  <div class="day-body">
+    <div>
+      <div class="day-title">Otranto &amp; Gallipoli</div>
+      <div class="day-sub">Walled Coastal Towns · Full Day Out</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">🏰</span>Morning in <strong>Otranto</strong> (45 min east) — Norman castle, UNESCO cathedral with 12th-century mosaic floor covering the entire nave, Venetian walls over electric blue water</div>
+        <div class="act"><span class="act-icon">🌊</span>Quick cliff swim near Otranto — the water here is phenomenal</div>
+        <div class="act"><span class="act-icon">🎭</span>Afternoon in <strong>Gallipoli</strong> (1 hr west, Ionian side) — baroque island city on a bridge; fish market, harbor, completely different energy</div>
+        <div class="act"><span class="act-icon">🍽️</span>Dinner in Gallipoli at the port before driving back</div>
+      </div>
+    </div>
+    <div class="day-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Otranto_-_panoramio_%281%29.jpg/640px-Otranto_-_panoramio_%281%29.jpg" alt="Otranto" onerror="this.parentElement.innerHTML='<div class=dfallback>🏰</div>'">
+    </div>
+  </div>
+</div>
+
+<div class="day-card bc-terra">
+  <div class="day-num-col"><div class="day-num">11</div><div class="day-num-label">City Day</div></div>
+  <div class="day-body">
+    <div>
+      <div class="day-title">Art, Shopping &amp; Lecce Nightlife</div>
+      <div class="day-sub">No Driving · Full City Day</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">🖼️</span>Museo Faggiano — a family excavated their basement and found 2000 years of layered history. One of the most unique museums in Italy.</div>
+        <div class="act"><span class="act-icon">🧁</span>Pasticciotto and caffè at Pasticceria Ascalone — Lecce invented this custard pastry. Non-negotiable.</div>
+        <div class="act"><span class="act-icon">🛍️</span>Boutiques, ceramics workshops, and papier-mâché artisans along Via Trinchese and Via Paladini</div>
+        <div class="act"><span class="act-icon">🎵</span>Aperitivo and bar scene around Piazzetta Vittorio Emanuele II — the real Lecce going-out culture</div>
+        <div class="act"><span class="act-icon">🍸</span>Late cocktails at a rooftop or courtyard bar in one of the baroque palazzi</div>
+      </div>
+      <div class="tip">💡 Lecce's aperitivo hour doesn't peak until 9pm. The late rhythm is part of it — embrace it fully on the last Lecce night.</div>
+    </div>
+    <div class="day-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lecce_Anfiteatro_Romano.jpg/640px-Lecce_Anfiteatro_Romano.jpg" alt="Lecce Roman amphitheatre" onerror="this.parentElement.innerHTML='<div class=dfallback>🎭</div>'">
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+  </div>
+
+  <!-- BARI -->
+
+  <div id="bari">
+  <div class="base-intro-block">
+    <div class="base-intro-text">
+      <div class="base-tag tag-gold">Final Night · Day 12 → Fly Out Day 13</div>
+      <div class="base-intro-title">Bari<br><em>Finale</em></div>
+      <div class="base-intro-meta">Drive ~1.5 hrs north from Lecce · Fly out Day 13</div>
+      <div class="base-intro-desc">A real southern Italian port city — raw, energetic, nothing like anywhere else on this trip. Bari Vecchia is one of the most atmospheric old towns in Italy: labyrinthine lanes, nonnas rolling orecchiette in real time, sea urchin at the harbor stalls, and a lively Murattiano bar scene to close on.</div>
+      <div class="vibes"><span class="vibe">Bari Vecchia</span><span class="vibe">Street Food</span><span class="vibe">Raw Seafood</span><span class="vibe">City Energy</span></div>
+    </div>
+    <div class="base-intro-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bari_Vecchia.jpg/1280px-Bari_Vecchia.jpg" alt="Bari Vecchia" onerror="this.parentElement.innerHTML='<div class=img-fallback>⚓</div>'">
+      <div class="img-cap">Bari Vecchia · The Old City</div>
+    </div>
+  </div>
+
+  <div class="days-list">
+    <div class="day-card bc-gold">
+      <div class="day-num-col"><div class="day-num">12</div><div class="day-num-label">Bari</div></div>
+      <div class="day-body">
+        <div>
+          <div class="day-title">Bari Vecchia &amp; the Lungomare</div>
+          <div class="day-sub">Final Full Day · Port City Energy</div>
+          <div class="acts">
+            <div class="act"><span class="act-icon">🍝</span><strong>Strada Arco Basso</strong> — watch the nonnas hand-roll orecchiette in the alley and buy a fresh bag. Unmissable.</div>
+            <div class="act"><span class="act-icon">⛪</span>Basilica di San Nicola — one of the most important Norman churches in Italy; the crypt is extraordinary</div>
+            <div class="act"><span class="act-icon">🦑</span>Lunch: raw sea urchin at the harbor stalls, panzerotti from Panificio Fiore, fresh taralli from the old-town bakeries</div>
+            <div class="act"><span class="act-icon">🌊</span>Stroll Lungomare Nazario Sauro — Bari's sweeping seafront promenade for a final aperitivo watching the Adriatic</div>
+            <div class="act"><span class="act-icon">🎶</span>Evening in Murattiano — Bari's modern grid with excellent restaurants, wine bars, and a lively nightlife scene to close the trip</div>
+          </div>
+        </div>
+        <div class="day-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bari_Vecchia.jpg/480px-Bari_Vecchia.jpg" alt="Bari Vecchia" onerror="this.parentElement.innerHTML='<div class=dfallback>🏙️</div>'">
+        </div>
+      </div>
+    </div>
+
+```
+<div class="day-card bc-gold">
+  <div class="day-num-col"><div class="day-num">13</div><div class="day-num-label">Depart</div></div>
+  <div class="day-body no-img">
+    <div>
+      <div class="day-title">Final Espresso &amp; Fly Home</div>
+      <div class="day-sub">Bari Airport · 15–20 min from Center</div>
+      <div class="acts">
+        <div class="act"><span class="act-icon">☕</span>Final Italian espresso standing at a bar counter — there is genuinely no better espresso in the world</div>
+        <div class="act"><span class="act-icon">🛍️</span>Last alimentari stop: Pugliese olive oil, taralli, pasta, and a bottle of Primitivo for home</div>
+        <div class="act"><span class="act-icon">✈️</span>Drive to Bari Karol Wojtyła Airport (15–20 min), return rental car, depart</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOD STRIP -->
+
+<div class="food-wrap">
   <div class="food-inner">
     <div class="section-label">Eat Everything</div>
-    <h2 class="section-title">The <em>Dishes</em> You Must Try</h2>
+    <h2 class="section-title">The <em>Dishes</em> to Know</h2>
     <div class="food-grid">
-      <div class="food-item">
-        <div class="food-emoji">🍝</div>
-        <div class="food-name">Orecchiette</div>
-        <div class="food-desc">Little ear-shaped pasta, made by hand by Bari nonnas. With cime di rapa (bitter greens) or tomato ragù.</div>
-      </div>
-      <div class="food-item">
-        <div class="food-emoji">🧀</div>
-        <div class="food-name">Burrata</div>
-        <div class="food-desc">Invented in Puglia. Eaten fresh, within hours of being made. Nothing elsewhere compares.</div>
-      </div>
-      <div class="food-item">
-        <div class="food-emoji">🥙</div>
-        <div class="food-name">Panzerotto</div>
-        <div class="food-desc">Bari's fried street food icon. Dough pockets stuffed with tomato and mozzarella, eaten standing at the street stall.</div>
-      </div>
-      <div class="food-item">
-        <div class="food-emoji">🐙</div>
-        <div class="food-name">Polpo &amp; Ricci</div>
-        <div class="food-desc">Grilled octopus and raw sea urchin. Order both at every harbor or beach club you eat at.</div>
-      </div>
-      <div class="food-item">
-        <div class="food-emoji">🫘</div>
-        <div class="food-name">Fave e Cicoria</div>
-        <div class="food-desc">Fava bean purée with sautéed chicory. The peasant soul food of Puglia — surprisingly extraordinary.</div>
-      </div>
-      <div class="food-item">
-        <div class="food-emoji">🧁</div>
-        <div class="food-name">Pasticciotto</div>
-        <div class="food-desc">Lecce's custard-filled shortcrust pastry, eaten warm for breakfast with a caffè. Invented here. Do not skip.</div>
-      </div>
-      <div class="food-item">
-        <div class="food-emoji">🌿</div>
-        <div class="food-name">Taralli</div>
-        <div class="food-desc">Crunchy ring-shaped savory biscuits made with olive oil and wine. Snack on them constantly. Buy bags to take home.</div>
-      </div>
-      <div class="food-item">
-        <div class="food-emoji">🍷</div>
-        <div class="food-name">Primitivo &amp; Verdeca</div>
-        <div class="food-desc">The regional reds (Primitivo, big and dark) and whites (Verdeca, crisp and mineral) — order local wine everywhere.</div>
-      </div>
+      <div class="food-item"><div class="food-emoji">🍝</div><div class="food-name">Orecchiette</div><div class="food-desc">Little ear-shaped pasta, hand-rolled by Bari nonnas. With cime di rapa or ragù. The soul of Puglia.</div></div>
+      <div class="food-item"><div class="food-emoji">🧀</div><div class="food-name">Burrata</div><div class="food-desc">Invented in Puglia. Eaten fresh within hours of being made. Nothing elsewhere compares — order it constantly.</div></div>
+      <div class="food-item"><div class="food-emoji">🥙</div><div class="food-name">Panzerotto</div><div class="food-desc">Bari's fried street food icon. Dough pockets stuffed with tomato and mozzarella. Eat one standing at the stall.</div></div>
+      <div class="food-item"><div class="food-emoji">🐙</div><div class="food-name">Polpo &amp; Ricci</div><div class="food-desc">Grilled octopus and raw sea urchin. Order both at every harbor and beach club you visit.</div></div>
+      <div class="food-item"><div class="food-emoji">🫘</div><div class="food-name">Fave e Cicoria</div><div class="food-desc">Fava bean purée with sautéed chicory. The peasant soul food of Puglia — surprisingly extraordinary.</div></div>
+      <div class="food-item"><div class="food-emoji">🧁</div><div class="food-name">Pasticciotto</div><div class="food-desc">Lecce's custard-filled shortcrust pastry, eaten warm at breakfast with espresso. Invented here. Non-negotiable.</div></div>
+      <div class="food-item"><div class="food-emoji">🌿</div><div class="food-name">Taralli</div><div class="food-desc">Olive oil and wine biscuit rings — snack on them constantly. Buy several bags to bring home.</div></div>
+      <div class="food-item"><div class="food-emoji">🍷</div><div class="food-name">Primitivo &amp; Verdeca</div><div class="food-desc">The regional reds (big, dark, extraordinary) and whites (crisp, mineral). Order local wine everywhere.</div></div>
     </div>
   </div>
 </div>
 
+<!-- RESTAURANTS -->
 
-<!-- ══════════════ RESTAURANTS ══════════════ -->
 <div id="restaurants">
-  <div class="restaurants-section">
-    <div class="section-label">Curated Dining</div>
-    <h2 class="section-title">Restaurant <em>Shortlist</em></h2>
-    <p class="section-intro">Highly-rated, locally-rooted picks for each base. Booking ahead is recommended for dinner — especially in Polignano and Lecce in late September.</p>
+<div class="rest-section">
+  <div class="section-label">Curated Dining</div>
+  <h2 class="section-title">Restaurant <em>Guide</em></h2>
+  <p class="section-intro">Highly-rated, locally-rooted picks for each base. Book dinner ahead wherever indicated — late September is still busy at the best spots.</p>
 
-    <!-- POLIGNANO -->
-    <div class="rest-base-group">
-      <div class="rest-base-header">
-        <div class="rest-base-dot dot-sea"></div>
-        <div class="rest-base-name">Polignano a Mare</div>
+  <!-- POLIGNANO -->
+
+  <div class="rest-group">
+    <div class="rest-group-hdr"><div class="rest-dot dot-sea"></div><div class="rest-group-name">Polignano a Mare</div></div>
+    <div class="rest-grid">
+      <div class="rest-card">
+        <div class="rest-badge rb-must">⭐ Book Way Ahead</div>
+        <div class="rest-name">Grotta Palazzese</div>
+        <div class="rest-rating">★★★★ <span>(4.0 · 4,000+ reviews)</span></div>
+        <div class="rest-desc">Cave dining built into the cliff face over the Adriatic — one of the most theatrical settings in Italy. The experience is the point. Budget ~€150–200pp with wine. Book 4–6 weeks ahead. The 7:30pm seating gives you sunset into candlelit dark.</div>
+        <div class="rest-order"><strong>Order:</strong> Tasting menu with wine pairing</div>
       </div>
-      <div class="rest-grid">
-
-        <div class="rest-card">
-          <div class="rest-pick pick-must">⭐ Book Ahead</div>
-          <div class="rest-name">Grotta Palazzese</div>
-          <div class="rest-rating">★★★★★ <span>(Iconic)</span></div>
-          <div class="rest-desc">Cave dining built into the cliff face over the sea. One of the most theatrical dining settings in Italy. The food matches the setting. Book several weeks ahead — tables fill fast.</div>
-          <div class="rest-must"><strong>Order:</strong> The tasting menu — let the chef decide</div>
-        </div>
-
-        <div class="rest-card">
-          <div class="rest-pick pick-local">Local Favorite</div>
-          <div class="rest-name">Antiche Mura</div>
-          <div class="rest-rating">★★★★☆ <span>(4.6 · 2,300+ reviews)</span></div>
-          <div class="rest-desc">Warm, elegant atmosphere in the centro storico with a superb tasting menu. Fresh seafood served the Pugliese way — clean, simple, and outstanding. Excellent service. Very good value for the quality.</div>
-          <div class="rest-must"><strong>Order:</strong> Seafood tasting menu · Local orecchiette · Sporcamuss dessert</div>
-        </div>
-
-        <div class="rest-card">
-          <div class="rest-pick pick-special">Seafront Pick</div>
-          <div class="rest-name">Calapà</div>
-          <div class="rest-rating">★★★★★ <span>(4.7 · 345 reviews)</span></div>
-          <div class="rest-desc">Excellent seafood restaurant on the lungomare with a relaxed atmosphere and impeccable fish. Staff help debone your whole fish at the table. The squid ink pasta and grilled orata are exceptional. Great for a relaxed lunch.</div>
-          <div class="rest-must"><strong>Order:</strong> Squid ink pasta · Whole grilled fish · Tuna tartare</div>
-        </div>
-
+      <div class="rest-card">
+        <div class="rest-badge rb-local">Local Favorite</div>
+        <div class="rest-name">Antiche Mura</div>
+        <div class="rest-rating">★★★★☆ <span>(4.6 · 2,300+ reviews)</span></div>
+        <div class="rest-desc">Warm, elegant atmosphere in the centro storico. Superb tasting menu with fresh Pugliese seafood. Excellent service, great value. The sporcamuss dessert (puff pastry with custard) is a must-order.</div>
+        <div class="rest-order"><strong>Order:</strong> Seafood tasting menu · Orecchiette · Sporcamuss</div>
       </div>
-    </div>
-
-    <!-- ITRIA VALLEY -->
-    <div class="rest-base-group">
-      <div class="rest-base-header">
-        <div class="rest-base-dot dot-sage"></div>
-        <div class="rest-base-name">Valle d'Itria</div>
+      <div class="rest-card">
+        <div class="rest-badge rb-sea">Seafront Lunch</div>
+        <div class="rest-name">Calapà</div>
+        <div class="rest-rating">★★★★★ <span>(4.7 · 345 reviews)</span></div>
+        <div class="rest-desc">Excellent seafood on the lungomare, relaxed atmosphere, staff who debone your whole fish tableside. Squid ink pasta and grilled orata are outstanding. Perfect for a long relaxed lunch after the morning beach.</div>
+        <div class="rest-order"><strong>Order:</strong> Squid ink pasta · Whole grilled fish · Tuna tartare</div>
       </div>
-      <div class="rest-grid">
-
-        <div class="rest-card">
-          <div class="rest-pick pick-must">⭐ Must-Eat</div>
-          <div class="rest-name">Casa Amatulli</div>
-          <div class="rest-rating">★★★★☆ <span>(4.7 · 1,600+ reviews)</span></div>
-          <div class="rest-desc">Family-run trattoria in Alberobello — authentic, generous, joyful. Multiple dining rooms so it doesn't feel crowded. Homemade pasta, excellent local wine, and complimentary pizza and olives to start. Reviewers call it a "must-eat."</div>
-          <div class="rest-must"><strong>Order:</strong> Homemade pasta · Prosciutto e formaggio platter</div>
-        </div>
-
-        <div class="rest-card">
-          <div class="rest-pick pick-local">Wine &amp; Cheese</div>
-          <div class="rest-name">Trulli e Puglia Wine Bar</div>
-          <div class="rest-rating">★★★★★ <span>(4.8 · 430 reviews)</span></div>
-          <div class="rest-desc">A subterranean oasis in Alberobello — the best place in the valley to drink wine and eat regional cold cuts and cheese. Host Mimmo is exceptional. The perfect after-exploring pit stop. Great for a long lazy afternoon.</div>
-          <div class="rest-must"><strong>Order:</strong> Cheese tasting board · Assorted meats · Local Primitivo</div>
-        </div>
-
-        <div class="rest-card">
-          <div class="rest-pick pick-casual">Trulli Terrace</div>
-          <div class="rest-name">Corte dei Trulli</div>
-          <div class="rest-rating">★★★★☆ <span>(4.5 · 490 reviews)</span></div>
-          <div class="rest-desc">Beautiful upstairs terrace dining in the heart of Alberobello. Warm, charming atmosphere with authentic Pugliese food — burrata, superb steak, traditional pasta. Better than the more touristy spots on the main strip.</div>
-          <div class="rest-must"><strong>Order:</strong> Burrata · Bistecca · House pasta</div>
-        </div>
-
+      <div class="rest-card">
+        <div class="rest-badge rb-eve">Dinner Alternative</div>
+        <div class="rest-name">La Locanda Porta Picc</div>
+        <div class="rest-rating">★★★★☆ <span>(4.6 · 2,290 reviews)</span></div>
+        <div class="rest-desc">Catch-of-the-day seafood presented tableside. Excellent risotto, solid wine list, beautiful ambiance. Good backup if Grotta Palazzese is fully booked — equally special in a different way.</div>
+        <div class="rest-order"><strong>Order:</strong> Catch of the day · Potato-crusted sea bass</div>
+      </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-sf">Gelato Stop</div>
+        <div class="rest-name">Gelateria Calore</div>
+        <div class="rest-rating">★★★★★ <span>(Local institution)</span></div>
+        <div class="rest-desc">Polignano is famous for gelato made from regional almonds and local figs. This is one of the original spots. Go after the morning beach or before the evening stroll — do it at least twice.</div>
+        <div class="rest-order"><strong>Order:</strong> Almond · Figs &amp; Walnuts · Pistachio</div>
       </div>
     </div>
-
-    <!-- LECCE -->
-    <div class="rest-base-group">
-      <div class="rest-base-header">
-        <div class="rest-base-dot dot-terra"></div>
-        <div class="rest-base-name">Lecce</div>
-      </div>
-      <div class="rest-grid">
-
-        <div class="rest-card">
-          <div class="rest-pick pick-must">⭐ Book Ahead</div>
-          <div class="rest-name">Tipico Restaurant</div>
-          <div class="rest-rating">★★★★★ <span>(4.9 · 114 reviews)</span></div>
-          <div class="rest-desc">Reviewers call it the best restaurant experience of their entire Italian trip. Housed in a vaulted former bakery of a cloister. Chef-owner Gianna is extraordinary — warm, passionate, technically brilliant. "Burnt" spaghetti and parmigiana are standouts. People break their "no-repeat" rule for this place.</div>
-          <div class="rest-must"><strong>Order:</strong> Charred spaghetti · Parmigiana · Tiramisu</div>
-        </div>
-
-        <div class="rest-card">
-          <div class="rest-pick pick-local">Lunch Staple</div>
-          <div class="rest-name">Taula</div>
-          <div class="rest-rating">★★★★★ <span>(4.8 · 1,195 reviews)</span></div>
-          <div class="rest-desc">Lively, buzzy Mediterranean restaurant in the city center — always packed, fast service, and genuinely delicious. Known for puccia (local stuffed bread) and perfectly cooked octopus. Very well priced for the quality and location. Great for an animated lunch.</div>
-          <div class="rest-must"><strong>Order:</strong> Octopus with mashed potato · Puccia con mortadella e burrata</div>
-        </div>
-
-        <div class="rest-card">
-          <div class="rest-pick pick-casual">Evening Option</div>
-          <div class="rest-name">La Locanda Porta Picc</div>
-          <div class="rest-rating">★★★★☆ <span>(4.6 · 2,290 reviews)</span></div>
-          <div class="rest-desc">Well-loved restaurant in Polignano that also has a Lecce following — worth seeking out for an elegant dinner. Fresh fish shown tableside before ordering. Excellent risotto, beautiful wine list. Good for a special evening.</div>
-          <div class="rest-must"><strong>Order:</strong> Catch of the day · Sea bass crust · Wine pairing</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- BARI -->
-    <div class="rest-base-group">
-      <div class="rest-base-header">
-        <div class="rest-base-dot dot-gold"></div>
-        <div class="rest-base-name">Bari</div>
-      </div>
-      <div class="rest-grid">
-
-        <div class="rest-card">
-          <div class="rest-pick pick-must">⭐ The One</div>
-          <div class="rest-name">La Cantina dello Zio</div>
-          <div class="rest-rating">★★★★☆ <span>(4.7 · 15,400+ reviews)</span></div>
-          <div class="rest-desc">One of the most beloved restaurants in Bari Vecchia — feels like "having dinner with family." Complimentary olives, taralli, and bruschetta to start; limoncello to finish. Orecchiette, gnocchi, and pizza all exceptional. Host Anna is legendary. The warmth here is real.</div>
-          <div class="rest-must"><strong>Order:</strong> Orecchiette · Pizza · House gnocchi · Limoncello</div>
-        </div>
-
-        <div class="rest-card">
-          <div class="rest-pick pick-local">Old Town Gem</div>
-          <div class="rest-name">Le Nicchie</div>
-          <div class="rest-rating">★★★★☆ <span>(4.7 · 3,100+ reviews)</span></div>
-          <div class="rest-desc">Charming outdoor terrace in a picturesque old-town street. Consistently excellent seafood pasta and the local specialty spaghetti all'assassina (spicy, caramelized). One of the best in Bari for traditional Pugliese cooking. Good house wine.</div>
-          <div class="rest-must"><strong>Order:</strong> Spaghetti all'assassina · Seafood pasta · Octopus</div>
-        </div>
-
-        <div class="rest-card">
-          <div class="rest-pick pick-casual">Street Food</div>
-          <div class="rest-name">Bari Vecchia Street Circuit</div>
-          <div class="rest-rating">★★★★★ <span>(Free)</span></div>
-          <div class="rest-desc">Not a restaurant — a circuit. Start with raw sea urchin at the harbor fish stalls. Then panzerotto fritto from Panificio Fiore on Via Chirulli. End with fresh taralli from any of the bread bakeries in the old town. This is the essential Bari food experience.</div>
-          <div class="rest-must"><strong>Order:</strong> Ricci di mare · Panzerotto · Taralli caldi</div>
-        </div>
-
-      </div>
-    </div>
-
   </div>
-</div>
 
+  <!-- ITRIA VALLEY -->
 
-<!-- ══════════════ HOTELS ══════════════ -->
-<div class="hotels-wrap" id="hotels">
-  <div class="hotels-inner">
-    <div class="section-label">Where We Sleep</div>
-    <h2 class="section-title">Hotel <em>Options</em></h2>
-    <p class="section-intro">Top picks for each base — ranging from cliff-top spa retreats and trulli farmhouses to baroque palazzo hotels. Final hotel selection TBD once we decide on style and budget.</p>
-
-    <!-- POLIGNANO HOTELS -->
-    <div class="hotels-base-group">
-      <div class="hotels-base-header">
-        <div class="hdot" style="background:var(--sea)"></div>
-        Base 1 &nbsp;·&nbsp; Polignano a Mare &nbsp;·&nbsp; 4 Nights
+  <div class="rest-group">
+    <div class="rest-group-hdr"><div class="rest-dot dot-sage"></div><div class="rest-group-name">Valle d'Itria</div></div>
+    <div class="rest-grid">
+      <div class="rest-card">
+        <div class="rest-badge rb-must">⭐ Home Restaurant</div>
+        <div class="rest-name">Terra Mia — Chef Pasquale</div>
+        <div class="rest-rating">★★★★★ <span>(5.0 · 47 reviews)</span></div>
+        <div class="rest-desc">A home restaurant in Martina Franca — Pasquale cooks wave after wave of dishes rooted in 100-year-old farmers' recipes: antipasti, handmade orecchiette, bombette (Pugliese stuffed pork rolls). Guests call it "what you dream of when you book Italy." €30pp, book ahead.</div>
+        <div class="rest-order"><strong>Order:</strong> Let Pasquale decide — he'll keep bringing food until you stop him</div>
       </div>
-      <div class="hotels-grid">
-        <div class="hotel-card">
-          <div class="hotel-badge badge-top">⭐ Top Pick</div>
-          <div class="hotel-name">Giovì Relais</div>
-          <div class="hotel-stars">★★★★</div>
-          <div class="hotel-desc">Right in the centro storico. Spa-forward boutique with uniquely designed rooms, rooftop breakfast terrace with sea views, and golf-cart pickup from parking. Best location in town — everything walkable.</div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-badge badge-alt">Spa Resort</div>
-          <div class="hotel-name">San Lorenzo Boutique &amp; Spa</div>
-          <div class="hotel-stars">★★★★★ (4.8)</div>
-          <div class="hotel-desc">Tranquil oasis just outside town. Stunning pool, exceptional on-site restaurant, full spa. Staff consistently go above and beyond. Best if you want resort feel + easy drive into town.</div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-badge badge-gem">Views</div>
-          <div class="hotel-name">Borgobianco Resort &amp; Spa</div>
-          <div class="hotel-stars">★★★★ (4.5)</div>
-          <div class="hotel-desc">Rural "borgo" with breathtaking olive grove and sea views, large pool, and shuttle service to Polignano. Most authentic Pugliese estate atmosphere. Go for a superior or suite.</div>
-        </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-must">⭐ Most Reviews</div>
+        <div class="rest-name">La Pasteria — Martina Franca</div>
+        <div class="rest-rating">★★★★★ <span>(4.9 · 7,200+ reviews)</span></div>
+        <div class="rest-desc">One of the highest-rated restaurants in all of Puglia with an extraordinary volume of reviews. Homemade pasta, outstanding tiramisu, impeccable service. Fills up fast even on weekdays — book ahead. Guests call it "the best of the entire trip" consistently.</div>
+        <div class="rest-order"><strong>Order:</strong> Fresh pasta of the day · Lasagna · House tiramisu</div>
+      </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-local">Alberobello</div>
+        <div class="rest-name">Casa Amatulli</div>
+        <div class="rest-rating">★★★★☆ <span>(4.7 · 1,600+ reviews)</span></div>
+        <div class="rest-desc">Family-run trattoria in the heart of Alberobello. Authentic, generous, joyful. Complimentary pizza and olives to start, homemade pasta and excellent local wine. Multiple rooms so it doesn't feel crowded. A reliable and genuinely warm choice.</div>
+        <div class="rest-order"><strong>Order:</strong> Homemade pasta · Prosciutto e formaggio board</div>
+      </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-sea">Wine &amp; Cheese</div>
+        <div class="rest-name">Trulli e Puglia Wine Bar</div>
+        <div class="rest-rating">★★★★★ <span>(4.8 · 430 reviews)</span></div>
+        <div class="rest-desc">Subterranean wine bar in Alberobello — best spot in the valley for regional wine, cold cuts, and local cheese. Host Mimmo is exceptional. Perfect long lazy afternoon pit stop between the hilltop towns.</div>
+        <div class="rest-order"><strong>Order:</strong> Cheese &amp; salumi board · Locorotondo Verdeca · Primitivo</div>
+      </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-eve">Ostuni Pick</div>
+        <div class="rest-name">Osteria Piazzetta Cattedrale</div>
+        <div class="rest-rating">★★★★☆ <span>(4.4 · 480 reviews)</span></div>
+        <div class="rest-desc">Michelin-recommended gem in Ostuni's old city. Husband-and-wife team: she cooks, he runs the floor. Five-course set menu for €35 — guests call it "the best meal in all of Italy." Very small; book well ahead for dinner. Worth the planning.</div>
+        <div class="rest-order"><strong>Order:</strong> €35 tasting menu · Truffle ravioli · Chocolate rum dessert</div>
       </div>
     </div>
+  </div>
 
-    <!-- ITRIA VALLEY HOTELS -->
-    <div class="hotels-base-group">
-      <div class="hotels-base-header">
-        <div class="hdot" style="background:var(--sage)"></div>
-        Base 2 &nbsp;·&nbsp; Valle d'Itria &nbsp;·&nbsp; 3 Nights
+  <!-- LECCE -->
+
+  <div class="rest-group">
+    <div class="rest-group-hdr"><div class="rest-dot dot-terra"></div><div class="rest-group-name">Lecce</div></div>
+    <div class="rest-grid">
+      <div class="rest-card">
+        <div class="rest-badge rb-must">⭐ Best in Lecce</div>
+        <div class="rest-name">Tipico Restaurant</div>
+        <div class="rest-rating">★★★★★ <span>(4.9 · 118 reviews)</span></div>
+        <div class="rest-desc">Reviewers call it the best restaurant experience of their entire Italian trip. A vaulted former convent bakery. Chef-owner Gianna is extraordinary. "Burnt" spaghetti, parmigiana, and tiramisu are standouts. People break their no-repeat rule for this one.</div>
+        <div class="rest-order"><strong>Order:</strong> Charred spaghetti · Parmigiana · Tiramisu</div>
       </div>
-      <div class="hotels-grid">
-        <div class="hotel-card">
-          <div class="hotel-badge badge-top">⭐ Top Pick</div>
-          <div class="hotel-name">Masseria Surace</div>
-          <div class="hotel-stars">★★★★★ (5.0)</div>
-          <div class="hotel-desc">5.0 rating — a working masseria near Noci, perfectly central to all Itria Valley towns. Farm-to-table breakfasts, private spa, stunning pool, warm family hospitality. Book the master suite with private jacuzzi.</div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-badge badge-alt">Sleep in Trulli</div>
-          <div class="hotel-name">Materiis Agriturismo</div>
-          <div class="hotel-stars">★★★★★ (4.9)</div>
-          <div class="hotel-desc">Individual restored trulli on a working farm — each one private and unique, some with jacuzzis. Exceptional hosts Elena and Mark. Regional farm breakfasts. The experience of sleeping in an actual trullo is genuinely special.</div>
-        </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-local">Lively Lunch</div>
+        <div class="rest-name">Taula</div>
+        <div class="rest-rating">★★★★★ <span>(4.8 · 1,195 reviews)</span></div>
+        <div class="rest-desc">Always packed, fast service, excellent Mediterranean food. Known for puccia (local stuffed bread) and perfectly cooked octopus. Great value for the quality and location. Best for a buzzy, animated lunch in the centro storico.</div>
+        <div class="rest-order"><strong>Order:</strong> Octopus &amp; mashed potato · Puccia con mortadella e burrata</div>
+      </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-eve">Steak Night</div>
+        <div class="rest-name">Tabisca — il Vico dei Tagliati</div>
+        <div class="rest-rating">★★★★☆ <span>(4.7 · 1,800+ reviews)</span></div>
+        <div class="rest-desc">Beloved Lecce steak restaurant in a tiny backstreet. Steak arrives seared on a hot stone — you cook it to taste. Host Danila is brilliant. Reviewers say they'd fly back to Lecce just for this. Exceptional for a special evening.</div>
+        <div class="rest-order"><strong>Order:</strong> Bistecca on hot stone · Smoked seafood carpaccio · Sommelier wine pairing</div>
+      </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-sea">Late Night Bar</div>
+        <div class="rest-name">Crianza</div>
+        <div class="rest-rating">★★★★☆ <span>(4.6 · 1,338 reviews)</span></div>
+        <div class="rest-desc">The best aperitivo and late-evening spot in Lecce — open until 2am. Excellent bruschette, cheese boards, and brisket dishes. Lively atmosphere, great music. Perfect for the Day 11 nightlife closer.</div>
+        <div class="rest-order"><strong>Order:</strong> Brisket bruschetta · Cheese board · Local Primitivo</div>
       </div>
     </div>
+  </div>
 
-    <!-- LECCE HOTELS -->
-    <div class="hotels-base-group">
-      <div class="hotels-base-header">
-        <div class="hdot" style="background:var(--terra)"></div>
-        Base 3 &nbsp;·&nbsp; Lecce &nbsp;·&nbsp; 4 Nights
-      </div>
-      <div class="hotels-grid">
-        <div class="hotel-card">
-          <div class="hotel-badge badge-top">⭐ The Splurge</div>
-          <div class="hotel-name">La Fiermontina</div>
-          <div class="hotel-stars">★★★★★ (4.7)</div>
-          <div class="hotel-desc">A genuine Lecce institution — luxury baroque palazzo with private gardens, olive trees, art installations, and extraordinary staff. Reviewers call it "the best hotel they've ever stayed in." Private museum on property. The definitive Lecce experience.</div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-badge badge-alt">Boutique Gem</div>
-          <div class="hotel-name">Pollicastro Boutique Hotel</div>
-          <div class="hotel-stars">★★★★★ (4.7)</div>
-          <div class="hotel-desc">12-room palazzo in the old quarter with a rooftop terrace overlooking the city. Exceptional staff, beautiful rooms, and great walking access to everything. Slightly more intimate and affordable than La Fiermontina.</div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-badge badge-gem">Hidden Gem</div>
-          <div class="hotel-name">Palazzo Giusti</div>
-          <div class="hotel-stars">★★★★★ (4.8)</div>
-          <div class="hotel-desc">Only 11 rooms behind a 100-year-old limestone facade on a quiet side street. Modern design, impeccable service, fantastic breakfast. Reviewers call it "perfect in every way." The most refined and understated option.</div>
-        </div>
-      </div>
-    </div>
+  <!-- BARI -->
 
-    <!-- BARI HOTELS -->
-    <div class="hotels-base-group">
-      <div class="hotels-base-header">
-        <div class="hdot" style="background:var(--gold)"></div>
-        Final Night &nbsp;·&nbsp; Bari &nbsp;·&nbsp; 1 Night
+  <div class="rest-group">
+    <div class="rest-group-hdr"><div class="rest-dot dot-gold"></div><div class="rest-group-name">Bari</div></div>
+    <div class="rest-grid">
+      <div class="rest-card">
+        <div class="rest-badge rb-must">⭐ The One</div>
+        <div class="rest-name">La Cantina dello Zio</div>
+        <div class="rest-rating">★★★★☆ <span>(4.7 · 15,400+ reviews)</span></div>
+        <div class="rest-desc">One of the most beloved restaurants in Bari Vecchia — host Anna makes it feel like dining with family. Complimentary taralli, bruschetta, olives, and limoncello to close. Orecchiette, gnocchi, and pizza all exceptional. The warmest dining experience in Puglia.</div>
+        <div class="rest-order"><strong>Order:</strong> Orecchiette · House gnocchi · Complimentary limoncello</div>
       </div>
-      <div class="hotels-grid">
-        <div class="hotel-card">
-          <div class="hotel-badge badge-top">⭐ Top Pick</div>
-          <div class="hotel-name">200 Rooms &amp; Terrace</div>
-          <div class="hotel-stars">★★★★ (4.8)</div>
-          <div class="hotel-desc">Beautifully designed modern B&amp;B in the Murattiano district, 6 min walk from the station, easy airport access in the morning. Lovely terrace, solid breakfast. Perfect one-night landing pad.</div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-badge badge-alt">Central</div>
-          <div class="hotel-name">Vimini Corso Cavour</div>
-          <div class="hotel-stars">★★★★★ (5.0)</div>
-          <div class="hotel-desc">5.0-rated boutique B&amp;B between the station and old town. Host Antonio is exceptional — thoughtful touches, great local knowledge. Pasticciotto from Lecce at breakfast. Genuine Italian hospitality for the final night.</div>
-        </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-local">Old Town Gem</div>
+        <div class="rest-name">Le Nicchie</div>
+        <div class="rest-rating">★★★★☆ <span>(4.7 · 3,100+ reviews)</span></div>
+        <div class="rest-desc">Charming outdoor terrace in a picturesque old-town street. Excellent seafood pasta and the Bari specialty spaghetti all'assassina (spicy, caramelized). One of the best in Bari for traditional cooking. Good house wine.</div>
+        <div class="rest-order"><strong>Order:</strong> Spaghetti all'assassina · Seafood pasta · Octopus</div>
+      </div>
+      <div class="rest-card">
+        <div class="rest-badge rb-sf">Street Circuit</div>
+        <div class="rest-name">Bari Vecchia Street Food</div>
+        <div class="rest-rating">★★★★★ <span>(Essential)</span></div>
+        <div class="rest-desc">Not a restaurant — a circuit. Strada Arco Basso for fresh orecchiette. Harbor fish stalls for raw sea urchin. Panificio Fiore on Via Chirulli for panzerotto fritto. Any old-town bakery for warm taralli. The unmissable Bari experience.</div>
+        <div class="rest-order"><strong>Do:</strong> Ricci di mare · Panzerotto fritto · Orecchiette from the nonne</div>
       </div>
     </div>
   </div>
 </div>
+</div>
 
+<!-- HOTELS -->
 
-<!-- ══════════════ PRACTICAL INFO ══════════════ -->
-<div class="practical">
-  <div class="practical-inner">
-    <div class="section-label">Good to Know</div>
-    <h2 class="section-title">Practical <em>Notes</em></h2>
-    <div class="practical-grid">
+<div id="hotels" class="hotels-wrap">
+<div class="hotels-inner">
+  <div class="section-label">Where We Sleep</div>
+  <h2 class="section-title">Hotel <em>Options</em></h2>
+  <p class="section-intro">Expanded picks for each base — final selections TBD. From cliff-top spa retreats and trulli farmhouses to baroque palazzo hotels and Bari city gems.</p>
 
-      <div class="prac-card">
-        <div class="prac-icon">🚗</div>
-        <div class="prac-title">Getting Around</div>
-        <ul class="prac-list">
-          <li>Pick up rental car at Bari Airport on Day 1</li>
-          <li>Car essential for Itria Valley — the masserie and towns require it</li>
-          <li>Polignano parking is limited; use the paid lots outside and walk in</li>
-          <li>Lecce has ZTL zones — confirm hotel parking before driving in</li>
-          <li>Return car at Bari Airport on Day 13 before departure</li>
-        </ul>
+  <!-- POLIGNANO HOTELS -->
+
+  <div class="h-group">
+    <div class="h-group-hdr"><div class="hdot" style="background:var(--sea)"></div>Base 1 · Polignano a Mare · 4 Nights</div>
+    <div class="h-grid">
+      <div class="h-card">
+        <div class="h-badge hb-top">⭐ Best Location</div>
+        <div class="h-name">Giovì Relais</div>
+        <div class="h-stars">★★★★ (4.4)</div>
+        <div class="h-desc">Right in the centro storico on Via Roma. Golf-cart pickup from parking, spa boutique rooms, rooftop breakfast terrace with sea views. Best location in town; everything walkable. The pick if you want to be in the thick of the old town.</div>
       </div>
-
-      <div class="prac-card">
-        <div class="prac-icon">🗓️</div>
-        <div class="prac-title">Late September Timing</div>
-        <ul class="prac-list">
-          <li>Peak summer crowds (August) are gone — significantly better</li>
-          <li>Sea temperature still 26–28°C — full swimming season</li>
-          <li>Daytime 26–28°C, evenings cooling to 18–20°C — perfect</li>
-          <li>Harvest season: olive oil, wine, local produce at peak quality</li>
-          <li>Some beach clubs begin scaling back — book lunch ahead</li>
-        </ul>
+      <div class="h-card">
+        <div class="h-badge hb-alt">Spa &amp; Pool</div>
+        <div class="h-name">San Lorenzo Boutique &amp; Spa</div>
+        <div class="h-stars">★★★★★ (4.8)</div>
+        <div class="h-desc">Tranquil oasis just outside town. Stunning pool, exceptional restaurant, full spa, staff who go above and beyond. Need a car or taxi to reach the old town (~€35 each way). The resort pick for those who want pool days over street wandering.</div>
       </div>
-
-      <div class="prac-card">
-        <div class="prac-icon">📋</div>
-        <div class="prac-title">Booking Priorities</div>
-        <ul class="prac-list">
-          <li>Grotta Palazzese, Polignano — book weeks ahead</li>
-          <li>Tipico Restaurant, Lecce — book ahead; small and very popular</li>
-          <li>Masseria private dinner — arrange with host at check-in</li>
-          <li>Boat tour (sea grottos) — book at harbor morning of, or day before</li>
-          <li>La Fiermontina, Lecce — high demand; book early</li>
-        </ul>
+      <div class="h-card">
+        <div class="h-badge hb-gem">Views &amp; Grounds</div>
+        <div class="h-name">Borgobianco Resort &amp; Spa</div>
+        <div class="h-stars">★★★★ (4.5)</div>
+        <div class="h-desc">Rural "borgo" surrounded by olive trees with breathtaking sea views, large pool, and shuttle to Polignano. Most authentic Pugliese estate atmosphere. Book a superior or suite — some standard rooms have had mixed reviews on condition.</div>
       </div>
-
-      <div class="prac-card">
-        <div class="prac-icon">🍽️</div>
-        <div class="prac-title">Italian Dining Rhythm</div>
-        <ul class="prac-list">
-          <li>Lunch: 12:30–2:30pm. Dinner: 8–10pm. Don't arrive at 6pm.</li>
-          <li>Aperitivo hour typically 6–8pm — order Campari, Aperol, or local amaro</li>
-          <li>Coperto (cover charge) is standard — not optional, not a scam</li>
-          <li>Digestivo (amaro, limoncello) often complimentary at good restaurants</li>
-          <li>Standing espresso at the bar costs less and tastes better</li>
-        </ul>
+      <div class="h-card">
+        <div class="h-badge hb-alt">Right on the Sea</div>
+        <div class="h-name">Canne Bianche Lifestyle &amp; Hotel</div>
+        <div class="h-stars">★★★★★ (4.8)</div>
+        <div class="h-desc">At Torre Canne (short drive south), right on the Adriatic. Stunning design, concierge-arranged excursions, excellent restaurant, and staff who "treat guests like royalty." Reviewers say it's a place you don't want to leave. Junior suite with jacuzzi is the pick.</div>
       </div>
+    </div>
+  </div>
 
-      <div class="prac-card">
-        <div class="prac-icon">🗣️</div>
-        <div class="prac-title">Language</div>
-        <ul class="prac-list">
-          <li>English widely understood in tourist areas; less so in rural Itria Valley</li>
-          <li>A few Italian phrases go a long way — locals respond warmly</li>
-          <li>Google Translate camera mode works well for menus</li>
-          <li>Key phrases: grazie, prego, per favore, il conto (the bill), buongiorno</li>
-          <li>Pugliese dialect is its own thing — don't worry about it</li>
-        </ul>
+  <!-- ITRIA VALLEY HOTELS -->
+
+  <div class="h-group">
+    <div class="h-group-hdr"><div class="hdot" style="background:var(--sage)"></div>Base 2 · Valle d'Itria · 3 Nights</div>
+    <div class="h-grid">
+      <div class="h-card">
+        <div class="h-badge hb-top">⭐ Top Pick</div>
+        <div class="h-name">Masseria Surace</div>
+        <div class="h-stars">★★★★★ (5.0)</div>
+        <div class="h-desc">Perfect 5.0 rating. Working masseria near Noci, centrally placed for all Itria Valley destinations. Farm-to-table breakfasts, private spa, stunning pool. Family hospitality guests describe as transformative. Book the master suite with private jacuzzi.</div>
       </div>
-
-      <div class="prac-card">
-        <div class="prac-icon">💶</div>
-        <div class="prac-title">Money &amp; Budget</div>
-        <ul class="prac-list">
-          <li>Cards widely accepted in hotels and most restaurants</li>
-          <li>Cash needed for smaller trattorias, street food, and markets</li>
-          <li>Bring €20–30 in small bills per person per day for incidentals</li>
-          <li>Tipping not required; rounding up or leaving €2–5 is appreciated</li>
-          <li>Wine with dinner typically €20–40 for a good local bottle</li>
-        </ul>
+      <div class="h-card">
+        <div class="h-badge hb-alt">Sleep in a Trullo</div>
+        <div class="h-name">Materiis Agriturismo</div>
+        <div class="h-stars">★★★★★ (4.9)</div>
+        <div class="h-desc">Individual restored trulli on a working farm — each private and unique, some with jacuzzis. Hosts Elena and Mark are exceptional. Regional farm breakfasts, serene setting. Sleeping in an actual trullo is a genuinely special experience.</div>
       </div>
+      <div class="h-card">
+        <div class="h-badge hb-gem">Farmhouse Pool</div>
+        <div class="h-name">Masseria Trulli &amp; Stelle</div>
+        <div class="h-stars">★★★★★ (4.9)</div>
+        <div class="h-desc">Host Paola's masseria near Noci — "one of the most beautiful places I've ever been to" from multiple guests. Trulli rooms, pool area, exceptional homemade breakfasts, free bar with homemade lemonade. 20-min walk to Alberobello.</div>
+      </div>
+      <div class="h-card">
+        <div class="h-badge hb-alt">Authentic Farm Stay</div>
+        <div class="h-name">B&amp;B Ancient Trulli Farm</div>
+        <div class="h-stars">★★★★☆ (4.8)</div>
+        <div class="h-desc">Working dairy farm on the Noci–Alberobello road. Kind host Maria, farm animals, homemade mozzarella as a welcome. Not a polished resort but a genuine Pugliese farm experience. 10 min to Alberobello.</div>
+      </div>
+    </div>
+  </div>
 
+  <!-- LECCE HOTELS -->
+
+  <div class="h-group">
+    <div class="h-group-hdr"><div class="hdot" style="background:var(--terra)"></div>Base 3 · Lecce · 4 Nights</div>
+    <div class="h-grid">
+      <div class="h-card">
+        <div class="h-badge hb-top">⭐ The Splurge</div>
+        <div class="h-name">La Fiermontina</div>
+        <div class="h-stars">★★★★★ (4.7)</div>
+        <div class="h-desc">A Lecce institution — luxury baroque palazzo with private gardens, olive trees, art installations, and staff consistently called "the best in Italy." Has its own private museum. Guests say they didn't want to leave. The definitive Lecce experience.</div>
+      </div>
+      <div class="h-card">
+        <div class="h-badge hb-alt">16th-Century Palazzo</div>
+        <div class="h-name">Palazzo Maresgallo Suites &amp; Spa</div>
+        <div class="h-stars">★★★★★ (4.9)</div>
+        <div class="h-desc">Beautifully restored 16th-century palace with rooftop terrace bar, spa, and owner Miriam who welcomes every guest personally. One of the highest-rated in Lecce. Reviewers call it "an experience of cultivated elegance."</div>
+      </div>
+      <div class="h-card">
+        <div class="h-badge hb-gem">Boutique Gem</div>
+        <div class="h-name">Pollicastro Boutique Hotel</div>
+        <div class="h-stars">★★★★★ (4.7)</div>
+        <div class="h-desc">12-room palazzo in the old quarter with a rooftop terrace overlooking the city. Exceptional staff, beautiful rooms, walkable to everything. More intimate and slightly more affordable than La Fiermontina — ideal if you want something quiet and refined.</div>
+      </div>
+      <div class="h-card">
+        <div class="h-badge hb-alt">Rooftop Pool</div>
+        <div class="h-name">Palazzo Lecce — Epoca Collection</div>
+        <div class="h-stars">★★★★★ (4.9)</div>
+        <div class="h-desc">Beautiful palazzo in the old city with rooftop dipping pool, sauna, and manager Valentina who provides impeccable service. Great breakfast, walking distance to all major sights. Best for those who want a rooftop experience with the historic setting.</div>
+      </div>
+      <div class="h-card">
+        <div class="h-badge hb-gem">Hidden Gem</div>
+        <div class="h-name">Palazzo Giusti</div>
+        <div class="h-stars">★★★★★ (4.8)</div>
+        <div class="h-desc">Only 11 rooms behind a 100-year-old limestone facade on a quiet side street. Modern design, impeccable service, excellent breakfast. Reviewers call it "perfect in every way." The most understated and refined option in Lecce.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARI HOTELS -->
+
+  <div class="h-group">
+    <div class="h-group-hdr"><div class="hdot" style="background:var(--gold)"></div>Final Night · Bari · 1 Night</div>
+    <div class="h-grid">
+      <div class="h-card">
+        <div class="h-badge hb-top">⭐ Design Hotel</div>
+        <div class="h-name">Bra Hotel Bari</div>
+        <div class="h-stars">★★★★★ (4.8)</div>
+        <div class="h-desc">One of Bari's most beautiful new hotels. Stunning Italian coastal design, marble bathrooms, rooftop bar and restaurant, private spa, and wine chilled on arrival. Staff called "flawless." Perfect final-night splurge if you want to end in style.</div>
+      </div>
+      <div class="h-card">
+        <div class="h-badge hb-alt">Old Town Immersion</div>
+        <div class="h-name">Palazzo Calò</div>
+        <div class="h-stars">★★★★☆ (4.5)</div>
+        <div class="h-desc">Boutique hotel right inside Bari Vecchia — walking distance to the orecchiette alleys, basilica, and harbor. Owner Vivienne runs a fantastic restaurant with expert wine pairing. Confirm room type — some have beds in a loft configuration.</div>
+      </div>
+      <div class="h-card">
+        <div class="h-badge hb-gem">Piazza Views</div>
+        <div class="h-name">Old Town Vibe</div>
+        <div class="h-stars">★★★★★ (5.0)</div>
+        <div class="h-desc">Brand-new boutique guesthouse with a balcony over a beautiful piazza in Bari Vecchia. Stylish, exceptional shower, host David with outstanding local knowledge. One of the most atmospheric stays in the old city. Very limited rooms — book early.</div>
+      </div>
+      <div class="h-card">
+        <div class="h-badge hb-alt">Practical Pick</div>
+        <div class="h-name">200 Rooms &amp; Terrace</div>
+        <div class="h-stars">★★★★ (4.8)</div>
+        <div class="h-desc">Well-designed modern B&amp;B in the Murattiano district, 6 min from the station, easy airport access in the morning. Lovely terrace, solid breakfast. The no-fuss practical pick for a final night — easy base for Murattiano's restaurants.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- PRACTICAL -->
+
+<div class="prac-wrap">
+  <div class="section-label">Good to Know</div>
+  <h2 class="section-title">Practical <em>Notes</em></h2>
+  <div class="prac-grid">
+    <div class="prac-card">
+      <div class="prac-icon">🚗</div>
+      <div class="prac-title">Getting Around</div>
+      <ul class="prac-list">
+        <li>Pick up rental car at Bari Airport on Day 1</li>
+        <li>Car essential for Itria Valley — masserias and towns require it</li>
+        <li>Polignano: paid lots outside the old town, walk in — don't drive the centro storico</li>
+        <li>Lecce ZTL zones — confirm hotel parking before driving in</li>
+        <li>Return car at Bari Airport on Day 13 before departure</li>
+      </ul>
+    </div>
+    <div class="prac-card">
+      <div class="prac-icon">🗓️</div>
+      <div class="prac-title">Late September Timing</div>
+      <ul class="prac-list">
+        <li>August crowds are completely gone — significantly better</li>
+        <li>Sea temperature 26–28°C — full swimming season</li>
+        <li>Daytime 26–28°C, evenings cooling to 18–20°C — ideal</li>
+        <li>Harvest season: olive oil, wine, figs, grapes at peak quality</li>
+        <li>Some beach clubs scale back hours — book coastal lunch ahead</li>
+      </ul>
+    </div>
+    <div class="prac-card">
+      <div class="prac-icon">📋</div>
+      <div class="prac-title">Booking Priorities</div>
+      <ul class="prac-list">
+        <li>Grotta Palazzese — 4–6 weeks ahead minimum</li>
+        <li>Tipico Restaurant, Lecce — small; book ahead</li>
+        <li>Osteria Piazzetta Cattedrale, Ostuni — tiny; book ahead</li>
+        <li>Terra Mia &amp; La Pasteria, Martina Franca — book ahead</li>
+        <li>Masseria private dinner — arrange with host at check-in</li>
+        <li>Boat tour (sea grottos) — book at harbor day-of or night before</li>
+      </ul>
+    </div>
+    <div class="prac-card">
+      <div class="prac-icon">🍽️</div>
+      <div class="prac-title">Italian Dining Rhythm</div>
+      <ul class="prac-list">
+        <li>Lunch: 12:30–2:30pm. Dinner: 8–10pm. Don't arrive at 6pm.</li>
+        <li>Aperitivo hour: 6–8pm — Campari, Aperol, or local amaro</li>
+        <li>Coperto (cover charge) is standard and not optional</li>
+        <li>Digestivo often complimentary at good restaurants</li>
+        <li>Standing espresso at the bar is cheaper and tastes better</li>
+      </ul>
+    </div>
+    <div class="prac-card">
+      <div class="prac-icon">🗣️</div>
+      <div class="prac-title">Language Notes</div>
+      <ul class="prac-list">
+        <li>English understood in tourist-facing areas; less so in rural Itria Valley</li>
+        <li>Google Translate camera mode works excellently for menus</li>
+        <li>Key phrases: buongiorno, grazie, prego, per favore, il conto</li>
+        <li>A few Italian words go a very long way — locals respond warmly</li>
+      </ul>
+    </div>
+    <div class="prac-card">
+      <div class="prac-icon">💶</div>
+      <div class="prac-title">Money &amp; Budget</div>
+      <ul class="prac-list">
+        <li>Cards accepted widely at hotels and most restaurants</li>
+        <li>Cash needed for street food, small trattorias, and markets</li>
+        <li>€20–30 per person per day in small bills for incidentals</li>
+        <li>Tipping not required; €2–5 rounding up is appreciated</li>
+        <li>Good local wine with dinner: €20–40 per bottle</li>
+      </ul>
     </div>
   </div>
 </div>
 
+<!-- FOOTER -->
 
-<!-- ══════════════ FOOTER ══════════════ -->
 <footer>
   <div class="footer-title">Puglia</div>
-  <div class="footer-line"></div>
+  <div class="footer-rule"></div>
   <div class="footer-text">
-    <span>Early October</span><br>
+    <span>Late September — Early October</span><br>
     Polignano a Mare &nbsp;·&nbsp; Valle d'Itria &nbsp;·&nbsp; Lecce &amp; Salento &nbsp;·&nbsp; Bari<br>
     <span>13 Days &nbsp;·&nbsp; Southern Italy</span>
   </div>
