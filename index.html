@@ -206,6 +206,85 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
 .footer-text { font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(247,242,234,0.22); line-height:2.3; }
 .footer-text span { color:var(–gold-light); }
 
+/* ── SCENE PANELS ── */
+.scene-panel {
+width: 100%;
+height: 100%;
+min-height: 220px;
+position: relative;
+display: flex;
+align-items: flex-end;
+overflow: hidden;
+}
+.scene-overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);
+z-index: 1;
+}
+.scene-content {
+position: relative;
+z-index: 2;
+padding: 14px 16px;
+width: 100%;
+}
+.scene-icon {
+font-size: 32px;
+display: block;
+margin-bottom: 4px;
+filter: drop-shadow(0 1px 4px rgba(0,0,0,0.4));
+}
+.scene-loc {
+font-size: 9px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.88);
+}
+
+/* Hero/mosaic panels are taller */
+.scene-polignano-hero, .scene-trulli-hero, .scene-lecce-hero, .scene-bari-hero {
+min-height: 300px;
+}
+
+/* Per-location gradient backgrounds */
+.scene-polignano, .scene-polignano-hero {
+background: linear-gradient(160deg, #0d2d4a 0%, #1a5a80 30%, #2e8fba 55%, #5ab8d8 75%, #90d4ec 100%);
+}
+.scene-grotta {
+background: linear-gradient(170deg, #0a1a2a 0%, #1a3348 30%, #8b6914 55%, #c9a040 75%, #e8d4a0 100%);
+}
+.scene-monopoli {
+background: linear-gradient(155deg, #1a3a6e 0%, #2e5ea0 30%, #5a9ad4 55%, #e0caa8 80%, #c4a87a 100%);
+}
+.scene-beach {
+background: linear-gradient(180deg, #5bb8d8 0%, #2e9abc 30%, #1a7a9e 50%, #26a0a0 65%, #c8a870 85%, #e8d4a8 100%);
+}
+.scene-trulli, .scene-trulli-hero {
+background: linear-gradient(165deg, #6db8d8 0%, #9ad4a8 25%, #5a8a5a 45%, #f0eae0 65%, #e0d4c0 80%, #b0a078 100%);
+}
+.scene-ostuni {
+background: linear-gradient(155deg, #7ac4e0 0%, #a8d4e8 25%, #d8ecf4 45%, #f4f0e8 65%, #ddd4c0 80%, #6b8050 100%);
+}
+.scene-masseria {
+background: linear-gradient(160deg, #c8a840 0%, #a07830 25%, #7a5820 50%, #f0e8d0 70%, #ddd0b0 85%, #6a8040 100%);
+}
+.scene-lecce, .scene-lecce-hero {
+background: linear-gradient(155deg, #d4940c 0%, #b87820 25%, #8a5810 45%, #6a3c08 62%, #b88030 78%, #e8c870 100%);
+}
+.scene-salento {
+background: linear-gradient(175deg, #0a4a70 0%, #1a80b0 20%, #30a8d8 38%, #60c8e8 55%, #98dff0 70%, #c8f0fc 85%, #a8e4f4 100%);
+}
+.scene-otranto {
+background: linear-gradient(155deg, #0d2840 0%, #1a4870 25%, #3878b0 48%, #68a8d4 65%, #b0d4e8 80%, #e0d0b8 92%, #8a6840 100%);
+}
+.scene-piazza {
+background: linear-gradient(160deg, #281408 0%, #543018 20%, #c08828 42%, #e8c860 62%, #f4e8c0 78%, #a03818 92%, #7a2010 100%);
+}
+.scene-bari, .scene-bari-hero {
+background: linear-gradient(155deg, #140e08 0%, #382010 25%, #6a3808 45%, #c89030 65%, #e8c060 78%, #1a5880 90%, #0a2840 100%);
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
 .overview-inner,.route-visual{grid-template-columns:repeat(2,1fr)}
@@ -334,7 +413,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       <div class="vibes"><span class="vibe">Cliff Beaches</span><span class="vibe">Sea Grottos</span><span class="vibe">Fresh Seafood</span><span class="vibe">Baroque Alleys</span></div>
     </div>
     <div class="base-intro-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Polignano_a_mare_%28Bari%29.jpg/1280px-Polignano_a_mare_%28Bari%29.jpg" alt="Polignano a Mare" onerror="this.parentElement.innerHTML='<div class=img-fallback>🌊</div>'">
+      <div class="scene-panel scene-polignano-hero"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🌊</div><div class="scene-loc">Polignano a Mare</div></div></div>🌊</div>'">
       <div class="img-cap">Polignano a Mare · Adriatic Cliff Coast</div>
     </div>
   </div>
@@ -356,7 +435,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
           <div class="tip">💡 Arrival day is decompression. The town itself is the activity — no agenda needed.</div>
         </div>
         <div class="day-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Polignano_a_mare_%28Bari%29.jpg/640px-Polignano_a_mare_%28Bari%29.jpg" alt="Polignano a Mare" onerror="this.parentElement.innerHTML='<div class=dfallback>🌊</div>'">
+          <div class="scene-panel scene-polignano"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🌊</div><div class="scene-loc">Polignano a Mare</div></div></div>🌊</div>'">
         </div>
       </div>
     </div>
@@ -377,7 +456,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       <div class="tip">💡 Book Grotta Palazzese weeks in advance. Aim for 7:30pm — you catch the last light over the sea, then the cave glows as darkness falls.</div>
     </div>
     <div class="day-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Grotta_Palazzese_%28Polignano_a_Mare%29_-_2019.jpg/640px-Grotta_Palazzese_%28Polignano_a_Mare%29_-_2019.jpg" alt="Grotta Palazzese cave" onerror="this.parentElement.innerHTML='<div class=dfallback>🕯️</div>'">
+      <div class="scene-panel scene-grotta"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🕯️</div><div class="scene-loc">Grotta Palazzese</div></div></div>🕯️</div>'">
     </div>
   </div>
 </div>
@@ -396,7 +475,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       </div>
     </div>
     <div class="day-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Monopoli_-_Lungomare_Provvidenza.jpg/640px-Monopoli_-_Lungomare_Provvidenza.jpg" alt="Monopoli coastline" onerror="this.parentElement.innerHTML='<div class=dfallback>⚓</div>'">
+      <div class="scene-panel scene-monopoli"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">⚓</div><div class="scene-loc">Monopoli</div></div></div>⚓</div>'">
     </div>
   </div>
 </div>
@@ -415,7 +494,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       </div>
     </div>
     <div class="day-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Lama_Monachile_Polignano_a_Mare.jpg/640px-Lama_Monachile_Polignano_a_Mare.jpg" alt="Lama Monachile beach" onerror="this.parentElement.innerHTML='<div class=dfallback>🏖️</div>'">
+      <div class="scene-panel scene-beach"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏖️</div><div class="scene-loc">Lama Monachile</div></div></div>🏖️</div>'">
     </div>
   </div>
 </div>
@@ -436,7 +515,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       <div class="vibes"><span class="vibe">Trulli &amp; Masserias</span><span class="vibe">Wine Tasting</span><span class="vibe">Hilltop Towns</span><span class="vibe">Countryside</span></div>
     </div>
     <div class="base-intro-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Alberobello_trullo.jpg/1024px-Alberobello_trullo.jpg" alt="Alberobello trulli" onerror="this.parentElement.innerHTML='<div class=img-fallback>🏠</div>'">
+      <div class="scene-panel scene-trulli-hero"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏠</div><div class="scene-loc">Valle d'Itria</div></div></div>
       <div class="img-cap">Alberobello · Valle d'Itria UNESCO Trulli</div>
     </div>
   </div>
@@ -457,7 +536,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
           <div class="tip">💡 Linger in Alberobello past 5pm — the light goes golden and the crowds evaporate. Completely different feel from midday.</div>
         </div>
         <div class="day-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Alberobello_trullo.jpg/480px-Alberobello_trullo.jpg" alt="Alberobello trulli" onerror="this.parentElement.innerHTML='<div class=dfallback>🏠</div>'">
+          <div class="scene-panel scene-trulli"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏠</div><div class="scene-loc">Alberobello</div></div></div>
         </div>
       </div>
     </div>
@@ -477,7 +556,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       </div>
     </div>
     <div class="day-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Ostuni_BW_2013-10-01_11-05-53.jpg/640px-Ostuni_BW_2013-10-01_11-05-53.jpg" alt="Ostuni white city" onerror="this.parentElement.innerHTML='<div class=dfallback>🤍</div>'">
+      <div class="scene-panel scene-ostuni"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🤍</div><div class="scene-loc">Ostuni</div></div></div>🤍</div>'">
     </div>
   </div>
 </div>
@@ -497,7 +576,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       <div class="tip">💡 Ask your masseria host about a private dinner at check-in — often the best meal of the whole trip.</div>
     </div>
     <div class="day-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Masseria_Torre_Coccaro.jpg/640px-Masseria_Torre_Coccaro.jpg" alt="Masseria Puglia" onerror="this.parentElement.innerHTML='<div class=dfallback>🌾</div>'">
+      <div class="scene-panel scene-masseria"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🌾</div><div class="scene-loc">Martina Franca</div></div></div>🌾</div>'">
     </div>
   </div>
 </div>
@@ -518,7 +597,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       <div class="vibes"><span class="vibe">Baroque Architecture</span><span class="vibe">Beach Days</span><span class="vibe">Art &amp; Galleries</span><span class="vibe">Nightlife</span></div>
     </div>
     <div class="base-intro-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Lecce_BW_2013-10-01_12-10-12.jpg/1200px-Lecce_BW_2013-10-01_12-10-12.jpg" alt="Lecce baroque cathedral" onerror="this.parentElement.innerHTML='<div class=img-fallback>⛪</div>'">
+      <div class="scene-panel scene-lecce-hero"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">⛪</div><div class="scene-loc">Lecce</div></div></div>
       <div class="img-cap">Lecce · Piazza del Duomo</div>
     </div>
   </div>
@@ -539,7 +618,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
           </div>
         </div>
         <div class="day-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Lecce_BW_2013-10-01_12-10-12.jpg/480px-Lecce_BW_2013-10-01_12-10-12.jpg" alt="Lecce baroque" onerror="this.parentElement.innerHTML='<div class=dfallback>⛪</div>'">
+          <div class="scene-panel scene-lecce"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">⛪</div><div class="scene-loc">Lecce</div></div></div>
         </div>
       </div>
     </div>
@@ -560,7 +639,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       <div class="tip">💡 Baia dei Turchi near Otranto — one of Italy's most beautiful beaches. Short walk through pine forest. Get there before 10am even in late September.</div>
     </div>
     <div class="day-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Salento_sea.jpg/640px-Salento_sea.jpg" alt="Salento coast" onerror="this.parentElement.innerHTML='<div class=dfallback>🌊</div>'">
+      <div class="scene-panel scene-salento"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🐠</div><div class="scene-loc">Salento Coast</div></div></div>🌊</div>'">
     </div>
   </div>
 </div>
@@ -579,7 +658,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       </div>
     </div>
     <div class="day-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Otranto_-_panoramio_%281%29.jpg/640px-Otranto_-_panoramio_%281%29.jpg" alt="Otranto" onerror="this.parentElement.innerHTML='<div class=dfallback>🏰</div>'">
+      <div class="scene-panel scene-otranto"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏰</div><div class="scene-loc">Otranto</div></div></div>🏰</div>'">
     </div>
   </div>
 </div>
@@ -600,7 +679,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       <div class="tip">💡 Lecce's aperitivo hour doesn't peak until 9pm. The late rhythm is part of it — embrace it fully on the last Lecce night.</div>
     </div>
     <div class="day-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lecce_Anfiteatro_Romano.jpg/640px-Lecce_Anfiteatro_Romano.jpg" alt="Lecce Roman amphitheatre" onerror="this.parentElement.innerHTML='<div class=dfallback>🎭</div>'">
+      <div class="scene-panel scene-piazza"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🍸</div><div class="scene-loc">Piazza Sant'Oronzo</div></div></div>
     </div>
   </div>
 </div>
@@ -621,7 +700,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
       <div class="vibes"><span class="vibe">Bari Vecchia</span><span class="vibe">Street Food</span><span class="vibe">Raw Seafood</span><span class="vibe">City Energy</span></div>
     </div>
     <div class="base-intro-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bari_Vecchia.jpg/1280px-Bari_Vecchia.jpg" alt="Bari Vecchia" onerror="this.parentElement.innerHTML='<div class=img-fallback>⚓</div>'">
+      <div class="scene-panel scene-bari-hero"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">⚓</div><div class="scene-loc">Bari</div></div></div>
       <div class="img-cap">Bari Vecchia · The Old City</div>
     </div>
   </div>
@@ -642,7 +721,7 @@ footer { background:var(–ink); text-align:center; padding:60px 40px; }
           </div>
         </div>
         <div class="day-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bari_Vecchia.jpg/480px-Bari_Vecchia.jpg" alt="Bari Vecchia" onerror="this.parentElement.innerHTML='<div class=dfallback>🏙️</div>'">
+          <div class="scene-panel scene-bari"><div class="scene-overlay"></div><div class="scene-content"><div class="scene-icon">🏙️</div><div class="scene-loc">Bari Vecchia</div></div></div>
         </div>
       </div>
     </div>
