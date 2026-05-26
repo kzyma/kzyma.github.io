@@ -4,1212 +4,1146 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Southern Italy · September 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F5EFE3;
-    --sand: #E8DCC8;
-    --terracotta: #B85C38;
-    --burnt: #7A3B20;
-    --olive: #6B7A4A;
-    --deep-blue: #1A2E4A;
-    --mid-blue: #2D4A6E;
-    --sky: #9DB8D0;
-    --gold: #C4923A;
-    --light-text: #5A4E3C;
-    --dark-text: #2A1F14;
+    --ink:       #1C1712;
+    --bark:      #3D2B1A;
+    --terra:     #A8481E;
+    --warm:      #C97A42;
+    --gold:      #D4A843;
+    --parchment: #F2EAD8;
+    --linen:     #EDE4CF;
+    --stone:     #D6CABA;
+    --sage:      #6E7C58;
+    --slate:     #4A5A6A;
+    --fog:       #8FA0AD;
+    --muted:     #7A6E5F;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--cream);
-    color: var(--dark-text);
-    font-family: 'Jost', sans-serif;
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
   }
 
-  /* ── HERO ── */
+  /* ─────────────────── HERO ─────────────────── */
   .hero {
-    min-height: 100vh;
-    background: var(--deep-blue);
-    display: grid;
-    grid-template-rows: 1fr auto;
+    min-height: 100svh;
+    background: var(--bark);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
   }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
+  .hero-texture {
+    position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 80% 40%, rgba(180,100,50,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 60% at 20% 70%, rgba(45,74,110,0.6) 0%, transparent 60%),
-      linear-gradient(160deg, #0D1E33 0%, #1A2E4A 40%, #2D4A6E 100%);
+      repeating-linear-gradient(
+        105deg,
+        transparent 0px,
+        transparent 60px,
+        rgba(255,255,255,0.012) 60px,
+        rgba(255,255,255,0.012) 61px
+      ),
+      radial-gradient(ellipse 80% 60% at 30% 20%, rgba(168,72,30,0.35) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 70% at 85% 80%, rgba(74,90,106,0.4) 0%, transparent 60%),
+      linear-gradient(170deg, #2A1A0E 0%, #3D2B1A 45%, #1C2830 100%);
   }
 
-  .hero-noise {
+  /* decorative oversized numeral */
+  .hero-bg-num {
     position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.4;
+    right: -2vw;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18rem, 38vw, 42rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
     pointer-events: none;
+    user-select: none;
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 8rem 8vw 4rem;
-    max-width: 900px;
+    padding: clamp(3rem,8vw,6rem) clamp(2rem,8vw,7rem) clamp(4rem,8vw,6rem);
+    max-width: 860px;
   }
 
-  .hero-eyebrow {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 0.7rem;
-    letter-spacing: 0.35em;
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
-    color: var(--sky);
+    color: var(--warm);
     margin-bottom: 2rem;
     opacity: 0;
-    animation: fadeUp 1s ease 0.2s forwards;
+    animation: rise 0.9s ease 0.1s forwards;
+  }
+  .hero-label::before {
+    content: '';
+    width: 28px; height: 1px;
+    background: var(--warm);
   }
 
   .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 9vw, 8rem);
-    font-weight: 300;
-    line-height: 0.92;
-    color: var(--cream);
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.4s forwards;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: #D4A878;
-  }
-
-  .hero-subtitle {
-    font-size: 0.85rem;
-    font-weight: 300;
-    letter-spacing: 0.15em;
-    color: var(--sky);
-    line-height: 1.8;
-    max-width: 480px;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.6s forwards;
-  }
-
-  .hero-dates {
-    margin-top: 3.5rem;
-    display: flex;
-    gap: 3rem;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.8s forwards;
-  }
-
-  .hero-date-item {
-    text-align: left;
-  }
-
-  .hero-date-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--sky);
-    opacity: 0.7;
-    display: block;
-    margin-bottom: 0.3rem;
-  }
-
-  .hero-date-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.8rem, 10vw, 9rem);
     font-weight: 400;
-    color: var(--cream);
-  }
-
-  .hero-scroll {
-    position: relative;
-    z-index: 2;
-    padding: 2rem 8vw;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: rgba(157,184,208,0.5);
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    animation: fadeUp 1s ease 1.2s forwards;
+    line-height: 0.88;
+    color: var(--parchment);
+    margin-bottom: 2.2rem;
     opacity: 0;
+    animation: rise 1s ease 0.25s forwards;
+  }
+  .hero-title em {
+    display: block;
+    font-style: italic;
+    color: var(--warm);
   }
 
-  .hero-scroll::before {
-    content: '';
-    width: 40px;
-    height: 1px;
-    background: rgba(157,184,208,0.4);
-  }
-
-  /* ── OVERVIEW STRIP ── */
-  .overview {
-    background: var(--terracotta);
-    padding: 1.5rem 8vw;
-    display: flex;
-    gap: 4rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .overview-item {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .overview-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
+  .hero-sub {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     font-weight: 300;
-    color: var(--cream);
+    line-height: 1.85;
+    color: rgba(242,234,216,0.6);
+    max-width: 480px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: rise 1s ease 0.4s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    opacity: 0;
+    animation: rise 1s ease 0.55s forwards;
+  }
+
+  .meta-chip {
+    padding: 0.45rem 1.1rem;
+    border: 1px solid rgba(212,168,67,0.35);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ─────────────────── STATS BAR ─────────────────── */
+  .stats-bar {
+    background: var(--terra);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  .stat {
+    flex: 1;
+    min-width: 140px;
+    padding: 1.4rem 2rem;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--parchment);
     line-height: 1;
   }
-
-  .overview-label {
-    font-size: 0.65rem;
+  .stat-label {
+    font-size: 0.62rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(245,239,227,0.7);
+    color: rgba(242,234,216,0.65);
     line-height: 1.4;
   }
 
-  /* ── SECTION STRUCTURE ── */
-  .section-intro {
-    padding: 6rem 8vw 0;
-    max-width: 1200px;
+  /* ─────────────────── ROUTE MAP ─────────────────── */
+  .route-section {
+    padding: 4rem clamp(2rem,8vw,7rem) 2rem;
+    overflow-x: auto;
   }
-
-  .section-tag {
-    font-size: 0.65rem;
+  .route-header {
+    font-size: 0.62rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 1rem;
+    color: var(--terra);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .route-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--stone);
   }
 
-  .section-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--dark-text);
+  .route-track {
+    display: flex;
+    align-items: flex-start;
+    min-width: 620px;
+    padding-bottom: 1rem;
   }
 
-  /* ── DAY CARDS ── */
-  .days-grid {
-    padding: 3rem 8vw 6rem;
+  .r-stop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 90px;
+  }
+  .r-dot-wrap {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .r-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--terra);
+    box-shadow: 0 0 0 3px var(--parchment), 0 0 0 5px var(--terra);
+  }
+  .r-dot.origin { background: var(--slate); box-shadow: 0 0 0 3px var(--parchment), 0 0 0 5px var(--slate); }
+  .r-dot.masseria { background: var(--sage); box-shadow: 0 0 0 3px var(--parchment), 0 0 0 5px var(--sage); }
+  .r-name {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .r-nights {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .r-leg {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    gap: 0.25rem;
+  }
+  .r-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--stone), var(--stone));
+    position: relative;
+  }
+  .r-line::after {
+    content: '›';
+    position: absolute;
+    right: -4px; top: -9px;
+    color: var(--stone);
+    font-size: 1rem;
+  }
+  .r-leg-label {
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  /* ─────────────────── SECTION TITLES ─────────────────── */
+  .section-wrap {
+    padding: 5rem clamp(2rem,8vw,7rem) 1rem;
+  }
+  .section-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-eyebrow::before {
+    content: '';
+    width: 22px; height: 1px;
+    background: var(--terra);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.08;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--terra); }
+
+  /* ─────────────────── ITINERARY ─────────────────── */
+  .itinerary {
+    padding: 2.5rem clamp(2rem,8vw,7rem) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .day-row {
     display: grid;
-    gap: 1.5rem;
+    grid-template-columns: 72px 1fr;
+    background: var(--linen);
+    transition: background 0.25s;
   }
+  .day-row:hover { background: #EAE0CA; }
+  .day-row + .day-row { border-top: 1px solid var(--stone); }
 
-  .day-card {
-    background: white;
-    border-radius: 2px;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .day-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-  }
-
-  .day-number {
-    background: var(--deep-blue);
+  .day-gutter {
+    background: var(--ink);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1.5rem 0.5rem;
+    gap: 0.2rem;
   }
+  .day-row.leg-puglia .day-gutter  { background: var(--terra); }
+  .day-row.leg-lecce .day-gutter   { background: var(--slate); }
+  .day-row.leg-ostuni .day-gutter  { background: var(--sage); }
+  .day-row.leg-naples .day-gutter  { background: var(--bark); }
 
-  .day-num-label {
+  .gutter-day {
     font-size: 0.5rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--sky);
-    opacity: 0.7;
-    margin-bottom: 0.3rem;
+    color: rgba(255,255,255,0.5);
   }
-
-  .day-num-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: var(--cream);
+  .gutter-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: white;
     line-height: 1;
   }
-
-  .day-num-date {
-    font-size: 0.5rem;
+  .gutter-date {
+    font-size: 0.48rem;
     letter-spacing: 0.1em;
-    color: var(--sky);
-    opacity: 0.6;
-    margin-top: 0.4rem;
+    color: rgba(255,255,255,0.45);
     text-align: center;
+    line-height: 1.4;
   }
 
-  .day-card.terracotta .day-number { background: var(--terracotta); }
-  .day-card.olive .day-number { background: var(--olive); }
-  .day-card.burnt .day-number { background: var(--burnt); }
-
-  .day-content {
-    padding: 1.5rem 2rem;
+  .day-body {
+    padding: 1.6rem 2rem 1.6rem 2rem;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: start;
   }
 
-  .day-location {
+  .day-loc {
     font-size: 0.6rem;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 0.4rem;
+    color: var(--terra);
+    margin-bottom: 0.35rem;
   }
+  .day-row.leg-lecce .day-loc  { color: var(--slate); }
+  .day-row.leg-ostuni .day-loc { color: var(--sage); }
+  .day-row.leg-naples .day-loc { color: var(--warm); }
 
   .day-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
     font-weight: 400;
-    color: var(--dark-text);
-    margin-bottom: 0.6rem;
+    color: var(--ink);
+    margin-bottom: 0.55rem;
     line-height: 1.2;
   }
-
   .day-desc {
-    font-size: 0.82rem;
-    line-height: 1.75;
-    color: var(--light-text);
-    max-width: 560px;
+    font-size: 0.8rem;
+    line-height: 1.82;
+    color: var(--muted);
+    max-width: 580px;
   }
-
-  .day-tags {
+  .day-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.8rem;
+    gap: 0.35rem;
+    margin-top: 0.85rem;
   }
-
-  .day-tag {
-    font-size: 0.58rem;
-    letter-spacing: 0.12em;
+  .pill {
+    font-size: 0.57rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 0.25rem 0.7rem;
-    border: 1px solid var(--sand);
-    color: var(--light-text);
+    padding: 0.22rem 0.65rem;
+    border: 1px solid var(--stone);
+    color: var(--muted);
     border-radius: 20px;
   }
-
-  .day-travel {
+  .day-aside {
     text-align: right;
-    min-width: 120px;
+    min-width: 110px;
+    padding-top: 0.2rem;
   }
-
-  .travel-mode {
-    font-size: 0.6rem;
+  .aside-mode {
+    font-size: 0.58rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--light-text);
-    opacity: 0.6;
+    color: var(--muted);
+    opacity: 0.65;
     margin-bottom: 0.3rem;
   }
-
-  .travel-info {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: var(--dark-text);
+  .aside-info {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
     font-style: italic;
+    color: var(--ink);
+    line-height: 1.4;
   }
 
-  /* ── STAY CARDS ── */
-  .stays-section {
-    background: var(--deep-blue);
-    padding: 6rem 8vw;
+  @media (max-width: 600px) {
+    .day-body { grid-template-columns: 1fr; }
+    .day-aside { text-align: left; }
+    .day-gutter { min-width: 56px; }
+    .gutter-num { font-size: 1.5rem; }
   }
 
-  .stays-section .section-tag { color: var(--sky); }
-  .stays-section .section-heading { color: var(--cream); margin-bottom: 3rem; }
+  /* ─────────────────── HOTELS ─────────────────── */
+  .hotels-section {
+    background: var(--ink);
+    padding: 5rem clamp(2rem,8vw,7rem);
+  }
+  .hotels-section .section-eyebrow { color: var(--warm); }
+  .hotels-section .section-eyebrow::before { background: var(--warm); }
+  .hotels-section .section-title { color: var(--parchment); margin-bottom: 3rem; }
 
-  .stays-grid {
+  .hotels-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .stay-card {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1px;
     background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 2px;
-    padding: 2rem;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .hotel-card {
+    background: var(--ink);
+    padding: 2.2rem;
     position: relative;
-    overflow: hidden;
+    transition: background 0.3s;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
+  .hotel-card:hover { background: #261C13; }
 
-  .stay-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--terracotta);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-
-  .stay-card:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.2);
-  }
-
-  .stay-card:hover::before { transform: scaleX(1); }
-
-  .stay-stop {
-    font-size: 0.6rem;
+  .hotel-stop {
+    font-size: 0.58rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--sky);
-    margin-bottom: 0.5rem;
+    color: var(--fog);
+    margin-bottom: 1rem;
     opacity: 0.7;
   }
-
-  .stay-hotel {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
+  .hotel-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
     font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 0.3rem;
+    color: var(--parchment);
     line-height: 1.2;
+    margin-bottom: 0.3rem;
   }
-
-  .stay-type {
-    font-size: 0.68rem;
-    color: #D4A878;
-    letter-spacing: 0.1em;
+  .hotel-type {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .stay-desc {
-    font-size: 0.8rem;
-    line-height: 1.8;
-    color: rgba(245,239,227,0.65);
+    color: var(--warm);
     margin-bottom: 1.2rem;
   }
-
-  .stay-nights {
-    font-size: 0.65rem;
+  .hotel-desc {
+    font-size: 0.78rem;
+    line-height: 1.85;
+    color: rgba(242,234,216,0.52);
+    margin-bottom: 1.4rem;
+  }
+  .hotel-nights {
+    font-size: 0.62rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--terra);
   }
 
-  /* ── TIPS SECTION ── */
-  .tips-section {
-    padding: 6rem 8vw;
-    background: var(--sand);
+  /* highlight card — the Frantoio */
+  .hotel-card.featured {
+    background: #271A0F;
+    border-left: 2px solid var(--warm);
   }
+  .hotel-card.featured .hotel-name { color: var(--gold); }
+  .hotel-card.featured .hotel-desc { color: rgba(242,234,216,0.65); }
 
-  .tips-grid {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-  }
-
-  .tip-card {
-    padding: 0;
-  }
-
-  .tip-icon {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .tip-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-    color: var(--dark-text);
-  }
-
-  .tip-text {
-    font-size: 0.78rem;
-    line-height: 1.8;
-    color: var(--light-text);
-  }
-
-  /* ── TRANSPORT SECTION ── */
+  /* ─────────────────── TRANSPORT ─────────────────── */
   .transport-section {
-    padding: 6rem 8vw;
-    max-width: 1200px;
+    padding: 5rem clamp(2rem,8vw,7rem);
   }
-
-  .transport-grid {
-    margin-top: 3rem;
-    display: grid;
-    gap: 1rem;
-  }
-
-  .transport-leg {
-    display: grid;
-    grid-template-columns: 140px 1fr auto;
-    gap: 2rem;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    background: white;
-    border-radius: 2px;
-    border-left: 3px solid var(--terracotta);
-  }
-
-  .transport-leg.bus { border-left-color: var(--olive); }
-  .transport-leg.car { border-left-color: var(--gold); }
-  .transport-leg.train { border-left-color: var(--mid-blue); }
-
-  .leg-route {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--light-text);
-  }
-
-  .leg-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--dark-text);
-  }
-
-  .leg-details {
-    font-size: 0.78rem;
-    line-height: 1.7;
-    color: var(--light-text);
-  }
-
-  .leg-mode {
-    text-align: right;
-  }
-
-  .leg-mode-icon {
-    font-size: 1.4rem;
-    display: block;
-    margin-bottom: 0.2rem;
-  }
-
-  .leg-mode-text {
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--light-text);
-  }
-
-  .leg-duration {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem;
-    color: var(--dark-text);
-    font-style: italic;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--dark-text);
-    color: rgba(245,239,227,0.4);
-    padding: 3rem 8vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  footer span {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-  }
-
-  footer .footer-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    color: rgba(245,239,227,0.7);
-    font-style: italic;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    width: 40px;
-    height: 1px;
-    background: var(--terracotta);
-    margin: 1.5rem 0;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── ROUTE LINE ── */
-  .route-visual {
-    padding: 3rem 8vw;
-    background: var(--cream);
-    overflow-x: auto;
-  }
-
-  .route-line {
-    display: flex;
-    align-items: center;
-    min-width: 700px;
-    padding: 1rem 0;
-  }
-
-  .route-stop {
+  .transport-list {
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
+    gap: 1px;
+  }
+
+  .t-leg {
+    display: grid;
+    grid-template-columns: 6px 1fr auto;
+    gap: 0;
+    background: white;
+    transition: box-shadow 0.2s;
+  }
+  .t-leg:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+
+  .t-accent { background: var(--terra); }
+  .t-leg.bus   .t-accent { background: var(--sage); }
+  .t-leg.car   .t-accent { background: var(--warm); }
+  .t-leg.train .t-accent { background: var(--slate); }
+  .t-leg.taxi  .t-accent { background: var(--gold); }
+
+  .t-body {
+    padding: 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
     align-items: center;
-    gap: 0.5rem;
   }
 
-  .route-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--terracotta);
-    border: 2px solid var(--cream);
-    box-shadow: 0 0 0 2px var(--terracotta);
-  }
-
-  .route-dot.start-end { background: var(--deep-blue); box-shadow: 0 0 0 2px var(--deep-blue); }
-  .route-dot.masseria { background: var(--olive); box-shadow: 0 0 0 2px var(--olive); }
-
-  .route-stop-name {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
+  .t-route-label {
+    font-size: 0.57rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--dark-text);
-    text-align: center;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+  .t-route-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--ink);
     line-height: 1.3;
   }
-
-  .route-stop-nights {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    color: var(--light-text);
+  .t-details {
+    font-size: 0.77rem;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .t-aside {
+    padding: 1.5rem 2rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.2rem;
+    min-width: 100px;
+  }
+  .t-icon { font-size: 1.4rem; }
+  .t-mode {
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .t-dur {
+    font-family: 'Playfair Display', serif;
     font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink);
   }
 
-  .route-connector {
-    flex: 1;
-    height: 1px;
-    background: var(--sand);
-    position: relative;
-    margin: 0 0.5rem;
-    margin-bottom: 2.5rem;
+  @media (max-width: 600px) {
+    .t-body { grid-template-columns: 1fr; gap: 0.8rem; }
+    .t-aside { align-items: flex-start; padding: 0 2rem 1.5rem; }
   }
 
-  .route-connector::after {
-    content: '→';
-    position: absolute;
-    top: -0.65rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.8rem;
-    color: var(--light-text);
-    background: var(--cream);
-    padding: 0 0.3rem;
+  /* ─────────────────── TIPS ─────────────────── */
+  .tips-section {
+    background: var(--linen);
+    padding: 5rem clamp(2rem,8vw,7rem);
+  }
+  .tips-grid {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 2.5rem;
+  }
+  .tip-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
+  .tip-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .tip-text {
+    font-size: 0.77rem;
+    line-height: 1.85;
+    color: var(--muted);
   }
 
-  .route-connector .conn-label {
-    position: absolute;
-    top: 0.4rem;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: 0.58rem;
-    letter-spacing: 0.08em;
-    color: var(--light-text);
-    opacity: 0.6;
-    background: var(--cream);
-    padding: 0 0.3rem;
+  /* ─────────────────── FOOTER ─────────────────── */
+  footer {
+    background: var(--bark);
+    padding: 2.5rem clamp(2rem,8vw,7rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
   }
+  footer .ft { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--warm); }
+  footer .fs { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,234,216,0.35); }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 640px) {
-    .day-card { grid-template-columns: 60px 1fr; }
-    .day-content { grid-template-columns: 1fr; }
-    .day-travel { text-align: left; }
-    .transport-leg { grid-template-columns: 1fr; }
-    .overview { gap: 2rem; }
-    .hero-dates { gap: 2rem; }
-    .hero-content { padding: 6rem 6vw 3rem; }
+  /* ─────────────────── ANIM ─────────────────── */
+  @keyframes rise {
+    from { opacity:0; transform: translateY(18px); }
+    to   { opacity:1; transform: translateY(0); }
   }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-noise"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-bg-num">26</div>
   <div class="hero-content">
-    <p class="hero-eyebrow">A Journey Through Southern Italy</p>
-    <h1 class="hero-title">Il Sud<br><em>Profondo</em></h1>
-    <p class="hero-subtitle">
-      12 days across the deep south — the whitewashed trulli towns of Puglia, 
-      the ancient baroque of Lecce, a countryside masseria retreat, 
-      and the chaos and beauty of Naples before you fly home.
+    <p class="hero-label">A Journey Through Southern Italy</p>
+    <h1 class="hero-title">
+      Il Profondo<br>
+      <em>Sud</em>
+    </h1>
+    <p class="hero-sub">
+      Twelve nights across the deep heel of Italy — Adriatic fishing towns, baroque alleyways, an ancient olive-grove farmhouse, and two final evenings in the city of Vesuvius.
     </p>
-    <div class="hero-dates">
-      <div class="hero-date-item">
-        <span class="hero-date-label">Arrival</span>
-        <span class="hero-date-value">Sept 4, 2026</span>
-      </div>
-      <div class="hero-date-item">
-        <span class="hero-date-label">Departure</span>
-        <span class="hero-date-value">Sept 16, 2026</span>
-      </div>
-      <div class="hero-date-item">
-        <span class="hero-date-label">Fly Into & Out Of</span>
-        <span class="hero-date-value">Naples NAP</span>
-      </div>
+    <div class="hero-meta">
+      <span class="meta-chip">Sept 4 — Sept 16, 2026</span>
+      <span class="meta-chip">Naples ✈ In &amp; Out</span>
+      <span class="meta-chip">Puglia · Salento · Campania</span>
     </div>
   </div>
-  <div class="hero-scroll">Scroll to explore</div>
 </section>
 
-<!-- OVERVIEW STRIP -->
-<div class="overview">
-  <div class="overview-item">
-    <span class="overview-num">12</span>
-    <span class="overview-label">Nights<br>in Italy</span>
+<!-- ═══════════════ STATS BAR ═══════════════ -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-num">12</span>
+    <span class="stat-label">Nights<br>Total</span>
   </div>
-  <div class="overview-item">
-    <span class="overview-num">4</span>
-    <span class="overview-label">Destinations<br>Visited</span>
+  <div class="stat">
+    <span class="stat-num">4</span>
+    <span class="stat-label">Base<br>Destinations</span>
   </div>
-  <div class="overview-item">
-    <span class="overview-num">3</span>
-    <span class="overview-label">Regions<br>Puglia · Campania</span>
+  <div class="stat">
+    <span class="stat-num">3</span>
+    <span class="stat-label">Puglia ·<br>Campania</span>
   </div>
-  <div class="overview-item">
-    <span class="overview-num">0</span>
-    <span class="overview-label">Rental Cars<br>Bus & Train First</span>
-  </div>
-</div>
-
-<!-- ROUTE VISUAL -->
-<div class="route-visual">
-  <div class="route-line">
-    <div class="route-stop">
-      <div class="route-dot start-end"></div>
-      <div class="route-stop-name">Naples<br>Arrive</div>
-      <div class="route-stop-nights">Sept 4</div>
-    </div>
-    <div class="route-connector">
-      <span class="conn-label">Bus ~4 hrs</span>
-    </div>
-    <div class="route-stop">
-      <div class="route-dot"></div>
-      <div class="route-stop-name">Monopoli<br>Puglia</div>
-      <div class="route-stop-nights">4 nights</div>
-    </div>
-    <div class="route-connector">
-      <span class="conn-label">Bus/Train ~1.5 hrs</span>
-    </div>
-    <div class="route-stop">
-      <div class="route-dot"></div>
-      <div class="route-stop-name">Lecce<br>Salento</div>
-      <div class="route-stop-nights">3 nights</div>
-    </div>
-    <div class="route-connector">
-      <span class="conn-label">Car ~2 hrs</span>
-    </div>
-    <div class="route-stop">
-      <div class="route-dot masseria"></div>
-      <div class="route-stop-name">Masseria<br>Fasano / Ostuni</div>
-      <div class="route-stop-nights">3 nights</div>
-    </div>
-    <div class="route-connector">
-      <span class="conn-label">Train ~4.5 hrs</span>
-    </div>
-    <div class="route-stop">
-      <div class="route-dot start-end"></div>
-      <div class="route-stop-name">Naples<br>Depart</div>
-      <div class="route-stop-nights">2 nights · Sept 16</div>
-    </div>
+  <div class="stat">
+    <span class="stat-num">1</span>
+    <span class="stat-label">Rental Car<br>Leg Only</span>
   </div>
 </div>
 
-<!-- DAY BY DAY -->
-<div class="section-intro">
-  <p class="section-tag">Day by Day</p>
-  <h2 class="section-heading">The Full Itinerary</h2>
-  <div class="divider"></div>
+<!-- ═══════════════ ROUTE ═══════════════ -->
+<div class="route-section">
+  <p class="route-header">The Route</p>
+  <div class="route-track">
+
+    <div class="r-stop">
+      <div class="r-dot-wrap"><div class="r-dot origin"></div></div>
+      <div class="r-name">Naples<br>Arrive</div>
+      <div class="r-nights">Sept 4</div>
+    </div>
+
+    <div class="r-leg">
+      <div class="r-line"></div>
+      <div class="r-leg-label">🚌 Bus · ~4 hrs</div>
+    </div>
+
+    <div class="r-stop">
+      <div class="r-dot-wrap"><div class="r-dot"></div></div>
+      <div class="r-name">Monopoli</div>
+      <div class="r-nights">4 nights</div>
+    </div>
+
+    <div class="r-leg">
+      <div class="r-line"></div>
+      <div class="r-leg-label">🚆 Train · ~1.5 hrs</div>
+    </div>
+
+    <div class="r-stop">
+      <div class="r-dot-wrap"><div class="r-dot"></div></div>
+      <div class="r-name">Lecce</div>
+      <div class="r-nights">3 nights</div>
+    </div>
+
+    <div class="r-leg">
+      <div class="r-line"></div>
+      <div class="r-leg-label">🚗 Car · ~1.5 hrs</div>
+    </div>
+
+    <div class="r-stop">
+      <div class="r-dot-wrap"><div class="r-dot masseria"></div></div>
+      <div class="r-name">Ostuni<br>Masseria</div>
+      <div class="r-nights">3 nights</div>
+    </div>
+
+    <div class="r-leg">
+      <div class="r-line"></div>
+      <div class="r-leg-label">🚆 Train · ~4.5 hrs</div>
+    </div>
+
+    <div class="r-stop">
+      <div class="r-dot-wrap"><div class="r-dot origin"></div></div>
+      <div class="r-name">Naples<br>Depart</div>
+      <div class="r-nights">2 nights · Sept 16</div>
+    </div>
+
+  </div>
 </div>
 
-<div class="days-grid">
+<!-- ═══════════════ ITINERARY ═══════════════ -->
+<div class="section-wrap">
+  <p class="section-eyebrow">Day by Day</p>
+  <h2 class="section-title">The Full<br><em>Itinerary</em></h2>
+</div>
+
+<div class="itinerary">
 
   <!-- DAY 1 -->
-  <div class="day-card">
-    <div class="day-number">
-      <span class="day-num-label">Day</span>
-      <span class="day-num-value">1</span>
-      <span class="day-num-date">Sept 4</span>
+  <div class="day-row leg-puglia">
+    <div class="day-gutter">
+      <span class="gutter-day">Day</span>
+      <span class="gutter-num">1</span>
+      <span class="gutter-date">Sept 4</span>
     </div>
-    <div class="day-content">
+    <div class="day-body">
       <div>
-        <p class="day-location">Naples → Monopoli</p>
-        <h3 class="day-title">Land, Eat, Board a Bus South</h3>
-        <p class="day-desc">
-          You land at Naples Capodichino at 1PM. After clearing arrivals, take a taxi or Alibus shuttle to Napoli Centrale station (~20 min). From there, catch the direct Marino Autolinee or Itabus coach to Monopoli — departures throughout the afternoon, roughly 4 hours. You'll roll in as golden hour lights up the Adriatic. Drop bags, walk the old town harbor, find dinner.
-        </p>
-        <div class="day-tags">
-          <span class="day-tag">Bus Direct</span>
-          <span class="day-tag">~4 hrs</span>
-          <span class="day-tag">Book Marino or Itabus in advance</span>
+        <p class="day-loc">Naples → Monopoli</p>
+        <h3 class="day-title">Land and Head South</h3>
+        <p class="day-desc">Touch down at Naples Capodichino at 1PM. Take the Alibus shuttle or a taxi to Napoli Centrale station (about 20 minutes, ~€5 or €23 fixed fare). From there, board the afternoon Marino Autolinee or Itabus direct coach to Monopoli — the bus departs from the Autostazione Metropark exit of the station, multiple departures through the afternoon, journey roughly 4 hours. You roll into Monopoli as the Adriatic light goes gold. Check in, walk to the harbor, find dinner. The trip has begun.</p>
+        <div class="day-pills">
+          <span class="pill">Bus: Marino or Itabus</span>
+          <span class="pill">Book ahead — fills up</span>
+          <span class="pill">~4 hrs direct</span>
         </div>
       </div>
-      <div class="day-travel">
-        <p class="travel-mode">Travel</p>
-        <p class="travel-info">Bus from<br>Napoli Centrale</p>
+      <div class="day-aside">
+        <p class="aside-mode">Travel</p>
+        <p class="aside-info">Bus from<br>Napoli Centrale</p>
       </div>
     </div>
   </div>
 
-  <!-- DAYS 2-5 -->
-  <div class="day-card terracotta">
-    <div class="day-number">
-      <span class="day-num-label">Days</span>
-      <span class="day-num-value">2–5</span>
-      <span class="day-num-date">Sept 5–8</span>
+  <!-- DAYS 2–5 -->
+  <div class="day-row leg-puglia">
+    <div class="day-gutter">
+      <span class="gutter-day">Days</span>
+      <span class="gutter-num">2–5</span>
+      <span class="gutter-date">Sept 5–8</span>
     </div>
-    <div class="day-content">
+    <div class="day-body">
       <div>
-        <p class="day-location">Monopoli, Puglia</p>
-        <h3 class="day-title">The Adriatic Gem</h3>
-        <p class="day-desc">
-          Monopoli is the entry point to Puglia's character — a compact medieval town on the Adriatic with a maze of whitewashed streets, a working fishing harbor, and beaches tucked into rocky coves. Four nights here gives you room to breathe. Day trips to Polignano a Mare (15 min south) for the vertigo-inducing coastal views, and Alberobello for the trulli. Have lunch at the harbor every day if you feel like it. Rent bikes for the coastal road. Don't plan too much.
-        </p>
-        <div class="day-tags">
-          <span class="day-tag">Day Trip: Polignano a Mare</span>
-          <span class="day-tag">Day Trip: Alberobello Trulli</span>
-          <span class="day-tag">Day Trip: Castellana Grotte</span>
-          <span class="day-tag">Harbor Dining</span>
+        <p class="day-loc">Monopoli, Puglia — 4 Nights</p>
+        <h3 class="day-title">Adriatic Light &amp; Old Town Lanes</h3>
+        <p class="day-desc">Monopoli is the perfect entry point into Puglia — compact, beautiful, and not yet overrun. The medieval old town wraps around a working fishing harbor, with whitewashed alleys spilling into piazzas and rocky coves for swimming. Don't over-schedule this stretch. Spend mornings at the harbor with espresso, afternoons at the beach or on a rented bike along the coast, and evenings drifting through the old town. Make one day trip south to Polignano a Mare — 20 minutes by local train — for the dramatic cliff views and lunch above the Adriatic. Another day, head inland to Alberobello for the famous trulli landscape.</p>
+        <div class="day-pills">
+          <span class="pill">Day trip: Polignano a Mare</span>
+          <span class="pill">Day trip: Alberobello Trulli</span>
+          <span class="pill">Day trip: Castellana Grotte</span>
+          <span class="pill">Harbor dinners</span>
+          <span class="pill">Coastal cycling</span>
         </div>
       </div>
-      <div class="day-travel">
-        <p class="travel-mode">Base</p>
-        <p class="travel-info">4 nights<br>in Monopoli</p>
+      <div class="day-aside">
+        <p class="aside-mode">Base</p>
+        <p class="aside-info">4 nights<br>Monopoli</p>
       </div>
     </div>
   </div>
 
   <!-- DAY 6 -->
-  <div class="day-card">
-    <div class="day-number">
-      <span class="day-num-label">Day</span>
-      <span class="day-num-value">6</span>
-      <span class="day-num-date">Sept 9</span>
+  <div class="day-row leg-lecce">
+    <div class="day-gutter">
+      <span class="gutter-day">Day</span>
+      <span class="gutter-num">6</span>
+      <span class="gutter-date">Sept 9</span>
     </div>
-    <div class="day-content">
+    <div class="day-body">
       <div>
-        <p class="day-location">Monopoli → Lecce</p>
-        <h3 class="day-title">Head South to Baroque Country</h3>
-        <p class="day-desc">
-          Trenitalia Regionale from Monopoli to Lecce — about 1.5 hours, departures every hour or two. Arrive by late morning. Lecce is immediately legible: you step off the train and within 5 minutes you're in the middle of southern Italy's most extraordinary baroque cityscape. Check in, then get lost. Walk to Piazza del Duomo as dusk approaches — it may be the most beautiful square in Italy.
-        </p>
-        <div class="day-tags">
-          <span class="day-tag">Train ~1.5 hrs</span>
-          <span class="day-tag">Trenitalia Regionale</span>
+        <p class="day-loc">Monopoli → Lecce</p>
+        <h3 class="day-title">South to the Baroque Capital</h3>
+        <p class="day-desc">Take the Trenitalia Regionale from Monopoli station, heading south along the Adriatic coastal line. About 1.5 hours, departures every 1–2 hours. Arrive mid-morning in Lecce. Walk directly from the station into the old town — within five minutes you're standing in one of the most extraordinary baroque cityscapes in Europe. Drop your bags, then just start walking. Save Piazza del Duomo for late afternoon when the light turns the golden Lecce stone warm amber.</p>
+        <div class="day-pills">
+          <span class="pill">Train ~1.5 hrs</span>
+          <span class="pill">Trenitalia Regionale</span>
+          <span class="pill">Walk from station</span>
         </div>
       </div>
-      <div class="day-travel">
-        <p class="travel-mode">Travel</p>
-        <p class="travel-info">Train<br>Monopoli → Lecce</p>
+      <div class="day-aside">
+        <p class="aside-mode">Travel</p>
+        <p class="aside-info">Train<br>~1.5 hrs</p>
       </div>
     </div>
   </div>
 
-  <!-- DAYS 7-8 -->
-  <div class="day-card terracotta">
-    <div class="day-number">
-      <span class="day-num-label">Days</span>
-      <span class="day-num-value">7–8</span>
-      <span class="day-num-date">Sept 10–11</span>
+  <!-- DAYS 7–8 -->
+  <div class="day-row leg-lecce">
+    <div class="day-gutter">
+      <span class="gutter-day">Days</span>
+      <span class="gutter-num">7–8</span>
+      <span class="gutter-date">Sept 10–11</span>
     </div>
-    <div class="day-content">
+    <div class="day-body">
       <div>
-        <p class="day-location">Lecce, Salento</p>
+        <p class="day-loc">Lecce, Salento — 3 Nights</p>
         <h3 class="day-title">The Florence of the South</h3>
-        <p class="day-desc">
-          Lecce is the baroque capital of the south, built in warm golden sandstone called Lecce stone. Every church façade is a riot of carved angels and garlands. Walk it slowly — the Basilica di Santa Croce, Piazza Sant'Oronzo, the Roman amphitheater. Then escape the heat at a wine bar. Salento's wines (Primitivo, Negroamaro) are some of the best in Italy. Take an afternoon trip to Otranto for its Byzantine mosaics and cliff-side castle, or south to the tip of the heel at Santa Maria di Leuca.
-        </p>
-        <div class="day-tags">
-          <span class="day-tag">Piazza del Duomo at Sunset</span>
-          <span class="day-tag">Day Trip: Otranto</span>
-          <span class="day-tag">Day Trip: Gallipoli</span>
-          <span class="day-tag">Negroamaro Wine</span>
-          <span class="day-tag">Pasticciotto Pastries</span>
+        <p class="day-desc">Lecce is genuinely one of Italy's great surprises — a complete baroque city built in warm golden sandstone, where every church façade is carved with angels, vines, and garlands in exquisite detail. Spend two days here. Walk the Basilica di Santa Croce, Piazza Sant'Oronzo with its Roman amphitheater, and the winding Viale dei Filosofi. Try a pasticciotto (the local custard pastry, get it from Natale or Caffè Alvino) for breakfast every morning. Salento's wines — Primitivo and Negroamaro — are exceptional and cheap. Take an afternoon trip to Otranto for its Byzantine mosaics and clifftop Aragonese castle, or south toward the tip of the peninsula at Santa Maria di Leuca.</p>
+        <div class="day-pills">
+          <span class="pill">Basilica di Santa Croce</span>
+          <span class="pill">Piazza del Duomo at dusk</span>
+          <span class="pill">Day trip: Otranto</span>
+          <span class="pill">Day trip: Gallipoli</span>
+          <span class="pill">Pasticciotto for breakfast</span>
+          <span class="pill">Negroamaro wine</span>
         </div>
       </div>
-      <div class="day-travel">
-        <p class="travel-mode">Base</p>
-        <p class="travel-info">3 nights<br>in Lecce</p>
+      <div class="day-aside">
+        <p class="aside-mode">Base</p>
+        <p class="aside-info">3 nights<br>Lecce</p>
       </div>
     </div>
   </div>
 
   <!-- DAY 9 -->
-  <div class="day-card olive">
-    <div class="day-number">
-      <span class="day-num-label">Day</span>
-      <span class="day-num-value">9</span>
-      <span class="day-num-date">Sept 12</span>
+  <div class="day-row leg-ostuni">
+    <div class="day-gutter">
+      <span class="gutter-day">Day</span>
+      <span class="gutter-num">9</span>
+      <span class="gutter-date">Sept 12</span>
     </div>
-    <div class="day-content">
+    <div class="day-body">
       <div>
-        <p class="day-location">Lecce → Fasano / Ostuni Area</p>
+        <p class="day-loc">Lecce → Ostuni (Masseria)</p>
         <h3 class="day-title">Into the Olive Groves</h3>
-        <p class="day-desc">
-          Pick up a rental car in Lecce for this leg — this is the move. Drive north through the Valle d'Itria, stopping at the whitewashed hill town of Ostuni (worth an hour to walk the old town and have espresso). Then arrive at your masseria between Fasano and Savelletri — the jewel of the trip. Settle in, do nothing. Have dinner on property.
-        </p>
-        <div class="day-tags">
-          <span class="day-tag">Rent Car in Lecce</span>
-          <span class="day-tag">Stop: Ostuni White City</span>
-          <span class="day-tag">~2 hr drive</span>
+        <p class="day-desc">Pick up a rental car in Lecce this morning — Europcar and Hertz have locations near the train station, book in advance. Drive north on the SS16 coastal road or cut inland through the Valle d'Itria. The drive is about 1.5 hours. Stop in Ostuni itself — park at the base of the hill and walk up into the old town for an hour. The "White City" is everything the name promises: chalk-white buildings stacked up a hilltop, visible for miles across the olive plain below. Then head 5km south of town to Masseria Il Frantoio on the SS16. Check in, breathe. Have dinner on the property tonight.</p>
+        <div class="day-pills">
+          <span class="pill">Rent car in Lecce</span>
+          <span class="pill">Stop: Ostuni old town</span>
+          <span class="pill">~1.5 hr drive</span>
+          <span class="pill">Dinner at Frantoio</span>
         </div>
       </div>
-      <div class="day-travel">
-        <p class="travel-mode">Travel</p>
-        <p class="travel-info">Self-drive<br>~2 hours</p>
+      <div class="day-aside">
+        <p class="aside-mode">Travel</p>
+        <p class="aside-info">Self-drive<br>~1.5 hrs</p>
       </div>
     </div>
   </div>
 
-  <!-- DAYS 10-11 -->
-  <div class="day-card olive">
-    <div class="day-number">
-      <span class="day-num-label">Days</span>
-      <span class="day-num-value">10–11</span>
-      <span class="day-num-date">Sept 13–14</span>
+  <!-- DAYS 10–11 -->
+  <div class="day-row leg-ostuni">
+    <div class="day-gutter">
+      <span class="gutter-day">Days</span>
+      <span class="gutter-num">10–11</span>
+      <span class="gutter-date">Sept 13–14</span>
     </div>
-    <div class="day-content">
+    <div class="day-body">
       <div>
-        <p class="day-location">Masseria, Valle d'Itria</p>
-        <h3 class="day-title">Slow Days at the Farmhouse</h3>
-        <p class="day-desc">
-          This is the decompression stretch. Pool, spa, estate-grown food. Wake up late. Do a cooking class. Take the shuttle to the private beach club. Explore the valley — Locorotondo, Cisternino, and Martina Franca are nearby. Return the car before heading to Naples. These two days are about letting Puglia fully land.
-        </p>
-        <div class="day-tags">
-          <span class="day-tag">Aveda Spa</span>
-          <span class="day-tag">Private Beach Club</span>
-          <span class="day-tag">Estate Farm Dinner</span>
-          <span class="day-tag">Day Trip: Locorotondo</span>
-          <span class="day-tag">Cooking Class</span>
+        <p class="day-loc">Masseria Il Frantoio, Ostuni — 3 Nights</p>
+        <h3 class="day-title">Slowness Among the Olives</h3>
+        <p class="day-desc">This is the decompression stretch — the whole point of a masseria. Masseria Il Frantoio is a working 72-hectare farm surrounded by centuries-old olive trees, producing four types of organic DOP olive oil. The 16 rooms are in 16th- and 19th-century farm buildings: terracotta floors, vaulted limestone ceilings, stone fireplaces, wrought-iron beds. Owner Armando leads a property tour before dinner each evening, narrating the food and its origins. Breakfasts are a full regional spread. The pool sits among ancient olive trees. Spend at least one day simply not leaving — pool, book, aperitivo at sunset. Use the car for a day in the Valle d'Itria: Locorotondo, Cisternino, or Martina Franca are all within 30 minutes and beautiful. Drop the car at Ostuni station (4km away) before your Naples train on Day 12.</p>
+        <div class="day-pills">
+          <span class="pill">Armando's nightly dinner tour</span>
+          <span class="pill">Pool among olive trees</span>
+          <span class="pill">Organic olive oil tasting</span>
+          <span class="pill">Day trip: Locorotondo</span>
+          <span class="pill">Day trip: Cisternino</span>
+          <span class="pill">Breakfast included</span>
         </div>
       </div>
-      <div class="day-travel">
-        <p class="travel-mode">Base</p>
-        <p class="travel-info">3 nights<br>at Masseria</p>
+      <div class="day-aside">
+        <p class="aside-mode">Base</p>
+        <p class="aside-info">3 nights<br>Il Frantoio</p>
       </div>
     </div>
   </div>
 
   <!-- DAY 12 -->
-  <div class="day-card burnt">
-    <div class="day-number">
-      <span class="day-num-label">Day</span>
-      <span class="day-num-value">12</span>
-      <span class="day-num-date">Sept 15</span>
+  <div class="day-row leg-naples">
+    <div class="day-gutter">
+      <span class="gutter-day">Day</span>
+      <span class="gutter-num">12</span>
+      <span class="gutter-date">Sept 15</span>
     </div>
-    <div class="day-content">
+    <div class="day-body">
       <div>
-        <p class="day-location">Fasano → Naples</p>
-        <h3 class="day-title">Return to the Volcano's Shadow</h3>
-        <p class="day-desc">
-          Return the rental car at Fasano train station (3km from the masseria). Board the Frecciargento or Intercity toward Naples — about 4.5 hours, often with one change at Bari. Arrive early evening. Drop bags at your hotel near the historic center. Go directly to dinner in the Quartieri Spagnoli — the narrow grid of streets where Naples is most itself. Find a pizza place with no English menu.
-        </p>
-        <div class="day-tags">
-          <span class="day-tag">Train ~4.5 hrs</span>
-          <span class="day-tag">Drop Car at Fasano Station</span>
-          <span class="day-tag">Dinner in Quartieri Spagnoli</span>
+        <p class="day-loc">Ostuni → Naples</p>
+        <h3 class="day-title">Return to the Volcano's City</h3>
+        <p class="day-desc">Return the rental car at Ostuni station (4km from the masseria — arrange a taxi with the hotel). From Ostuni, take a regional train north to Bari Centrale, then connect to a Frecciargento or Intercity toward Naples Centrale. Total journey is around 4.5–5 hours. Book the Bari–Naples leg on Trenitalia.com in advance. Arrive into Naples early evening — drop your bags at the hotel in Chiaia or the centro storico and head straight out for dinner. You have two nights left.</p>
+        <div class="day-pills">
+          <span class="pill">Return car at Ostuni station</span>
+          <span class="pill">Train via Bari ~4.5–5 hrs</span>
+          <span class="pill">Book Trenitalia in advance</span>
+          <span class="pill">Dinner: Quartieri Spagnoli</span>
         </div>
       </div>
-      <div class="day-travel">
-        <p class="travel-mode">Travel</p>
-        <p class="travel-info">Train<br>Fasano → Naples</p>
+      <div class="day-aside">
+        <p class="aside-mode">Travel</p>
+        <p class="aside-info">Train<br>via Bari</p>
       </div>
     </div>
   </div>
 
   <!-- DAY 13 -->
-  <div class="day-card burnt">
-    <div class="day-number">
-      <span class="day-num-label">Day</span>
-      <span class="day-num-value">13</span>
-      <span class="day-num-date">Sept 15–16</span>
+  <div class="day-row leg-naples">
+    <div class="day-gutter">
+      <span class="gutter-day">Day</span>
+      <span class="gutter-num">13</span>
+      <span class="gutter-date">Sept 15–16</span>
     </div>
-    <div class="day-content">
+    <div class="day-body">
       <div>
-        <p class="day-location">Naples, Campania</p>
+        <p class="day-loc">Naples, Campania — 2 Nights</p>
         <h3 class="day-title">Naples, Unfiltered</h3>
-        <p class="day-desc">
-          Two full evenings in Naples. It's a city you don't plan — you walk, get lost, eat, discover. Hit the Museo Nazionale Archeologico for the Pompeii artifacts (including the Secret Cabinet). Walk the Spaccanapoli axis. Take the Cumana or Circumvesuviana train out to Pompeii for a morning. Or just stay in the city and eat: sfogliatella for breakfast, panuozzo for lunch, pizza from Sorbillo or Starita for dinner. Negroni in the Chiaia neighborhood after.
-        </p>
-        <div class="day-tags">
-          <span class="day-tag">Museo Nazionale Archeologico</span>
-          <span class="day-tag">Day Trip: Pompeii</span>
-          <span class="day-tag">Spaccanapoli Walk</span>
-          <span class="day-tag">Pizza: Sorbillo or Starita</span>
-          <span class="day-tag">Cocktails: Chiaia District</span>
+        <p class="day-desc">Naples doesn't need an agenda — it needs surrender. Walk the Spaccanapoli axis, the straight line that bisects the ancient city. Visit the Museo Nazionale Archeologico for the world's greatest collection of Roman artifacts from Pompeii and Herculaneum (including the Farnese collection and the Secret Cabinet). Take the Circumvesuviana train out to Pompeii for the morning, or Herculaneum if you want fewer crowds and better preservation. For food: sfogliatella from Attanasio near the station for breakfast, pizza at Sorbillo on Via dei Tribunali for dinner. Cocktails and nightlife in the Chiaia district — that's where Naples hides its good bars.</p>
+        <div class="day-pills">
+          <span class="pill">Museo Nazionale Archeologico</span>
+          <span class="pill">Day trip: Pompeii or Herculaneum</span>
+          <span class="pill">Spaccanapoli walk</span>
+          <span class="pill">Pizza: Sorbillo</span>
+          <span class="pill">Sfogliatella: Attanasio</span>
+          <span class="pill">Nightlife: Chiaia</span>
         </div>
       </div>
-      <div class="day-travel">
-        <p class="travel-mode">Depart</p>
-        <p class="travel-info">Flight out<br>Sept 16</p>
+      <div class="day-aside">
+        <p class="aside-mode">Depart</p>
+        <p class="aside-info">Flight out<br>Sept 16</p>
       </div>
     </div>
   </div>
 
 </div>
 
-<!-- WHERE TO STAY -->
-<section class="stays-section">
-  <p class="section-tag">Where to Stay</p>
-  <h2 class="section-heading">Four Exceptional<br>Addresses</h2>
+<!-- ═══════════════ HOTELS ═══════════════ -->
+<section class="hotels-section">
+  <p class="section-eyebrow">Where to Stay</p>
+  <h2 class="section-title" style="color:var(--parchment)">Four Addresses<br><em>Worth Booking Now</em></h2>
 
-  <div class="stays-grid">
+  <div class="hotels-grid">
 
-    <!-- MONOPOLI -->
-    <div class="stay-card">
-      <p class="stay-stop">Stop 1 · Monopoli</p>
-      <h3 class="stay-hotel">Hotel Don Ferrante</h3>
-      <p class="stay-type">Historic Fortress · 10 rooms · Dimore di Charme</p>
-      <p class="stay-desc">
-        A former clifftop fortress converted into 10 intimate rooms, each with stone walls, vaulted ceilings, and Adriatic views. The rooftop plunge pool and terrace dining are sensational. Locanda Don Ferrante restaurant downstairs is excellent. This is the most atmospheric and genuinely unique stay in Monopoli — stylish but never pretentious.
-      </p>
-      <p class="stay-nights">4 Nights · Sept 4–8</p>
+    <div class="hotel-card">
+      <p class="hotel-stop">Stop 1 · Monopoli · 4 Nights</p>
+      <h3 class="hotel-name">Hotel Don Ferrante</h3>
+      <p class="hotel-type">Former Sea Fortress · 10 Rooms · Dimore di Charme</p>
+      <p class="hotel-desc">A converted clifftop fortress with just ten rooms, each featuring vaulted stone ceilings and direct Adriatic views. The rooftop hydromassage pool and terrace dining are exceptional. The Locanda Don Ferrante restaurant downstairs is one of the best in Monopoli. Only 10 rooms — book first and fast.</p>
+      <p class="hotel-nights">Sept 4 – Sept 8</p>
     </div>
 
-    <!-- MONOPOLI ALT -->
-    <div class="stay-card">
-      <p class="stay-stop">Stop 1 · Alternative · Monopoli</p>
-      <h3 class="stay-hotel">Il Melograno</h3>
-      <p class="stay-type">16th-Century Masseria · Countryside · Family-Run</p>
-      <p class="stay-desc">
-        Puglia's original luxury masseria conversion — a 16th-century farmhouse surrounded by olive trees, 5km from Monopoli. Moorish courtyards, tiled rooms with fireplaces, an excellent spa, and a private beach club 7km away with shuttle service. If you prefer the countryside over the old town, this is the classic choice.
-      </p>
-      <p class="stay-nights">4 Nights · Sept 4–8</p>
+    <div class="hotel-card">
+      <p class="hotel-stop">Stop 1 · Alternative · Monopoli</p>
+      <h3 class="hotel-name">Il Melograno</h3>
+      <p class="hotel-type">16th-Century Masseria · Countryside · Puglia's Original Luxury Farm</p>
+      <p class="hotel-desc">Puglia's first masseria-to-hotel conversion: a 16th-century farmhouse 5km from Monopoli surrounded by olive trees, with Moorish courtyards, spa, and a private beach club shuttle. The classic countryside option if you prefer fields over the old town.</p>
+      <p class="hotel-nights">Sept 4 – Sept 8</p>
     </div>
 
-    <!-- LECCE -->
-    <div class="stay-card">
-      <p class="stay-stop">Stop 2 · Lecce</p>
-      <h3 class="stay-hotel">La Fiermontina Luxury Home</h3>
-      <p class="stay-type">Palazzo · Historic Center · Design Hotel</p>
-      <p class="stay-desc">
-        A converted aristocratic palazzo in Lecce's historic center — rated among Italy's top boutique hotels. Sculpture garden, a beautiful pool, and rooms that feel like staying inside a contemporary art gallery set in a 17th-century shell. Walking distance to every sight in the city. The bar is exceptional.
-      </p>
-      <p class="stay-nights">3 Nights · Sept 8–11</p>
+    <div class="hotel-card">
+      <p class="hotel-stop">Stop 2 · Lecce · 3 Nights</p>
+      <h3 class="hotel-name">La Fiermontina</h3>
+      <p class="hotel-type">Aristocratic Palazzo · Historic Center · Design &amp; Art</p>
+      <p class="hotel-desc">A converted aristocratic palazzo in Lecce's old town, rated among Italy's finest boutique hotels. Contemporary sculpture garden, beautiful pool, and rooms that feel like staying inside a gallery set in a 17th-century shell. The bar is excellent and everything is walkable.</p>
+      <p class="hotel-nights">Sept 8 – Sept 11</p>
     </div>
 
-    <!-- LECCE ALT -->
-    <div class="stay-card">
-      <p class="stay-stop">Stop 2 · Alternative · Lecce</p>
-      <h3 class="stay-hotel">Risorgimento Resort</h3>
-      <p class="stay-type">5-Star Resort · Old Town · Rooftop Terrace</p>
-      <p class="stay-desc">
-        Lecce's most celebrated full-service luxury hotel, set in a restored historic building right in the old town. Rooftop bar and restaurant with city views, spa, and genuinely impressive service. More resort-scaled than La Fiermontina — the right choice if you want comprehensive amenities alongside the baroque streets.
-      </p>
-      <p class="stay-nights">3 Nights · Sept 8–11</p>
+    <div class="hotel-card">
+      <p class="hotel-stop">Stop 2 · Alternative · Lecce</p>
+      <h3 class="hotel-name">Risorgimento Resort</h3>
+      <p class="hotel-type">5-Star · Old Town · Rooftop Restaurant</p>
+      <p class="hotel-desc">Lecce's most established luxury property — a fully restored historic building in the centro storico with rooftop bar, spa, and a strong breakfast. More resort-scaled than La Fiermontina and easier to book. Right in the middle of everything.</p>
+      <p class="hotel-nights">Sept 8 – Sept 11</p>
     </div>
 
-    <!-- MASSERIA -->
-    <div class="stay-card">
-      <p class="stay-stop">Stop 3 · Fasano · The Highlight</p>
-      <h3 class="stay-hotel">Masseria Torre Coccaro</h3>
-      <p class="stay-type">16th-Century Fortified Farm · MICHELIN Key · Beach Club</p>
-      <p class="stay-desc">
-        The crown jewel of Pugliese masseria hotels. A 16th-century fortified watchtower turned luxury family-run estate, surrounded by centuries-old olive groves near the Adriatic coast. Aveda spa in natural caves, private beach club with shuttle, farm-to-table restaurant, cooking school, wine tastings, and a 9-hole golf course on site. One MICHELIN Key. Book the Savelletri exit off E55.
-      </p>
-      <p class="stay-nights">3 Nights · Sept 11–14</p>
+    <div class="hotel-card featured">
+      <p class="hotel-stop">⭑ Stop 3 · Ostuni · 3 Nights — The Highlight</p>
+      <h3 class="hotel-name">Masseria Il Frantoio</h3>
+      <p class="hotel-type">Working Farm · 16th &amp; 19th Century · 72 Hectares · Slow Living</p>
+      <p class="hotel-desc">A working 72-hectare organic olive farm 5km south of Ostuni, in farm buildings from the 16th and 19th centuries. Sixteen rooms with terracotta floors, limestone vaulted ceilings, and stone fireplaces. Owner Armando personally leads a property and farm tour before dinner each evening. Pool set among ancient olive trees. Breakfast included — a full regional spread. Jasmine-scented courtyard. Deeply, authentically Pugliese. This is the one to savour.</p>
+      <p class="hotel-nights">Sept 11 – Sept 14</p>
     </div>
 
-    <!-- NAPLES -->
-    <div class="stay-card">
-      <p class="stay-stop">Stop 4 · Naples</p>
-      <h3 class="stay-hotel">Palazzo Alabardieri</h3>
-      <p class="stay-type">Historic Palazzo · Chiaia District · Boutique</p>
-      <p class="stay-desc">
-        A romantically restored palazzo in the upscale Chiaia neighborhood — quieter and more elegant than the chaotic centro storico, but walking distance to everything. Rooftop terrace breakfast, classic Neapolitan décor, and impeccable service. Perfect as a civilized final two nights before the flight home. The nightlife and restaurants of Chiaia are right outside.
-      </p>
-      <p class="stay-nights">2 Nights · Sept 14–16</p>
+    <div class="hotel-card">
+      <p class="hotel-stop">Stop 4 · Naples · 2 Nights</p>
+      <h3 class="hotel-name">Palazzo Alabardieri</h3>
+      <p class="hotel-type">Restored Palazzo · Chiaia District · Boutique Luxury</p>
+      <p class="hotel-desc">A lovingly restored historic palazzo in Naples' elegant Chiaia neighborhood — quieter and more refined than the centro storico but walking distance to everything. Rooftop breakfast terrace, classic Neapolitan décor, excellent service. The nightlife and restaurants of Chiaia are right outside the door for your final two evenings.</p>
+      <p class="hotel-nights">Sept 14 – Sept 16</p>
     </div>
 
   </div>
 </section>
 
-<!-- TRANSPORT -->
-<div class="section-intro">
-  <p class="section-tag">Getting Around</p>
-  <h2 class="section-heading">Transport Leg by Leg</h2>
-  <div class="divider"></div>
+<!-- ═══════════════ TRANSPORT ═══════════════ -->
+<div class="section-wrap">
+  <p class="section-eyebrow">Getting Around</p>
+  <h2 class="section-title">Transport,<br><em>Leg by Leg</em></h2>
 </div>
 
-<div class="transport-section">
-  <div class="transport-grid">
+<div class="transport-section" style="padding-top:1rem;">
+  <div class="transport-list">
 
-    <div class="transport-leg bus">
-      <div>
-        <p class="leg-route">Leg 1</p>
-        <p class="leg-name">Naples → Monopoli</p>
+    <div class="t-leg bus">
+      <div class="t-accent"></div>
+      <div class="t-body">
+        <div>
+          <p class="t-route-label">Leg 1</p>
+          <p class="t-route-name">Naples → Monopoli</p>
+        </div>
+        <p class="t-details">Direct coach from Napoli Centrale's Autostazione Metropark exit. Operators: Marino Autolinee, Itabus, FlixBus — 3–4 afternoon departures. Book at least a week ahead; tickets €17–45. Arrive at Monopoli Via Lagravinese stop, short walk or taxi to hotel.</p>
       </div>
-      <div class="leg-details">
-        Direct coach from Napoli Centrale (Autostazione Metropark exit, near the station). Marino Autolinee, Itabus, or FlixBus — 3–4 departures per afternoon. Journey ~4 hrs. Book at least a week ahead; tickets €17–45. Arrive at Monopoli Via Nicola Lagravinese stop, short taxi or walk to hotel.
-      </div>
-      <div class="leg-mode">
-        <span class="leg-mode-icon">🚌</span>
-        <span class="leg-mode-text">Direct Bus</span><br>
-        <span class="leg-duration">~4 hrs</span>
+      <div class="t-aside">
+        <span class="t-icon">🚌</span>
+        <span class="t-mode">Direct Bus</span>
+        <span class="t-dur">~4 hrs</span>
       </div>
     </div>
 
-    <div class="transport-leg train">
-      <div>
-        <p class="leg-route">Leg 2</p>
-        <p class="leg-name">Monopoli → Lecce</p>
+    <div class="t-leg train">
+      <div class="t-accent"></div>
+      <div class="t-body">
+        <div>
+          <p class="t-route-label">Leg 2</p>
+          <p class="t-route-name">Monopoli → Lecce</p>
+        </div>
+        <p class="t-details">Trenitalia Regionale from Monopoli, heading south on the coastal line. Departures every 1–2 hours. About 1.5 hours direct. Tickets ~€12–18 on Trenitalia.com. Arrive Lecce Centrale — old town is a short walk.</p>
       </div>
-      <div class="leg-details">
-        Trenitalia Regionale from Monopoli station, heading south on the Adriatica coastal line. Departures roughly every 1–2 hours. About 1.5 hours direct. Tickets ~€12–18. Book on Trenitalia.com. Arrive Lecce Centrale — most hotels are a short walk or taxi from the station.
-      </div>
-      <div class="leg-mode">
-        <span class="leg-mode-icon">🚆</span>
-        <span class="leg-mode-text">Regional Train</span><br>
-        <span class="leg-duration">~1.5 hrs</span>
-      </div>
-    </div>
-
-    <div class="transport-leg car">
-      <div>
-        <p class="leg-route">Leg 3</p>
-        <p class="leg-name">Lecce → Fasano (Masseria)</p>
-      </div>
-      <div class="leg-details">
-        Pick up a rental car in Lecce — Europcar and Hertz have locations near the train station. Drive north via SS16 or the A14 motorway, stopping in Ostuni (~1.5 hrs). Then follow signs to Savelletri and Masseria Torre Coccaro off the E55 Savelletri exit. Total drive ~2 hrs. Drop the car at Fasano train station (3km from masseria) before your Naples train.
-      </div>
-      <div class="leg-mode">
-        <span class="leg-mode-icon">🚗</span>
-        <span class="leg-mode-text">Rental Car</span><br>
-        <span class="leg-duration">~2 hrs</span>
+      <div class="t-aside">
+        <span class="t-icon">🚆</span>
+        <span class="t-mode">Regional Train</span>
+        <span class="t-dur">~1.5 hrs</span>
       </div>
     </div>
 
-    <div class="transport-leg train">
-      <div>
-        <p class="leg-route">Leg 4</p>
-        <p class="leg-name">Fasano → Naples</p>
+    <div class="t-leg car">
+      <div class="t-accent"></div>
+      <div class="t-body">
+        <div>
+          <p class="t-route-label">Leg 3</p>
+          <p class="t-route-name">Lecce → Masseria Il Frantoio, Ostuni</p>
+        </div>
+        <p class="t-details">Pick up a rental car in Lecce (Europcar or Hertz near the station — book in advance). Drive north ~1.5 hrs via SS16 or inland through the Valle d'Itria. Stop in Ostuni old town for an hour. The Masseria is at SS16 Km 874, 5km south of Ostuni. Drop the car at Ostuni station (4km from masseria) before the Naples train.</p>
       </div>
-      <div class="leg-details">
-        From Fasano station (3km from masseria — arrange hotel taxi), take Trenitalia toward Bari Centrale then connect to a Frecciargento or Intercity toward Naples. Total journey ~4.5–5 hrs. Book on Trenitalia.com in advance, especially for the high-speed connection. Arrive Napoli Centrale.
-      </div>
-      <div class="leg-mode">
-        <span class="leg-mode-icon">🚆</span>
-        <span class="leg-mode-text">Train via Bari</span><br>
-        <span class="leg-duration">~4.5 hrs</span>
+      <div class="t-aside">
+        <span class="t-icon">🚗</span>
+        <span class="t-mode">Rental Car</span>
+        <span class="t-dur">~1.5 hrs</span>
       </div>
     </div>
 
-    <div class="transport-leg">
-      <div>
-        <p class="leg-route">Departure Day</p>
-        <p class="leg-name">Naples Hotel → Capodichino Airport</p>
+    <div class="t-leg train">
+      <div class="t-accent"></div>
+      <div class="t-body">
+        <div>
+          <p class="t-route-label">Leg 4</p>
+          <p class="t-route-name">Ostuni → Naples</p>
+        </div>
+        <p class="t-details">Taxi from Masseria to Ostuni station (4km, arrange with hotel). Regional train to Bari Centrale, then Frecciargento or Intercity to Naples. Total ~4.5–5 hrs. Book the Bari–Naples leg on Trenitalia.com in advance. Arrive Napoli Centrale.</p>
       </div>
-      <div class="leg-details">
-        Naples Capodichino (NAP) is only 7km from the city center. Taxi from Chiaia or centro storico takes 20–30 minutes. Official taxis have a fixed rate from the city center (~€23 to the airport). Also the Alibus shuttle from Piazza Garibaldi takes 15 min for €5. Book taxis the night before and allow plenty of time — Naples traffic is real.
+      <div class="t-aside">
+        <span class="t-icon">🚆</span>
+        <span class="t-mode">Train via Bari</span>
+        <span class="t-dur">~4.5–5 hrs</span>
       </div>
-      <div class="leg-mode">
-        <span class="leg-mode-icon">✈️</span>
-        <span class="leg-mode-text">Taxi / Shuttle</span><br>
-        <span class="leg-duration">~20–30 min</span>
+    </div>
+
+    <div class="t-leg taxi">
+      <div class="t-accent"></div>
+      <div class="t-body">
+        <div>
+          <p class="t-route-label">Departure Day</p>
+          <p class="t-route-name">Naples → Capodichino Airport</p>
+        </div>
+        <p class="t-details">Capodichino (NAP) is 7km from central Naples. Official taxis have a fixed rate from the city center (~€23). Alibus shuttle from Piazza Garibaldi: €5, ~15 min. Book the taxi the night before and leave plenty of time — Naples traffic.</p>
+      </div>
+      <div class="t-aside">
+        <span class="t-icon">✈️</span>
+        <span class="t-mode">Taxi or Shuttle</span>
+        <span class="t-dur">~20–30 min</span>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- TIPS -->
+<!-- ═══════════════ TIPS ═══════════════ -->
 <section class="tips-section">
-  <p class="section-tag">Things to Know</p>
-  <h2 class="section-heading">Travel Notes for the South</h2>
-  <div class="divider" style="background: var(--burnt)"></div>
-
+  <p class="section-eyebrow">Practical Notes</p>
+  <h2 class="section-title">Things Worth<br><em>Knowing</em></h2>
   <div class="tips-grid">
+
     <div class="tip-card">
       <div class="tip-icon">🌡️</div>
-      <h3 class="tip-title">Weather in Late September</h3>
-      <p class="tip-text">Southern Italy in early September is still very warm — expect 28–32°C (82–90°F) with high humidity. It cools slightly mid-September. The Adriatic is warm enough to swim. Light clothing, linen if possible. The masseria will be a cool stone sanctuary.</p>
+      <h3 class="tip-title">September Weather</h3>
+      <p class="tip-text">Early September in the deep south is still very warm — 28–32°C with some humidity. It softens mid-month. The Adriatic is perfect for swimming. Pack light: linen, breathable fabrics. Evenings can be mild but bring one light layer for the masseria.</p>
     </div>
 
     <div class="tip-card">
       <div class="tip-icon">🍽️</div>
       <h3 class="tip-title">Eating in Puglia</h3>
-      <p class="tip-text">Puglia's food is earthy and ingredient-led: orecchiette with broccoli rabe, burrata made fresh that morning, grilled octopus, fava bean puree with chicory, taralli. In Lecce, get a pasticciotto at Natale bakery for breakfast. Dinner reservations at popular spots are essential in September.</p>
-    </div>
-
-    <div class="tip-card">
-      <div class="tip-icon">🚌</div>
-      <h3 class="tip-title">Booking Transport</h3>
-      <p class="tip-text">Book your Marino Autolinee or Itabus Naples–Monopoli coach as soon as your flights are set — afternoon departures fill up. Trenitalia tickets for regional trains can usually be bought day-of but intercity connections should be reserved. The rental car leg just needs a Lecce pickup booked in advance.</p>
+      <p class="tip-text">The food is earthy and ingredient-led: orecchiette with broccoli rabe (cime di rapa), burrata made that morning, grilled octopus, fava bean purée with chicory, taralli. In Lecce: pasticciotto pastry for breakfast, every day. Reservations at dinner recommended for September.</p>
     </div>
 
     <div class="tip-card">
       <div class="tip-icon">🏨</div>
-      <h3 class="tip-title">Booking Hotels</h3>
-      <p class="tip-text">Don Ferrante has only 10 rooms — book immediately. Masseria Torre Coccaro and La Fiermontina should also be prioritized. September is still high season for Italian travel. Book all accommodations directly if possible; many boutique properties give better rates and perks than OTAs.</p>
+      <h3 class="tip-title">What to Book First</h3>
+      <p class="tip-text">Don Ferrante has only 10 rooms — book the moment you have flights confirmed. Masseria Il Frantoio has 16, also fills fast in September. La Fiermontina is small too. Book all hotels directly if possible — better rates and the properties appreciate it.</p>
     </div>
 
     <div class="tip-card">
-      <div class="tip-icon">💳</div>
-      <h3 class="tip-title">Money & Practical Stuff</h3>
-      <p class="tip-text">Card payment is accepted almost everywhere now in southern Italy, but carry €50–100 cash for small towns, bars, and market stalls. Download the Trenitalia app. Get a local SIM or international plan — maps and translation are essential. Pharmacies (green cross signs) are everywhere and excellent for minor issues.</p>
+      <div class="tip-icon">🚌</div>
+      <h3 class="tip-title">Transport Booking</h3>
+      <p class="tip-text">Book the Naples–Monopoli coach at least a week ahead — afternoon departures fill up. Trenitalia intercity connections (Bari → Naples) should be reserved in advance. The rental car just needs a Lecce pickup confirmed; drop at Ostuni station.</p>
     </div>
 
     <div class="tip-card">
-      <div class="tip-icon">🌊</div>
-      <h3 class="tip-title">Beach Strategy</h3>
-      <p class="tip-text">Puglia's best swimming is from rocky coves near Polignano a Mare, from the Torre Coccaro beach club, and from Otranto's clear water. September means the August crowds have thinned — you'll find space. Most masseria beach clubs require booking shuttles in advance; the hotel will arrange it.</p>
+      <div class="tip-icon">🫒</div>
+      <h3 class="tip-title">At the Masseria</h3>
+      <p class="tip-text">Don't skip Armando's pre-dinner tour — it's the signature experience. Arrive on the first evening with no plan. Ask about the olive oil pressing schedule (harvest often starts in October but early varieties can begin in September). The jasmine courtyard at aperitivo hour is not to be missed.</p>
     </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">🍕</div>
+      <h3 class="tip-title">Naples Essentials</h3>
+      <p class="tip-text">Sfogliatella from Attanasio (near Centrale) for breakfast. Pizza from Sorbillo on Via dei Tribunali for dinner — arrive at opening or queue. Cocktails in Chiaia afterward. For Pompeii, the Circumvesuviana train from Piazza Garibaldi takes about 40 minutes to Pompei Scavi station.</p>
+    </div>
+
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
-  <span class="footer-title">Il Sud Profondo · Sept 2026</span>
-  <span>Naples · Monopoli · Lecce · Fasano · Naples</span>
-  <span>12 nights · 4 destinations · 0 regrets</span>
+  <span class="ft">Il Profondo Sud · September 2026</span>
+  <span class="fs">Naples · Monopoli · Lecce · Ostuni · Naples</span>
+  <span class="fs">12 nights · 0 regrets</span>
 </footer>
 
 </body>
