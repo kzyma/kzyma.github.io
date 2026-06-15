@@ -805,6 +805,23 @@
     border: 1px solid rgba(232,220,200,0.7);
   }
 
+  .thing-card.thing-card--highlight {
+    border: 1px solid rgba(196,103,58,0.3);
+    background: linear-gradient(135deg, #fdf6ee 0%, #f7ede0 100%);
+  }
+
+  .local-badge {
+    display: inline-block;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    background: rgba(196,103,58,0.1);
+    border: 1px solid rgba(196,103,58,0.25);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 0.6rem;
+  }
+
   .tip-icon { font-size: 1.4rem; margin-bottom: 0.75rem; display: block; }
   .tip-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--deep); margin-bottom: 0.5rem; }
   .tip-text { font-size: 0.78rem; line-height: 1.65; color: var(--mid); }
@@ -1134,7 +1151,7 @@
     <div class="timeline-section">
       <div class="timeline-date-badge">
         <span class="timeline-date">September 15–16</span>
-        <span class="timeline-day-label">1 Night · Naples</span>
+        <span class="timeline-day-label">2 Nights · Naples</span>
       </div>
       <div class="event-cards">
         <div class="event-card lodging">
@@ -1343,11 +1360,44 @@
         <p class="thing-desc">Home to the world's finest collection of Roman art from Pompeii and Herculaneum — the Alexander Mosaic alone is worth the visit. Allow 2–3 hours.</p>
       </div>
 
-      <div class="thing-card">
+      <div class="thing-card thing-card--highlight">
+        <span class="thing-emoji">🎨</span>
+        <div class="thing-city">Monopoli · Sept 4–8</div>
+        <div class="thing-title">PhEST — Photography & Art Festival</div>
+        <div class="local-badge">⭐ Local rec from Matthias & Anette</div>
+        <p class="thing-desc">Your dates fall right during PhEST, one of the most important photography and contemporary art festivals in southern Italy. Historic palazzi, churches, and courtyards across the old town are transformed into exhibition venues for international artists. A remarkable way to experience Monopoli from a completely different angle — especially beautiful at dusk when the light hits the limestone.</p>
+      </div>
+
+      <div class="thing-card thing-card--highlight">
+        <span class="thing-emoji">🍝</span>
+        <div class="thing-city">Contrada Antonelli · Sept 6</div>
+        <div class="thing-title">Sagra delle Orecchiette</div>
+        <div class="local-badge">⭐ Local rec from Matthias & Anette</div>
+        <p class="thing-desc">About 15 minutes outside Monopoli, the tiny village of Contrada Antonelli hosts this beloved traditional festival. Think handmade orecchiette, local wines, and live music — all far off the tourist track. Authentic rural Puglia at its best, on a Saturday night no less.</p>
+      </div>
+
+      <div class="thing-card thing-card--highlight">
+        <span class="thing-emoji">🥟</span>
+        <div class="thing-city">Monopoli Area · Sept 7</div>
+        <div class="thing-title">Sagra dei Panzerotti</div>
+        <div class="local-badge">⭐ Local rec from Matthias & Anette</div>
+        <p class="thing-desc">The night after the orecchiette festival, another sagra — this one celebrating panzerotti, Puglia's irresistible fried dough pockets stuffed with tomato and mozzarella. Music, entertainment, and fireworks late in the evening. Two festival nights in a row is a very good start to the trip.</p>
+      </div>
+
+      <div class="thing-card thing-card--highlight">
         <span class="thing-emoji">🌊</span>
-        <div class="thing-city">Near Monopoli</div>
-        <div class="thing-title">Polignano a Mare</div>
-        <p class="thing-desc">A 20-min drive north brings you to Puglia's most photogenic town — a medieval village perched on limestone cliffs above crystal-clear sea. Swim in the sea cave, walk the old town, eat gelato.</p>
+        <div class="thing-city">Near Monopoli · 1 train stop</div>
+        <div class="thing-title">Polignano a Mare & Ad Libitum Festival</div>
+        <div class="local-badge">⭐ Local rec from Matthias & Anette</div>
+        <p class="thing-desc">One of Italy's most photogenic coastal towns — a medieval village perched on dramatic limestone cliffs above crystal-clear sea. Swim in the sea cave, wander the old town, eat gelato on the cliff edge. In the evenings, the Ad Libitum Festival brings classical music and jazz to extraordinary venues: historic courtyards, churches, and terraces overlooking the sea. Check the September programme when it drops.</p>
+      </div>
+
+      <div class="thing-card thing-card--highlight">
+        <span class="thing-emoji">🍷</span>
+        <div class="thing-city">Valle d'Itria · Half-day trip</div>
+        <div class="thing-title">Harvest Season in Locorotondo & Cisternino</div>
+        <div class="local-badge">⭐ Local rec from Matthias & Anette</div>
+        <p class="thing-desc">September marks the start of the grape harvest and the atmosphere in these two hilltop villages is electric. Locorotondo, with its circular old town and panoramic views across the valley, and Cisternino, famous for its bombette (meat rolls cooked over open fire), are both 45 minutes from Monopoli. The hosts especially recommend the evening hours — grab a glass of local Verdeca and watch the sun set over the olive groves.</p>
       </div>
 
       <div class="thing-card">
@@ -1368,7 +1418,7 @@
         <span class="thing-emoji">🥂</span>
         <div class="thing-city">Itria Valley</div>
         <div class="thing-title">Wine Tasting in the Itria Valley</div>
-        <p class="thing-desc">The Valle d'Itria between Monopoli and Lecce is carpeted in ancient vineyards. Several masserie offer tastings of Primitivo, Negroamaro, and Verdeca — book an afternoon session at a winery like Masseria Il Frantoio or Tenuta Viglione.</p>
+        <p class="thing-desc">The Valle d'Itria is carpeted in ancient vineyards producing some of Puglia's finest wines. Several masserie offer tastings of Primitivo, Negroamaro, and Verdeca — book an afternoon session at a local cantina en route between stops.</p>
       </div>
 
       <div class="thing-card">
@@ -1383,13 +1433,6 @@
         <div class="thing-city">Near Lecce</div>
         <div class="thing-title">Torre dell'Orso &amp; the Sea</div>
         <p class="thing-desc">A 30-min drive east of Lecce reaches the Salento coast — Torre dell'Orso is one of Puglia's finest beaches, with clear shallow water and a gentle vibe. Great for a beach day when the sightseeing legs need a rest.</p>
-      </div>
-
-      <div class="thing-card">
-        <span class="thing-emoji">🏘</span>
-        <div class="thing-city">Near Ostuni</div>
-        <div class="thing-title">Locorotondo &amp; Cisternino</div>
-        <p class="thing-desc">Two perfectly preserved hilltop white villages within 30 minutes of the masseria. Locorotondo has a rooftop terrace with views across the valley; Cisternino is famous for its traditional bombette (meat rolls cooked over open fire). Evening aperitivo material.</p>
       </div>
 
       <div class="thing-card">
